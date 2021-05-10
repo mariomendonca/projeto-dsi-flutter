@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onSurface: Colors.grey,
               textStyle: TextStyle(
                   color: Colors.black,
-                  fontSize: 22,
+                  fontSize: 23,
                   fontStyle: FontStyle.italic),
             ),
           ),
