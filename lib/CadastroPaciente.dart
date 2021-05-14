@@ -10,150 +10,152 @@ class CadastroPacState extends State<CadastroPac> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
-      body: ListView(
-        children: [
-          Container(
-            height: 35,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(300.0),
+        child: Container(
+          margin: EdgeInsets.only(top: 60),
+          padding: EdgeInsets.only(bottom: 40),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadiusDirectional.circular(30),
           ),
-          Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Consulta',
-                style: TextStyle(fontSize: 40, color: Colors.tealAccent[700]),
+                style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.tealAccent[700],
+                    fontFamily: "Quicksand",
+                    fontWeight: FontWeight.bold),
               ),
               Text(
                 'MED',
-                style: TextStyle(fontSize: 40, color: Colors.indigo[900]),
+                style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.indigo[900],
+                    fontFamily: "Quicksand",
+                    fontWeight: FontWeight.bold),
               ),
             ],
           ),
+        ),
+      ),
+      body: ListView(
+        children: [
           Container(
-            height: 30,
-          ),
-          Container(
-              height: 550,
-              width: 410,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(
-                      40,
-                    ),
-                    topRight: Radius.circular(40)),
-                color: Colors.white,
-              ),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(
+                    40,
+                  ),
+                  topRight: Radius.circular(40)),
+              color: Colors.white,
+            ),
+            child: Container(
+              margin: EdgeInsets.only(top: 50, bottom: 50),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 45,
-                  ),
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'Nome'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'E-Mail'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'CPF'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'Número'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'Senha'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 30,
+                    padding: const EdgeInsets.only(right: 45, left: 45),
+                    child: Container(
+                      height: 55,
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.tealAccent[700]),
+                        keyboardType: TextInputType.name,
+                        obscureText: false,
+                        autofocus: false,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                            labelText: 'Nome'),
+                      ),
+                    ),
                   ),
                   Container(
-                    width: 250,
+                    margin: EdgeInsets.only(top: 50, bottom: 50),
+                    child: Padding(
+                        padding: const EdgeInsets.only(right: 45, left: 45),
+                        child: Container(
+                          height: 55,
+                          child: TextFormField(
+                            style: TextStyle(color: Colors.tealAccent[700]),
+                            keyboardType: TextInputType.emailAddress,
+                            obscureText: false,
+                            autofocus: false,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                labelText: 'E-Mail'),
+                          ),
+                        )),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 50),
+                    child: Padding(
+                        padding: const EdgeInsets.only(right: 45, left: 45),
+                        child: Container(
+                          height: 55,
+                          child: TextFormField(
+                            style: TextStyle(color: Colors.tealAccent[700]),
+                            keyboardType: TextInputType.number,
+                            obscureText: false,
+                            autofocus: false,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                labelText: 'CPF'),
+                          ),
+                        )),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(bottom: 50),
+                    child: Padding(
+                        padding: const EdgeInsets.only(right: 45, left: 45),
+                        child: Container(
+                          height: 55,
+                          child: TextFormField(
+                            style: TextStyle(color: Colors.tealAccent[700]),
+                            keyboardType: TextInputType.number,
+                            obscureText: false,
+                            autofocus: false,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                labelText: 'Número'),
+                          ),
+                        )),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 45, left: 45),
+                    child: Container(
+                      height: 55,
+                      child: TextFormField(
+                        style: TextStyle(color: Colors.tealAccent[700]),
+                        keyboardType: TextInputType.emailAddress,
+                        obscureText: true,
+                        autofocus: false,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            labelText: 'Senha'),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 40),
+                    width: 278,
                     height: 55,
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CadastroPac()));
-                      },
+                      onPressed: () {},
                       child: Text("Finalizar Cadastro"),
                       style: ElevatedButton.styleFrom(
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(20.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         primary: Colors.tealAccent[700],
                         onPrimary: Colors.white,
@@ -161,12 +163,16 @@ class CadastroPacState extends State<CadastroPac> {
                         textStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 22,
-                            fontStyle: FontStyle.italic),
+                            fontStyle: FontStyle.normal,
+                            fontFamily: "Inter",
+                            fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),
                 ],
-              ))
+              ),
+            ),
+          ),
         ],
       ),
     );
