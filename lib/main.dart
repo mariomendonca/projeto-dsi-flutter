@@ -1,4 +1,5 @@
 import 'package:cmedapp/CadastroPaciente.dart';
+import 'package:cmedapp/CadastroPadrao.dart';
 import 'package:cmedapp/LoginPaciente.dart';
 import 'package:flutter/material.dart';
 
@@ -64,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: ElevatedButton(
             onPressed: () {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => CadastroPac()));
+                  .push(MaterialPageRoute(builder: (context) => CadastroPadrao()));
             },
             child: Text("Comece agora"),
             style: ElevatedButton.styleFrom(

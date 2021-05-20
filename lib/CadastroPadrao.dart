@@ -1,12 +1,12 @@
-import 'package:cmedapp/CadastroPadrao.dart';
+import 'package:cmedapp/CadastroPaciente.dart';
 import 'package:flutter/material.dart';
 
-class CadastroPac extends StatefulWidget {
+class CadastroPadrao extends StatefulWidget {
   @override
-  CadastroPacState createState() => CadastroPacState();
+  _CadastroPadraoState createState() => _CadastroPadraoState();
 }
 
-class CadastroPacState extends State<CadastroPac> {
+class _CadastroPadraoState extends State<CadastroPadrao> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +31,7 @@ class CadastroPacState extends State<CadastroPac> {
           ),
           Container(
             height: 30,
+            // color: Colors.red
           ),
           Container(
               height: 550,
@@ -42,6 +43,7 @@ class CadastroPacState extends State<CadastroPac> {
                     ),
                     topRight: Radius.circular(40)),
                 color: Colors.white,
+                // color: Colors.red
               ),
               child: Column(
                 children: <Widget>[
@@ -61,7 +63,7 @@ class CadastroPacState extends State<CadastroPac> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              labelText: 'Nome'),
+                              labelText: 'Nome completo'),
                         ),
                       )),
                   SizedBox(
@@ -80,7 +82,7 @@ class CadastroPacState extends State<CadastroPac> {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              labelText: 'E-Mail'),
+                              labelText: 'Email'),
                         ),
                       )),
                   SizedBox(
@@ -92,52 +94,35 @@ class CadastroPacState extends State<CadastroPac> {
                         height: 55,
                         child: TextFormField(
                           style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'CPF'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'Número'),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
-                      child: Container(
-                        height: 55,
-                        child: TextFormField(
-                          style: TextStyle(color: Colors.tealAccent[700]),
-                          keyboardType: TextInputType.emailAddress,
-                          obscureText: false,
+                          keyboardType: TextInputType.visiblePassword,
+                          obscureText: true,
                           autofocus: false,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               labelText: 'Senha'),
+                        ),
+                      )),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                      padding: const EdgeInsets.only(right: 45, left: 45),
+                      child: Container(
+                        height: 55,
+                        child: TextFormField(
+                          style: TextStyle(color: Colors.tealAccent[700]),
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: true,
+                          autofocus: false,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              labelText: 'Confirme sua senha',
+                              // errorText: 'Esse campo é obrigatório',
+                              ),
                         ),
                       )),
                   SizedBox(
@@ -149,9 +134,10 @@ class CadastroPacState extends State<CadastroPac> {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CadastroPadrao()));
+                            builder: (context) => CadastroPac()));
+                            // print('')
                       },
-                      child: Text("Finalizar Cadastro"),
+                      child: Text("Avançar"),
                       style: ElevatedButton.styleFrom(
                         shape: new RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(20.0),
@@ -163,7 +149,6 @@ class CadastroPacState extends State<CadastroPac> {
                             color: Colors.black,
                             fontSize: 22,
                             fontStyle: FontStyle.italic),
-                        
                       ),
                     ),
                   ),
@@ -172,5 +157,6 @@ class CadastroPacState extends State<CadastroPac> {
         ],
       ),
     );
+
   }
 }
