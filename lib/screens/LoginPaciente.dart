@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/Logo.dart';
+
 class LoginPac extends StatefulWidget {
   @override
   _LoginPacState createState() => _LoginPacState();
@@ -16,26 +18,7 @@ class _LoginPacState extends State<LoginPac> {
             height: 35,
           ),
           // LOGO
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Consulta',
-                style: TextStyle(
-                  fontSize: 38,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.tealAccent[700],
-                ),
-              ),
-              Text(
-                'MED',
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.indigo[900]),
-              ),
-            ],
-          ),
+          logo(),
           SizedBox(
             height: 35,
           ),
@@ -127,19 +110,19 @@ class _LoginPacState extends State<LoginPac> {
                               height: 45,
                               decoration: BoxDecoration(
                                 boxShadow: [
-                                BoxShadow(
-                                color: Colors.tealAccent[700].withOpacity(0.5),
-                                blurRadius: 5.0,
-                                offset: Offset(0.0, 5.0))
-                              ],
+                                  BoxShadow(
+                                      color: Colors.tealAccent[700]
+                                          .withOpacity(0.5),
+                                      blurRadius: 5.0,
+                                      offset: Offset(0.0, 5.0))
+                                ],
                                 borderRadius: BorderRadius.circular(30),
                                 color: Colors.white,
-                      ),
+                              ),
                               child: ElevatedButton(
                                 onPressed: () {},
                                 child: Text("Entrar"),
-                                style: 
-                                ElevatedButton.styleFrom(
+                                style: ElevatedButton.styleFrom(
                                   primary: Colors.tealAccent[700],
                                   onPrimary: Colors.white,
                                   onSurface: Colors.grey,

@@ -1,4 +1,5 @@
-import 'package:cmedapp/CadastroPadrao.dart';
+import 'package:cmedapp/screens/CadastroPadrao.dart';
+import 'package:cmedapp/components/Logo.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPac extends StatefulWidget {
@@ -16,19 +17,7 @@ class CadastroPacState extends State<CadastroPac> {
           Container(
             height: 35,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Consulta',
-                style: TextStyle(fontSize: 40, color: Colors.tealAccent[700]),
-              ),
-              Text(
-                'MED',
-                style: TextStyle(fontSize: 40, color: Colors.indigo[900]),
-              ),
-            ],
-          ),
+          logo(),
           Container(
             height: 30,
           ),
@@ -163,7 +152,6 @@ class CadastroPacState extends State<CadastroPac> {
                             color: Colors.black,
                             fontSize: 22,
                             fontStyle: FontStyle.italic),
-                        
                       ),
                     ),
                   ),

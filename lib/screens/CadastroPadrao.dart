@@ -1,4 +1,4 @@
-import 'package:cmedapp/CadastroPaciente.dart';
+import 'package:cmedapp/screens/CadastroPaciente.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPadrao extends StatefulWidget {
