@@ -12,38 +12,47 @@ class _LoginPacState extends State<LoginPac> {
       backgroundColor: Colors.lightBlue[50],
       body: ListView(
         children: <Widget>[
+          // LOGO
           Container(
-            height: 35,
+            margin: EdgeInsets.only(top: 60, bottom: 70),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Consulta',
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.tealAccent[700],
+                    fontFamily: "Quicksand",
+                  ),
+                ),
+                Text(
+                  'MED',
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.indigo[900],
+                    fontFamily: "Quicksand",
+                  ),
+                ),
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Consulta',
-                style: TextStyle(fontSize: 40, color: Colors.tealAccent[700]),
-              ),
-              Text(
-                'MED',
-                style: TextStyle(fontSize: 40, color: Colors.indigo[900]),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 35,
-          ),
+
           Padding(
             padding: const EdgeInsets.only(right: 40, left: 40),
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 410,
-                  width: 325,
+                  height: 400,
+                  width: 414,
                   decoration: BoxDecoration(
-                    boxShadow: <BoxShadow>[
+                    boxShadow: [
                       BoxShadow(
-                          color: Colors.black54,
-                          blurRadius: 15.0,
-                          offset: Offset(0.0, 0.75))
+                          color: Colors.black54.withOpacity(0.5),
+                          blurRadius: 5.0,
+                          offset: Offset(0.0, 5.0))
                     ],
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
@@ -54,34 +63,34 @@ class _LoginPacState extends State<LoginPac> {
                         height: 45,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 20),
+                        padding: const EdgeInsets.only(right: 35, left: 35),
                         child: Container(
+                          margin: EdgeInsets.only(bottom: 40),
                           child: Text(
-                            "Seja bem-vindo(a) de volta",
+                            "Seja bem-vindo(a) de volta!",
                             style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
+                                fontSize: 30, fontWeight: FontWeight.w700),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50),
-                      Padding(
-                          padding: const EdgeInsets.only(right: 20, left: 20),
-                          child: Container(
-                            height: 55,
-                            child: TextFormField(
-                              style: TextStyle(color: Colors.tealAccent[700]),
-                              keyboardType: TextInputType.emailAddress,
-                              obscureText: false,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  labelText: 'E-Mail'),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 30,
+                      Container(
+                        margin: EdgeInsets.only(bottom: 30),
+                        child: Padding(
+                            padding: const EdgeInsets.only(right: 20, left: 20),
+                            child: Container(
+                              height: 55,
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.tealAccent[700]),
+                                keyboardType: TextInputType.emailAddress,
+                                obscureText: false,
+                                autofocus: false,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    labelText: 'E-mail'),
+                              ),
+                            )),
                       ),
                       Padding(
                           padding: const EdgeInsets.only(right: 20, left: 20),
@@ -106,28 +115,39 @@ class _LoginPacState extends State<LoginPac> {
                             TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  "Esqueci minha senha",
+                                  "Esqueceu sua senha?",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                      color: Colors.black,
+                                      fontFamily: "Inter"),
                                 )),
-                            SizedBox(
-                              width: 30,
-                            ),
                             Container(
-                              width: 100,
-                              height: 45,
+                              margin: EdgeInsets.only(left: 10),
+                              width: 123,
+                              height: 33,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.tealAccent[700]
+                                          .withOpacity(0.5),
+                                      blurRadius: 5.0,
+                                      offset: Offset(0.0, 5.0))
+                                ],
+                                borderRadius: BorderRadius.circular(10),
+                                color: Colors.white,
+                              ),
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text("Login"),
+                                child: Text("Entrar"),
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.tealAccent[700],
                                   onPrimary: Colors.white,
                                   onSurface: Colors.grey,
                                   textStyle: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                  ),
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontFamily: "inter",
+                                      fontWeight: FontWeight.w600),
                                 ),
                               ),
                             )

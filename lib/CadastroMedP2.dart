@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CadastroPac extends StatefulWidget {
+class CadastroMed2 extends StatefulWidget {
   @override
-  CadastroPacState createState() => CadastroPacState();
+  CadastroMed2State createState() => CadastroMed2State();
 }
 
-class CadastroPacState extends State<CadastroPac> {
+class CadastroMed2State extends State<CadastroMed2> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    bool _checked = false;
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: PreferredSize(
@@ -44,6 +46,8 @@ class CadastroPacState extends State<CadastroPac> {
       body: ListView(
         children: [
           Container(
+            height: size.height,
+            width: size.width,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(
@@ -53,12 +57,15 @@ class CadastroPacState extends State<CadastroPac> {
               color: Colors.white,
             ),
             child: Container(
-              margin: EdgeInsets.only(top: 50, bottom: 50),
+              margin: EdgeInsets.only(
+                top: 50,
+              ),
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(right: 45, left: 45),
                     child: Container(
+                      margin: EdgeInsets.only(bottom: 50),
                       height: 55,
                       child: TextFormField(
                         style: TextStyle(color: Colors.tealAccent[700]),
@@ -68,47 +75,9 @@ class CadastroPacState extends State<CadastroPac> {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15)),
-                            labelText: 'Nome'),
+                            labelText: 'Endereço da clínica'),
                       ),
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 50, bottom: 50),
-                    child: Padding(
-                        padding: const EdgeInsets.only(right: 45, left: 45),
-                        child: Container(
-                          height: 55,
-                          child: TextFormField(
-                            style: TextStyle(color: Colors.tealAccent[700]),
-                            keyboardType: TextInputType.emailAddress,
-                            obscureText: false,
-                            autofocus: false,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                labelText: 'E-Mail'),
-                          ),
-                        )),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(bottom: 50),
-                    child: Padding(
-                        padding: const EdgeInsets.only(right: 45, left: 45),
-                        child: Container(
-                          height: 55,
-                          child: TextFormField(
-                            style: TextStyle(color: Colors.tealAccent[700]),
-                            keyboardType: TextInputType.number,
-                            obscureText: false,
-                            autofocus: false,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                labelText: 'CPF'),
-                          ),
-                        )),
                   ),
                   Container(
                     margin: EdgeInsets.only(bottom: 50),
@@ -129,25 +98,15 @@ class CadastroPacState extends State<CadastroPac> {
                           ),
                         )),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 45, left: 45),
-                    child: Container(
-                      height: 55,
-                      child: TextFormField(
-                        style: TextStyle(color: Colors.tealAccent[700]),
-                        keyboardType: TextInputType.emailAddress,
-                        obscureText: true,
-                        autofocus: false,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            labelText: 'Senha'),
-                      ),
-                    ),
+                  Container(
+                    height: 55,
+                    decoration: BoxDecoration(color: Colors.red),
+                    child: CheckboxListTile(
+                        title: Text("Segunda-Feira"),
+                        value: _checked,
+                        onChanged: (bool value) {}),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 40),
                     width: 278,
                     height: 55,
                     child: ElevatedButton(
