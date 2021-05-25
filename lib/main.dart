@@ -1,10 +1,5 @@
-import 'package:cmedapp/screens/CadastroMedP2.dart';
-import 'package:cmedapp/screens/CadastroMed.dart';
-import 'package:cmedapp/screens/CadastroPaciente.dart';
-import 'package:cmedapp/screens/CadastroPadrao.dart';
-import 'package:cmedapp/screens/LoginPaciente.dart';
-import 'package:cmedapp/screens/FirstPage.dart';
 import 'package:flutter/material.dart';
+import 'package:cmedapp/screens/FirstPage.dart';
 
 void main() {
   runApp(MyApp());
