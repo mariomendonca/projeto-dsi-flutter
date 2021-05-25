@@ -9,7 +9,6 @@ class CadastroMed2State extends State<CadastroMed2> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    bool _checked = false;
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: PreferredSize(
@@ -97,14 +96,6 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 labelText: 'Número'),
                           ),
                         )),
-                  ),
-                  Container(
-                    height: 55,
-                    decoration: BoxDecoration(color: Colors.red),
-                    child: CheckboxListTile(
-                        title: Text("Segunda-Feira"),
-                        value: _checked,
-                        onChanged: (bool value) {}),
                   ),
                   Container(
                     width: 278,
