@@ -1,8 +1,8 @@
+
 import 'package:cmedapp/CadastroPadrao.dart';
 import 'package:cmedapp/LoginPaciente.dart';
 import 'package:cmedapp/components/Logo.dart';
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'C-MED',
       theme: ThemeData(
         primaryColor: Colors.tealAccent[700],

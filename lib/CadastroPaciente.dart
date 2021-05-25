@@ -152,7 +152,6 @@ class CadastroPacState extends State<CadastroPac> {
                             color: Colors.black,
                             fontSize: 22,
                             fontStyle: FontStyle.italic),
-                        
                       ),
                     ),
                   ),
