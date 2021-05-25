@@ -1,5 +1,8 @@
 import 'package:cmedapp/CadastroMedP2.dart';
 import 'package:cmedapp/CadastroMed.dart';
+import 'package:cmedapp/CadastroPaciente.dart';
+import 'package:cmedapp/CadastroPadrao.dart';
+import 'package:cmedapp/LoginPaciente.dart';
 import 'package:flutter/material.dart';
 
 import 'FirstPage.dart';
