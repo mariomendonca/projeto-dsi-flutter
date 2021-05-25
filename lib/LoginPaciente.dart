@@ -15,16 +15,24 @@ class _LoginPacState extends State<LoginPac> {
           Container(
             height: 35,
           ),
+          // LOGO
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Consulta',
-                style: TextStyle(fontSize: 40, color: Colors.tealAccent[700]),
+                style: TextStyle(
+                  fontSize: 38,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.tealAccent[700],
+                ),
               ),
               Text(
                 'MED',
-                style: TextStyle(fontSize: 40, color: Colors.indigo[900]),
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.indigo[900]),
               ),
             ],
           ),
@@ -36,14 +44,14 @@ class _LoginPacState extends State<LoginPac> {
             child: Column(
               children: <Widget>[
                 Container(
-                  height: 410,
-                  width: 325,
+                  height: 400,
+                  width: 414,
                   decoration: BoxDecoration(
-                    boxShadow: <BoxShadow>[
+                    boxShadow: [
                       BoxShadow(
-                          color: Colors.black54,
-                          blurRadius: 15.0,
-                          offset: Offset(0.0, 0.75))
+                          color: Colors.black54.withOpacity(0.5),
+                          blurRadius: 5.0,
+                          offset: Offset(0.0, 5.0))
                     ],
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
@@ -54,16 +62,16 @@ class _LoginPacState extends State<LoginPac> {
                         height: 45,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 20),
+                        padding: const EdgeInsets.only(right: 35, left: 35),
                         child: Container(
                           child: Text(
                             "Seja bem-vindo(a) de volta",
                             style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.bold),
+                                fontSize: 35, fontWeight: FontWeight.w700),
                           ),
                         ),
                       ),
-                      SizedBox(height: 50),
+                      SizedBox(height: 20),
                       Padding(
                           padding: const EdgeInsets.only(right: 20, left: 20),
                           child: Container(
@@ -77,7 +85,7 @@ class _LoginPacState extends State<LoginPac> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'E-Mail'),
+                                  labelText: 'E-mail'),
                             ),
                           )),
                       SizedBox(
@@ -117,10 +125,21 @@ class _LoginPacState extends State<LoginPac> {
                             Container(
                               width: 100,
                               height: 45,
+                              decoration: BoxDecoration(
+                                boxShadow: [
+                                BoxShadow(
+                                color: Colors.tealAccent[700].withOpacity(0.5),
+                                blurRadius: 5.0,
+                                offset: Offset(0.0, 5.0))
+                              ],
+                                borderRadius: BorderRadius.circular(30),
+                                color: Colors.white,
+                      ),
                               child: ElevatedButton(
                                 onPressed: () {},
-                                child: Text("Login"),
-                                style: ElevatedButton.styleFrom(
+                                child: Text("Entrar"),
+                                style: 
+                                ElevatedButton.styleFrom(
                                   primary: Colors.tealAccent[700],
                                   onPrimary: Colors.white,
                                   onSurface: Colors.grey,

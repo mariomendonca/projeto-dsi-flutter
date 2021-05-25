@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'C-MED',
       theme: ThemeData(
         primaryColor: Colors.tealAccent[700],
+        fontFamily: 'Inter'
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
