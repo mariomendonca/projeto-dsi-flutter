@@ -1,6 +1,6 @@
-import 'package:cmedapp/CadastroPaciente.dart';
 import 'package:cmedapp/CadastroPadrao.dart';
 import 'package:cmedapp/LoginPaciente.dart';
+import 'package:cmedapp/components/Logo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,19 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           height: 100,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Consulta',
-              style: TextStyle(fontSize: 50, color: Colors.tealAccent[700]),
-            ),
-            Text(
-              'MED',
-              style: TextStyle(fontSize: 50, color: Colors.indigo[900]),
-            ),
-          ],
-        ),
+        logo(),
         Container(
           height: 350,
           width: 350,
@@ -104,4 +92,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ]),
     );
   }
+
+  Type buildLogo() => logo;
 }
