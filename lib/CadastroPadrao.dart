@@ -34,7 +34,7 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
             // color: Colors.red
           ),
           Container(
-              height: 550,
+              height: 610,
               width: 410,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
@@ -47,11 +47,8 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
               ),
               child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    height: 45,
-                  ),
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 45),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -66,11 +63,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Nome completo'),
                         ),
                       )),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -85,11 +80,43 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Email'),
                         ),
                       )),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      child: Container(
+                        height: 55,
+                        child: TextFormField(
+                          style: TextStyle(color: Colors.tealAccent[700]),
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: false,
+                          autofocus: false,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              labelText: 'Cpf'),
+                        ),
+                      )),
+                  
+                  Padding(
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      child: Container(
+                        height: 55,
+                        child: TextFormField(
+                          style: TextStyle(color: Colors.tealAccent[700]),
+                          keyboardType: TextInputType.emailAddress,
+                          obscureText: false,
+                          autofocus: false,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              labelText: 'Telefone'),
+                        ),
+                      )),
+                  
+                  Padding(
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -104,11 +131,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Senha'),
                         ),
                       )),
-                  SizedBox(
-                    height: 25,
-                  ),
+                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45),
+                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25, bottom: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -125,9 +150,7 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               ),
                         ),
                       )),
-                  SizedBox(
-                    height: 30,
-                  ),
+                  
                   Container(
                     width: 250,
                     height: 55,
