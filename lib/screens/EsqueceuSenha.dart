@@ -10,12 +10,12 @@ class EsqueceuSenha extends StatefulWidget {
 class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   containerHeight(size) {
     double height;
-    if (size.height < 500) {
+    if (size.height < 600) {
       height = 490;
-    } else if (size.width < 400 && size.height <= 640 && size.height < 800) {
-      height = size.height * 0.85;
-    } else {
+    } else if (size.width < 400 && size.height >= 640 && size.height < 800) {
       height = size.height * 0.75;
+    } else {
+      height = size.height * 0.62;
     }
     return height;
   }
@@ -23,18 +23,11 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   submitButton(size) {
     if (size.width > 400) {
       return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          TextButton(
-              onPressed: () {},
-              child: Text(
-                "Esqueci minha senha",
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-              )),
           Container(
-            width: 100,
+            width: size.width * 0.5,
             height: 45,
             decoration: BoxDecoration(
               boxShadow: [
@@ -48,7 +41,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
             ),
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Entrar"),
+              child: Text("Avançar"),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(0, 191, 186, 1),
                 onPrimary: Colors.white,
@@ -68,7 +61,6 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 150,
               height: 45,
               margin: EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
@@ -109,7 +101,6 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    print(size);
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       body: ListView(
@@ -144,7 +135,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                         child: Container(
                           margin: EdgeInsets.only(bottom: 40),
                           child: Text(
-                            "Seja bem-vindo(a) de volta",
+                            "Esqueceu sua senha?",
                             style: TextStyle(
                                 fontSize: 35, fontWeight: FontWeight.w700),
                           ),
@@ -182,7 +173,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'Senha'),
+                                  labelText: 'Nova senha'),
                             ),
                           )),
                       Padding(
