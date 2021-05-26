@@ -1,22 +1,21 @@
-import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
 
-class LoginPac extends StatefulWidget {
+class EsqueceuSenha extends StatefulWidget {
   @override
-  _LoginPacState createState() => _LoginPacState();
+  _EsqueceuSenhaState createState() => _EsqueceuSenhaState();
 }
 
-class _LoginPacState extends State<LoginPac> {
+class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   containerHeight(size) {
     double height;
-    if (size.height < 600) {
+    if (size.height < 500) {
       height = 490;
-    } else if (size.width < 400 && size.height >= 640 && size.height < 800) {
-      height = size.height * 0.75;
+    } else if (size.width < 400 && size.height <= 640 && size.height < 800) {
+      height = size.height * 0.85;
     } else {
-      height = size.height * 0.62;
+      height = size.height * 0.75;
     }
     return height;
   }
@@ -28,10 +27,7 @@ class _LoginPacState extends State<LoginPac> {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EsqueceuSenha()));
-              },
+              onPressed: () {},
               child: Text(
                 "Esqueci minha senha",
                 style:
@@ -113,6 +109,7 @@ class _LoginPacState extends State<LoginPac> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    print(size);
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       body: ListView(
