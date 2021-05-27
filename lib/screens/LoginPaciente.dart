@@ -2,6 +2,7 @@ import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
+import 'Home.dart';
 
 class LoginPac extends StatefulWidget {
   @override
@@ -51,7 +52,9 @@ class _LoginPacState extends State<LoginPac> {
               color: Colors.white,
             ),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Home()));},
               child: Text("Entrar"),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(0, 191, 186, 1),

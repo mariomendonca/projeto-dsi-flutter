@@ -27,6 +27,7 @@ flutter:
 
   assets:
     - assets/images/medical.png
+    - assets/images/Perfil.svg
   
   
   fonts:
