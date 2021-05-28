@@ -1,3 +1,5 @@
+import 'package:cmedapp/components/recentes.dart';
+import 'package:cmedapp/screens/Home/dashboard.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -10,7 +12,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Padding(
-            padding: EdgeInsets.all(32),
+            padding: EdgeInsets.all(25),
             child: Column(
               children: [
                 Row(mainAxisAlignment: MainAxisAlignment.end, children: [
@@ -36,13 +38,13 @@ class _HomeState extends State<Home> {
                     autofocus: false,
                     style: TextStyle(color: Colors.tealAccent[700]),
                     decoration: InputDecoration(
-
-                        prefixIcon:IconButton(icon: 
-                        Icon(Icons.search_outlined,
-                            color: Color.fromRGBO(0, 191, 181, 1),    
+                        prefixIcon: IconButton(
+                            icon: Icon(
+                              Icons.search_outlined,
+                              color: Color.fromRGBO(0, 191, 181, 1),
                             ),
-                        padding: EdgeInsets.only(left: 20,right: 10),
-                        onPressed: (){}),
+                            padding: EdgeInsets.only(left: 20, right: 10),
+                            onPressed: () {}),
                         filled: true,
                         fillColor: Color.fromRGBO(229, 246, 254, 1),
                         border: OutlineInputBorder(
@@ -55,10 +57,40 @@ class _HomeState extends State<Home> {
                             Icons.filter_list_outlined,
                           ),
                           padding: EdgeInsets.only(right: 20),
-                          onPressed: (){},
+                          onPressed: () {},
                         )),
                   ),
-                )
+                ),
+                Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          'Recentes',
+                          style: TextStyle(
+                              color: Color.fromRGBO(40, 58, 67, 1),
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Recentes(),
+                Padding(padding: EdgeInsets.only(top: 15),
+                  child: Row(
+                    children: [
+                      Text(
+                        'O que você precisa?',
+                        style: TextStyle(
+                            color: Color.fromRGBO(40, 58, 67, 1),
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ))
               ],
             )));
   }

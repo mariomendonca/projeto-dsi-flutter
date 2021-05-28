@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                     child: logo()),
                 Container(
-                  child: Image.asset("assets/images/medical.png"),
+                  child: Image.asset("assets/images/medico-home.png"),
                 ),
                 Flexible(
                   child: Container(

@@ -1,3 +1,4 @@
+import 'package:cmedapp/screens/Home/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:cmedapp/screens/FirstPage.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'C-MED',
       theme:
           ThemeData(primaryColor: Colors.tealAccent[700], fontFamily: 'Inter'),
-      home: MyHomePage(),
+      home: Home(),
     );
   }
 }
