@@ -1,5 +1,4 @@
 import 'package:cmedapp/components/Logo.dart';
-import 'package:cmedapp/screens/CadastroMedP2.dart';
 import 'package:cmedapp/screens/CadastroPaciente.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +37,7 @@ class SecondPage extends StatelessWidget {
               ),
               child: Row(children: [
                 Image.asset(
-                  "assets/images/medical.png"
+                  "assets/images/medico-home.png"
                 ),
                 Text(
                   "Sou médico",
@@ -64,7 +63,7 @@ class SecondPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => CadastroMed2(),
+                    builder: (context) => CadastroPac(),
                   ),
                 );
               },
@@ -73,7 +72,7 @@ class SecondPage extends StatelessWidget {
               ),
               child: Row(children: [
                 Image.asset(
-                  "assets/images/medical.png"
+                  "assets/images/medico-home.png"
                 ),
                 Text(
                   "Sou paciente",

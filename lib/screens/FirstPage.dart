@@ -1,8 +1,14 @@
-import 'package:cmedapp/screens/CadastroMedP2.dart';
 // import 'package:cmedapp/screens/CadastroMed.dart';
 // import 'package:cmedapp/screens/Paci.dart';
 import 'package:cmedapp/screens/SecondPage.dart';
+import 'package:cmedapp/components/Logo.dart';
+import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:flutter/material.dart';
+
+// import 'package:cmedapp/screens/CadastroMedP2.dart';
+
+import 'CadastroPadrao.dart';
+import 'LoginPaciente.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -24,33 +30,10 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Consulta',
-                        style: TextStyle(
-                            fontSize: 40,
-                            color: Colors.tealAccent[700],
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'MED',
-                        style: TextStyle(
-                            fontSize: 40,
-                            color: Colors.indigo[900],
-                            fontFamily: "Quicksand",
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
+                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                    child: Logo()),
                 Container(
-                  child: Image.asset(
-                    "assets/images/medical.png",
-                  ),
+                  child: Image.asset("assets/images/medico-home.png"),
                 ),
                 Flexible(
                   child: Container(
@@ -107,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => CadastroMed2()));
+                                builder: (context) => LoginPac()));
                           },
                         ),
                       ],

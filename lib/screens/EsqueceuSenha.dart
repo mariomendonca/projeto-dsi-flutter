@@ -1,15 +1,13 @@
-import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
-import 'Home/Home.dart';
 
-class LoginPac extends StatefulWidget {
+class EsqueceuSenha extends StatefulWidget {
   @override
-  _LoginPacState createState() => _LoginPacState();
+  _EsqueceuSenhaState createState() => _EsqueceuSenhaState();
 }
 
-class _LoginPacState extends State<LoginPac> {
+class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   containerHeight(size) {
     double height;
     if (size.height < 600) {
@@ -25,21 +23,11 @@ class _LoginPacState extends State<LoginPac> {
   submitButton(size) {
     if (size.width > 400) {
       return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EsqueceuSenha()));
-              },
-              child: Text(
-                "Esqueci minha senha",
-                style:
-                    TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
-              )),
           Container(
-            width: 100,
+            width: size.width * 0.5,
             height: 45,
             decoration: BoxDecoration(
               boxShadow: [
@@ -52,11 +40,8 @@ class _LoginPacState extends State<LoginPac> {
               color: Colors.white,
             ),
             child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Home()));
-              },
-              child: Text("Entrar"),
+              onPressed: () {},
+              child: Text("Avançar"),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(0, 191, 186, 1),
                 onPrimary: Colors.white,
@@ -76,7 +61,6 @@ class _LoginPacState extends State<LoginPac> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              width: 150,
               height: 45,
               margin: EdgeInsets.only(bottom: 10),
               decoration: BoxDecoration(
@@ -90,10 +74,7 @@ class _LoginPacState extends State<LoginPac> {
                 color: Colors.white,
               ),
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Home()));
-                },
+                onPressed: () {},
                 child: Text("Entrar"),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.tealAccent[700],
@@ -107,10 +88,7 @@ class _LoginPacState extends State<LoginPac> {
               ),
             ),
             TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => EsqueceuSenha()));
-                },
+                onPressed: () {},
                 child: Text(
                   "Esqueci minha senha",
                   style: TextStyle(
@@ -128,10 +106,6 @@ class _LoginPacState extends State<LoginPac> {
       body: ListView(
         children: <Widget>[
           // LOGO
-          Logo(),
-          SizedBox(
-            height: 35,
-          ),
           Padding(
             padding: EdgeInsets.all(40),
             child: Logo(),
@@ -161,7 +135,7 @@ class _LoginPacState extends State<LoginPac> {
                         child: Container(
                           margin: EdgeInsets.only(bottom: 40),
                           child: Text(
-                            "Seja bem-vindo(a) de volta",
+                            "Esqueceu sua senha?",
                             style: TextStyle(
                                 fontSize: 35, fontWeight: FontWeight.w700),
                           ),
@@ -180,7 +154,8 @@ class _LoginPacState extends State<LoginPac> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'E-mail'),
+                                  labelText: 'E-mail',
+                                  hintText: "exemplo@dominio.com"),
                             ),
                           )),
                       SizedBox(
@@ -199,7 +174,9 @@ class _LoginPacState extends State<LoginPac> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'Senha'),
+                                  labelText: 'Nova senha',
+                                  hintText:
+                                      "Sua senha deve conter no mínimo 8 dígitos"),
                             ),
                           )),
                       Padding(
