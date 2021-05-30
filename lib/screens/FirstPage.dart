@@ -1,4 +1,5 @@
 import 'package:cmedapp/components/Logo.dart';
+import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:flutter/material.dart';
 
 import 'CadastroPadrao.dart';
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => CadastroPadrao(),
+                            builder: (context) => CadastroPac(),
                           ),
                         );
                       },

@@ -53,8 +53,9 @@ class _LoginPacState extends State<LoginPac> {
             ),
             child: ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Home()));},
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => Home()));
+              },
               child: Text("Entrar"),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(0, 191, 186, 1),
@@ -90,8 +91,8 @@ class _LoginPacState extends State<LoginPac> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Home()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Home()));
                 },
                 child: Text("Entrar"),
                 style: ElevatedButton.styleFrom(
@@ -106,7 +107,10 @@ class _LoginPacState extends State<LoginPac> {
               ),
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => EsqueceuSenha()));
+                },
                 child: Text(
                   "Esqueci minha senha",
                   style: TextStyle(
