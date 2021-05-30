@@ -1,4 +1,4 @@
-import 'package:cmedapp/screens/CadastroPaciente.dart';
+import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:flutter/material.dart';
 
 class CadastroPadrao extends StatefulWidget {
@@ -48,7 +48,8 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
               child: Column(
                 children: <Widget>[
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 45),
+                      padding:
+                          const EdgeInsets.only(right: 45, left: 45, top: 45),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -63,9 +64,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Nome completo'),
                         ),
                       )),
-                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      padding:
+                          const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -80,9 +81,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Email'),
                         ),
                       )),
-                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      padding:
+                          const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -97,9 +98,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Cpf'),
                         ),
                       )),
-                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      padding:
+                          const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -114,9 +115,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Telefone'),
                         ),
                       )),
-                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25),
+                      padding:
+                          const EdgeInsets.only(right: 45, left: 45, top: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -131,9 +132,9 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                               labelText: 'Senha'),
                         ),
                       )),
-                  
                   Padding(
-                      padding: const EdgeInsets.only(right: 45, left: 45, top: 25, bottom: 25),
+                      padding: const EdgeInsets.only(
+                          right: 45, left: 45, top: 25, bottom: 25),
                       child: Container(
                         height: 55,
                         child: TextFormField(
@@ -142,15 +143,14 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                           obscureText: true,
                           autofocus: false,
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              labelText: 'Confirme sua senha',
-                              // errorText: 'Esse campo é obrigatório',
-                              ),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            labelText: 'Confirme sua senha',
+                            // errorText: 'Esse campo é obrigatório',
+                          ),
                         ),
                       )),
-                  
                   Container(
                     width: 250,
                     height: 55,
@@ -158,7 +158,7 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => CadastroPac()));
-                            // print('')
+                        // print('')
                       },
                       child: Text("Avançar"),
                       style: ElevatedButton.styleFrom(
@@ -180,6 +180,5 @@ class _CadastroPadraoState extends State<CadastroPadrao> {
         ],
       ),
     );
-
   }
 }

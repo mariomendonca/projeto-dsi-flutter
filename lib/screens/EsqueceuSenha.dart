@@ -154,7 +154,8 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'E-mail'),
+                                  labelText: 'E-mail',
+                                  hintText: "exemplo@dominio.com"),
                             ),
                           )),
                       SizedBox(
@@ -173,7 +174,9 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  labelText: 'Nova senha'),
+                                  labelText: 'Nova senha',
+                                  hintText:
+                                      "Sua senha deve conter no mínimo 8 dígitos"),
                             ),
                           )),
                       Padding(
