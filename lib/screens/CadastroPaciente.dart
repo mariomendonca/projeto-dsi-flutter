@@ -17,7 +17,7 @@ class CadastroPacState extends State<CadastroPac> {
           Container(
             height: 35,
           ),
-          logo(),
+          Logo(),
           Container(
             height: 30,
           ),

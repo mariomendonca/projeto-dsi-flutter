@@ -18,7 +18,7 @@ class _LoginPacState extends State<LoginPac> {
             height: 35,
           ),
           // LOGO
-          logo(),
+          Logo(),
           SizedBox(
             height: 35,
           ),

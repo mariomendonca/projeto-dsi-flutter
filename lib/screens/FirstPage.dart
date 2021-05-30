@@ -1,6 +1,7 @@
 import 'package:cmedapp/screens/CadastroMedP2.dart';
-import 'package:cmedapp/screens/CadastroMed.dart';
-import 'package:cmedapp/screens/Paci.dart';
+// import 'package:cmedapp/screens/CadastroMed.dart';
+// import 'package:cmedapp/screens/Paci.dart';
+import 'package:cmedapp/screens/SecondPage.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -60,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => CadastroPac(),
+                            builder: (context) => SecondPage(),
                           ),
                         );
                       },

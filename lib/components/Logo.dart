@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class logo extends StatelessWidget {
+class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
