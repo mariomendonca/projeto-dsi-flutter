@@ -6,114 +6,109 @@ import 'package:flutter/material.dart';
 class BodyMed2 extends StatelessWidget {
   const BodyMed2({
     Key key,
-    @required this.size,
   }) : super(key: key);
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return ListView(children: [
-      Expanded(
+      Container(
+        height: size.height,
+        width: size.width * 0.8,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(
+                40,
+              ),
+              topRight: Radius.circular(40)),
+          color: Colors.white,
+        ),
         child: Container(
-          height: size.height,
-          width: size.width * 0.8,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(
-                  40,
-                ),
-                topRight: Radius.circular(40)),
-            color: Colors.white,
+          margin: EdgeInsets.only(
+            top: 50,
           ),
-          child: Container(
-            margin: EdgeInsets.only(
-              top: 50,
-            ),
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: InputCadastro(
-                    label: "Endereço",
-                    hint: "Rua dos bobos",
-                    senha: false,
-                  ),
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                child: InputCadastro(
+                  label: "Endereço",
+                  hint: "Rua dos bobos",
+                  senha: false,
                 ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: InputCadastro(
-                    label: "Número",
-                    hint: "290",
-                    senha: false,
-                  ),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                child: InputCadastro(
+                  label: "Número",
+                  hint: "290",
+                  senha: false,
                 ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: WeekdaySelector(
-                    onChanged: (v) {},
-                    values: [
-                      true,
-                      true,
-                      true,
-                      true,
-                      true,
-                      true,
-                      true,
-                    ],
-                  ),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                child: WeekdaySelector(
+                  onChanged: (v) {},
+                  values: [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                  ],
                 ),
-                Spacer(),
-                Container(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        width: size.width * 0.40,
-                        child: InputCadastro(
-                          label: "Início de expediente",
-                          hint: "00:00",
-                          senha: false,
-                        ),
+              ),
+              Spacer(),
+              Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: size.width * 0.40,
+                      child: InputCadastro(
+                        label: "Início de expediente",
+                        hint: "00:00",
+                        senha: false,
                       ),
-                      Container(
-                        width: size.width * 0.40,
-                        child: InputCadastro(
-                          label: "Fim de expediente",
-                          hint: "00:00",
-                          senha: false,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Spacer(),
-                Container(
-                  //margin: EdgeInsets.only(bottom: 50),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, right: 14, left: 14),
-                    child: InputCadastro(
-                      label: "Descrição",
-                      hint: "Conte-nos um pouco sobre você",
-                      senha: false,
                     ),
+                    Container(
+                      width: size.width * 0.40,
+                      child: InputCadastro(
+                        label: "Fim de expediente",
+                        hint: "00:00",
+                        senha: false,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
+              Container(
+                //margin: EdgeInsets.only(bottom: 50),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                  child: InputCadastro(
+                    label: "Descrição",
+                    hint: "Conte-nos um pouco sobre você",
+                    senha: false,
                   ),
                 ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: 14,
-                    left: 14,
-                  ),
-                  child: ButtonPadrao(text: "Finalizar", press: () {}),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(
+                  right: 14,
+                  left: 14,
                 ),
-                Spacer()
-              ],
-            ),
+                child: ButtonPadrao(text: "Finalizar", press: () {}),
+              ),
+              Spacer()
+            ],
           ),
         ),
       ),

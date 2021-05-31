@@ -19,8 +19,6 @@ class CadastroMed2State extends State<CadastroMed2> {
           preferredSize: Size.fromHeight(size.height * 0.3),
           child: MyAppBar(),
         ),
-        body: BodyMed2(
-          size: size,
-        ));
+        body: BodyMed2());
   }
 }
