@@ -1,6 +1,11 @@
+// import 'package:cmedapp/screens/CadastroMed.dart';
+// import 'package:cmedapp/screens/Paci.dart';
+import 'package:cmedapp/screens/SecondPage.dart';
 import 'package:cmedapp/components/Logo.dart';
 import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:flutter/material.dart';
+
+// import 'package:cmedapp/screens/CadastroMedP2.dart';
 
 import 'CadastroPadrao.dart';
 import 'LoginPaciente.dart';
@@ -26,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Container(
                     margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-                    child: logo()),
+                    child: Logo()),
                 Container(
                   child: Image.asset("assets/images/medico-home.png"),
                 ),
@@ -39,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => CadastroPac(),
+                            builder: (context) => SecondPage(),
                           ),
                         );
                       },

@@ -128,9 +128,13 @@ class _LoginPacState extends State<LoginPac> {
       body: ListView(
         children: <Widget>[
           // LOGO
+          Logo(),
+          SizedBox(
+            height: 35,
+          ),
           Padding(
             padding: EdgeInsets.all(40),
-            child: logo(),
+            child: Logo(),
           ),
           Container(
             child: Column(

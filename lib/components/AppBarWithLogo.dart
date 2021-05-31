@@ -12,7 +12,7 @@ class MyAppBar extends StatelessWidget {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [logo()],
+        children: [Logo()],
       ),
     );
   }
