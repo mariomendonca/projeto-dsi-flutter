@@ -1,7 +1,11 @@
+import 'package:cmedapp/components/button_padrao.dart';
+
 import 'package:cmedapp/screens/PerfilMed/descricao.dart';
 import 'package:cmedapp/screens/PerfilMed/email_and_phone.dart';
 import 'package:cmedapp/screens/PerfilMed/endereco.dart';
 import 'package:cmedapp/screens/PerfilMed/image_and_name.dart';
+import 'package:cmedapp/screens/PerfilMed/scroll_dias_de_consulta.dart';
+import 'package:cmedapp/screens/PerfilMed/text_dias_de_consulta.dart';
 import 'package:flutter/material.dart';
 
 class BodyPerfilMed extends StatelessWidget {
@@ -54,7 +58,25 @@ class BodyPerfilMed extends StatelessWidget {
             size: size,
             descricao:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
-          )
+          ),
+          Container(
+            width: size.width * 0.8,
+            margin: EdgeInsets.only(top: 20, bottom: 10),
+            child: TextAndLabelDias(size: size),
+          ),
+          Spacer(),
+          Container(
+            width: size.width * 0.8,
+            child: ScrollDiasConsulta(size: size),
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20),
+            child: ButtonPadrao(
+              text: "Avançar",
+              press: () {},
+            ),
+          ),
         ],
       ),
     );

@@ -19,9 +19,10 @@ class InputCadastro extends StatelessWidget {
       obscureText: senha,
       autofocus: false,
       decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-          labelText: label,
-          hintText: hint),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+        labelText: label,
+        hintText: hint,
+      ),
     );
   }
 }

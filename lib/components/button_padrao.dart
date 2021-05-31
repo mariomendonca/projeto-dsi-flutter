@@ -18,17 +18,17 @@ class ButtonPadrao extends StatelessWidget {
         child: Text(text),
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
           primary: Colors.tealAccent[700],
           onPrimary: Colors.white,
           onSurface: Colors.grey,
           textStyle: TextStyle(
               color: Colors.black,
-              fontSize: 22,
+              fontSize: 20,
               fontStyle: FontStyle.normal,
               fontFamily: "Inter",
-              fontWeight: FontWeight.w600),
+              fontWeight: FontWeight.w400),
         ),
       ),
     );

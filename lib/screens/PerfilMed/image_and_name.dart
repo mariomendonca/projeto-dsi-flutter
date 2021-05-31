@@ -24,6 +24,7 @@ class ImageAndName extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            //circle avatar
             width: 77,
             height: 77,
             decoration: BoxDecoration(

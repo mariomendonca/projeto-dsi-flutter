@@ -1,7 +1,7 @@
 import 'package:cmedapp/components/button_padrao.dart';
 
 import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
-
+import 'package:weekday_selector/weekday_selector.dart';
 import 'package:flutter/material.dart';
 
 class BodyMed2 extends StatelessWidget {
@@ -35,44 +35,35 @@ class BodyMed2 extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                    // margin: EdgeInsets.only(bottom: 50),
-                    height: 55,
-                    child: InputCadastro(
-                      label: "Endereço",
-                      hint: "Rua dos bobos",
-                      senha: false,
-                    ),
+                  child: InputCadastro(
+                    label: "Endereço",
+                    hint: "Rua dos bobos",
+                    senha: false,
                   ),
                 ),
                 Spacer(),
-                Container(
-                  // margin: EdgeInsets.only(bottom: 50),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, right: 14, left: 14),
-                    child: Container(
-                        height: 55,
-                        child: InputCadastro(
-                          label: "Número",
-                          hint: "290",
-                          senha: false,
-                        )),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                  child: InputCadastro(
+                    label: "Número",
+                    hint: "290",
+                    senha: false,
                   ),
                 ),
                 Spacer(),
-                Container(
-                  //margin: EdgeInsets.only(bottom: 50),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(top: 10, right: 14, left: 14),
-                    child: Container(
-                        height: 55,
-                        child: InputCadastro(
-                          label: "Dias de funcionamento",
-                          hint: "será um weekday selector",
-                          senha: false,
-                        )),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+                  child: WeekdaySelector(
+                    onChanged: (v) {},
+                    values: [
+                      true,
+                      true,
+                      true,
+                      true,
+                      true,
+                      true,
+                      true,
+                    ],
                   ),
                 ),
                 Spacer(),
@@ -82,7 +73,6 @@ class BodyMed2 extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        height: 55,
                         width: size.width * 0.40,
                         child: InputCadastro(
                           label: "Início de expediente",
@@ -91,7 +81,6 @@ class BodyMed2 extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 55,
                         width: size.width * 0.40,
                         child: InputCadastro(
                           label: "Fim de expediente",
@@ -108,13 +97,11 @@ class BodyMed2 extends StatelessWidget {
                   child: Padding(
                     padding:
                         const EdgeInsets.only(top: 10, right: 14, left: 14),
-                    child: Container(
-                        height: 55,
-                        child: InputCadastro(
-                          label: "Descrição",
-                          hint: "Conte-nos um pouco sobre você",
-                          senha: false,
-                        )),
+                    child: InputCadastro(
+                      label: "Descrição",
+                      hint: "Conte-nos um pouco sobre você",
+                      senha: false,
+                    ),
                   ),
                 ),
                 Spacer(),

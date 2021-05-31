@@ -35,89 +35,71 @@ class BodyMed1 extends StatelessWidget {
               children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                    // margin: EdgeInsets.only(bottom: 50),
-                    height: 55,
-                    child: InputCadastro(
-                      label: "Nome",
-                      hint: "Digite seu nome",
-                      senha: false,
-                    ),
+                  child: InputCadastro(
+                    label: "Nome",
+                    hint: "Digite seu nome",
+                    senha: false,
                   ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                    // margin: EdgeInsets.only(bottom: 50),
-                    height: 55,
-                    child: InputCadastro(
-                      label: "Sobrenome",
-                      hint: "Digite seu sobrenome",
-                      senha: false,
-                    ),
+                  child: InputCadastro(
+                    label: "Sobrenome",
+                    hint: "Digite seu sobrenome",
+                    senha: false,
                   ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                      height: 55,
-                      child: InputCadastro(
-                        label: "Email",
-                        hint: "exemplo@dominio.com",
-                        senha: false,
-                      )),
+                  child: InputCadastro(
+                    label: "Email",
+                    hint: "exemplo@dominio.com",
+                    senha: false,
+                  ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                      height: 55,
-                      child: InputCadastro(
-                        label: "CPF",
-                        hint: "Apenas os números",
-                        senha: false,
-                      )),
+                  child: InputCadastro(
+                    label: "CPF",
+                    hint: "Apenas os números",
+                    senha: false,
+                  ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                      height: 55,
-                      child: InputCadastro(
-                        label: "Especialidade",
-                        hint: "Digite sua especialidade",
-                        senha: false,
-                      )),
+                  child: InputCadastro(
+                    label: "Especialidade",
+                    hint: "Digite sua especialidade",
+                    senha: false,
+                  ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                      height: 55,
-                      child: InputCadastro(
-                        label: "Senha",
-                        hint: "No mínimo 8 dígitos",
-                        senha: true,
-                      )),
+                  child: InputCadastro(
+                    label: "Senha",
+                    hint: "No mínimo 8 dígitos",
+                    senha: true,
+                  ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
-                  child: Container(
-                      height: 55,
-                      child: InputCadastro(
-                        label: "Confirmar senha",
-                        hint: "Confirme sua senha",
-                        senha: true,
-                      )),
+                  child: InputCadastro(
+                    label: "Confirmar senha",
+                    hint: "Confirme sua senha",
+                    senha: true,
+                  ),
                 ),
                 Spacer(),
                 Padding(
                   padding: const EdgeInsets.only(right: 14, left: 14),
                   child: ButtonPadrao(
-                      text: "Finalizar",
+                      text: "Avançar",
                       press: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
