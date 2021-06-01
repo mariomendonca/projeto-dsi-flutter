@@ -3,12 +3,12 @@ import 'package:cmedapp/screens/ConsultaMarcada/body.dart';
 
 import 'package:flutter/material.dart';
 
-class MarcandoConsulta extends StatefulWidget {
+class ConsultaMarcada extends StatefulWidget {
   @override
-  _MarcandoConsultaState createState() => _MarcandoConsultaState();
+  _ConsultaMarcadaState createState() => _ConsultaMarcadaState();
 }
 
-class _MarcandoConsultaState extends State<MarcandoConsulta> {
+class _ConsultaMarcadaState extends State<ConsultaMarcada> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
