@@ -39,7 +39,7 @@ class BodyConsultaMarcada extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 20),
             child: ButtonPadrao(
-              text: "Marcar consulta",
+              text: "Finalizar",
               press: () {},
             ),
           )
