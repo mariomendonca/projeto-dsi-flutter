@@ -14,9 +14,9 @@ class CadastroPac extends StatefulWidget {
 }
 
 class CadastroPacState extends State<CadastroPac> {
-  void validarcpf(controladorcpf) {
-    if (controladorcpf.lenght < 11) {
-      print(" asdasd");
+  String validarcpf(cpfcontrolador) {
+    if (cpfcontrolador.lenght < 10) {
+      return "Este campo não pode estar vazio *";
     } else {
       return null;
     }
@@ -24,7 +24,7 @@ class CadastroPacState extends State<CadastroPac> {
 
   GlobalKey<FormState> formKey = new GlobalKey();
 
-  final cpfcontrolador = TextEditingController();
+  final TextEditingController cpfcontrolador = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -87,6 +87,9 @@ class CadastroPacState extends State<CadastroPac> {
                   tipodeteclado: TextInputType.number,
                   numeromaximo: 11,
                   controlador: cpfcontrolador,
+                  validador: () {
+                    validarcpf(cpfcontrolador);
+                  },
                 ),
               ),
               Spacer(),

@@ -28,6 +28,13 @@ class InputCadastro extends StatelessWidget {
       obscureText: senha,
       controller: controlador,
       autofocus: false,
+      validator: (value) {
+        if (value.isEmpty) {
+          return "O campo não pode estar vazio";
+        } else {
+          return null;
+        }
+      },
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         labelText: label,
