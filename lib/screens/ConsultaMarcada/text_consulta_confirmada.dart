@@ -25,7 +25,7 @@ class TextConsultaConfirmada extends StatelessWidget {
           fontSize: 15,
           color: Color(0xFF94999C),
         ),
-        textAlign: TextAlign.justify,
+        textAlign: TextAlign.center,
       ),
     );
   }
