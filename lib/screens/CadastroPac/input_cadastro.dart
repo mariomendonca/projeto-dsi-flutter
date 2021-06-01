@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 
 class InputCadastro extends StatelessWidget {
+  String validarcpf(cpfcontrolador) {
+    if (cpfcontrolador.lenght < 10) {
+      return "Preencha os 11 digitos do seu Cpf";
+    } else {
+      return null;
+    }
+  }
+
   const InputCadastro({
     Key key,
     this.tipodeteclado,
@@ -28,13 +36,7 @@ class InputCadastro extends StatelessWidget {
       obscureText: senha,
       controller: controlador,
       autofocus: false,
-      validator: (value) {
-        if (value.isEmpty) {
-          return "O campo não pode estar vazio";
-        } else {
-          return null;
-        }
-      },
+      validator: validador,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         labelText: label,

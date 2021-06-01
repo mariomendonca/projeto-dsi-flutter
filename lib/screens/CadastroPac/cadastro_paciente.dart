@@ -14,20 +14,72 @@ class CadastroPac extends StatefulWidget {
 }
 
 class CadastroPacState extends State<CadastroPac> {
-  String validarcpf(cpfcontrolador) {
-    if (cpfcontrolador.lenght < 10) {
-      return "Este campo não pode estar vazio *";
-    } else {
-      return null;
-    }
-  }
-
   GlobalKey<FormState> formKey = new GlobalKey();
 
   final TextEditingController cpfcontrolador = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    String validarcpf(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 10) {
+        return "Preencha os 11 digitos do seu Cpf";
+      } else {
+        return null;
+      }
+    }
+
+    String validarcelular(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 10) {
+        return "Preencha os 11 digitos do seu telefone";
+      } else {
+        return null;
+      }
+    }
+
+    String validaremail(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (!(value.contains('@') && value.contains('.com'))) {
+        return "Digite um email válido *";
+      } else {
+        return null;
+      }
+    }
+
+    String validarsenha(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 8) {
+        return "A senha deve conter no minimo 8 digitos";
+      } else {
+        return null;
+      }
+    }
+
+    String validarnome(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 2) {
+        return "Insira um nome valido";
+      } else {
+        return null;
+      }
+    }
+
+    String validarsobrenome(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 2) {
+        return "Insira um sobrenome valido";
+      } else {
+        return null;
+      }
+    }
+
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -57,6 +109,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Nome",
                   hint: "Digite seu nome",
                   senha: false,
+                  validador: validarnome,
                 ),
               ),
               Spacer(),
@@ -66,6 +119,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Sobrenome",
                   hint: "Digite seu nome",
                   senha: false,
+                  validador: validarsobrenome,
                 ),
               ),
               Spacer(),
@@ -75,6 +129,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Email",
                   hint: "exemplo@dominio.com",
                   senha: false,
+                  validador: validaremail,
                 ),
               ),
               Spacer(),
@@ -86,10 +141,7 @@ class CadastroPacState extends State<CadastroPac> {
                   senha: false,
                   tipodeteclado: TextInputType.number,
                   numeromaximo: 11,
-                  controlador: cpfcontrolador,
-                  validador: () {
-                    validarcpf(cpfcontrolador);
-                  },
+                  validador: validarcpf,
                 ),
               ),
               Spacer(),
@@ -100,6 +152,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "(81)99999-9999",
                   senha: false,
                   numeromaximo: 11,
+                  validador: validarcelular,
                 ),
               ),
               Spacer(),
@@ -118,6 +171,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Confirmar senha",
                   hint: "Confirme sua senha",
                   senha: true,
+                  validador: validarsenha,
                 ),
               ),
               Spacer(),
