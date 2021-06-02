@@ -1,9 +1,7 @@
 import 'dart:ffi';
-
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:flutter/material.dart';
-
 import '../LoginPaciente.dart';
 import 'body.dart';
 import 'input_cadastro.dart';
@@ -44,7 +42,7 @@ class CadastroPacState extends State<CadastroPac> {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (!(value.contains('@') && value.contains('.com'))) {
-        return "Digite um email válido *";
+        return "Digite um email válido ";
       } else {
         return null;
       }
@@ -81,7 +79,6 @@ class CadastroPacState extends State<CadastroPac> {
     }
 
     var size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: PreferredSize(
@@ -162,6 +159,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Senha",
                   hint: "No mínimo 8 dígitos",
                   senha: true,
+                  validador: validarsenha,
                 ),
               ),
               Spacer(),
