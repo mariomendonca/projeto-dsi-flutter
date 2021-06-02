@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 
 // import 'package:cmedapp/screens/CadastroMedP2.dart';
 
-import 'CadastroPadrao.dart';
 import 'LoginPaciente.dart';
 
 class MyHomePage extends StatefulWidget {
