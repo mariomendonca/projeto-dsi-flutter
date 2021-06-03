@@ -11,7 +11,6 @@ class LoginPac extends StatefulWidget {
 
 class _LoginPacState extends State<LoginPac> {
   containerHeight(size) {
-    print(size);
     double height;
     if (size.height < 600) {
       height = size.height * 0.65;
