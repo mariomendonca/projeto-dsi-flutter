@@ -10,34 +10,36 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: EdgeInsets.all(18),
-        child: Column(
-          children: [
-            UserIcon(),
-            HelloUser(),
-            SearchBar(),
-            Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
-            Padding(
-              padding: const EdgeInsets.only(top: 15.0),
-              child: Row(
-                children: [
-                  Flexible(
-                    child: Text(
-                      'Recentes',
-                      style: TextStyle(
-                          color: Color.fromRGBO(40, 58, 67, 1),
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold),
+    return ListView(
+      children: [Padding(
+          padding: EdgeInsets.all(18),
+          child: Column(
+            children: [
+              UserIcon(),
+              HelloUser(),
+              SearchBar(),
+              Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
+              Padding(
+                padding: const EdgeInsets.only(top: 15.0),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: Text(
+                        'Recentes',
+                        style: TextStyle(
+                            color: Color.fromRGBO(40, 58, 67, 1),
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            Recentes(),
-            FilterArea(),
-          ],
-        ));
+              Recentes(),
+              FilterArea(),
+            ],
+          )),
+      ]);
   }
 }
 
@@ -71,26 +73,30 @@ class FilterIcons extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Container(
       width: size.width,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
+      child: Column(
         children: [
-          IconFilter(
-              icone: Icons.volunteer_activism_outlined,
-              especialidade: "Cardiologista"),
+          Row(
+            children: [
+              IconFilter(
+                  icone: Icons.volunteer_activism_outlined,
+                  especialidade: "Cardiologista"),
+              SizedBox(width: size.width* 0.02),
+              IconFilter(
+                  icone: Icons.monitor_weight_outlined,
+                  especialidade: "Nutricionista"),
+              SizedBox(width: size.width* 0.02),
+              IconFilter(
+                  icone: Icons.visibility_outlined,
+                  especialidade: "Oftalmologista"),
+              SizedBox(width: size.width* 0.02),
+              IconFilter(
+                  icone: Icons.child_friendly_outlined,
+                  especialidade: "Pediatra"),
+            ],
+          ),
           SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.monitor_weight_outlined,
-              especialidade: "Nutricionista"),
-          SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.visibility_outlined,
-              especialidade: "Oftalmologista"),
-          SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.child_friendly_outlined,
-              especialidade: "Pediatra"),
-          SizedBox(width: size.width* 0.02),
+          Row(
+            children: [
           IconFilter(
               icone: Icons.health_and_safety_outlined,
               especialidade: "Clínico Geral"),
@@ -106,9 +112,11 @@ class FilterIcons extends StatelessWidget {
           IconFilter(
               icone: Icons.pregnant_woman_outlined,
               especialidade: "Obstetra"),
+        
+            ],
+          )
         ],
-      )),
-    );
+      ));
   }
 }
 
