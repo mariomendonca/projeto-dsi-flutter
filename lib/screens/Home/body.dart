@@ -94,7 +94,7 @@ class FilterIcons extends StatelessWidget {
                   especialidade: "Pediatra"),
             ],
           ),
-          SizedBox(width: size.width* 0.02),
+          SizedBox(height: size.height * 0.02),
           Row(
             children: [
           IconFilter(
