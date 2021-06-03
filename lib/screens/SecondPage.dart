@@ -1,4 +1,5 @@
-import 'package:cmedapp/components/Logo.dart';
+import 'package:cmedapp/components/AppBarWithLogo.dart';
+// import 'package:cmedapp/components/Logo.dart';
 import 'package:cmedapp/screens/CadastroMed/cadastro_med_p1.dart';
 import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 
@@ -8,16 +9,24 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-        body: Container(
-            width: size.width,
-            height: size.height,
-            child: ListView(
-              children: [
-                Container(
-                  height: 35,
+  return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(size.height * 0.3),
+        child: MyAppBar(),
+      ),
+      body: Container(
+          height: size.height,
+          width: size.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(
+                  40,
                 ),
-                Logo(),
+                topRight: Radius.circular(40)),
+            color: Colors.white,
+          ),
+          child: ListView(children: <Widget>[
                 Container(
                   padding: EdgeInsets.only(
                     left: 24,
@@ -52,13 +61,14 @@ class SecondPage extends StatelessWidget {
                     ),
                   ),
                 ),
+                
                 Container(
                   padding: EdgeInsets.only(
                     left: 24,
                     right: 24,
-                    top: 50,
+                    top: 100,
                   ),
-                  height: 190,
+                  height: 240,
                   width: 278,
                   child: ElevatedButton(
                     onPressed: () {
@@ -68,7 +78,9 @@ class SecondPage extends StatelessWidget {
                         ),
                       );
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.white),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                    ),
                     child: Row(
                       children: [
                         Image.asset("assets/images/medico-home.png"),
@@ -84,7 +96,10 @@ class SecondPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            )));
+                
+          ]),
+        ),
+      
+    );
   }
 }
