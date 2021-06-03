@@ -36,7 +36,6 @@ class Body extends StatelessWidget {
             ),
             Recentes(),
             FilterArea(),
-            
           ],
         ));
   }
@@ -51,28 +50,88 @@ class FilterArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: EdgeInsets.only(top: 15),
-        child: Row(
+        child: Column(
           children: [
-            Column(
-              children: [
-                Text(
-                  'O que você precisa?',
-                  style: TextStyle(
-                      color: Color.fromRGBO(40, 58, 67, 1),
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            Row(
-              children: [
-                IconFilter( icone: Icons.volunteer_activism_outlined , especialidade: "Cardiologista"),
-                IconFilter( icone: Icons.volunteer_activism_outlined , especialidade: "Cardiologista"),IconFilter( icone: Icons.volunteer_activism_outlined , especialidade: "Cardiologista"),
-              ],
-            )
-          ],
-
+            FilterTitle(),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: FilterIcons(),
+            )],
         ));
+  }
+}
+
+class FilterIcons extends StatelessWidget {
+  const FilterIcons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+        children: [
+          IconFilter(
+              icone: Icons.volunteer_activism_outlined,
+              especialidade: "Cardiologista"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.monitor_weight_outlined,
+              especialidade: "Nutricionista"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.visibility_outlined,
+              especialidade: "Oftalmologista"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.child_friendly_outlined,
+              especialidade: "Pediatra"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.health_and_safety_outlined,
+              especialidade: "Clínico Geral"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.face_outlined,
+              especialidade: "Dermatologista"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.elderly_outlined,
+              especialidade: "Geriatra"),
+          SizedBox(width: size.width* 0.02),
+          IconFilter(
+              icone: Icons.pregnant_woman_outlined,
+              especialidade: "Obstetra"),
+        ],
+      )),
+    );
+  }
+}
+
+class FilterTitle extends StatelessWidget {
+  const FilterTitle({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Flexible(
+          child: Text(
+            'O que você precisa?',
+            style: TextStyle(
+                color: Color.fromRGBO(40, 58, 67, 1),
+                fontSize: 22.0,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+      ],
+    );
   }
 }
 
@@ -151,11 +210,8 @@ class UserIcon extends StatelessWidget {
 }
 
 class IconFilter extends StatefulWidget {
-  const IconFilter({
-    Key key,
-    this.icone,
-    this.especialidade = ""
-  }) : super(key: key);
+  const IconFilter({Key key, this.icone, this.especialidade = ""})
+      : super(key: key);
 
   final IconData icone;
   final String especialidade;
@@ -191,7 +247,7 @@ class _IconFilterState extends State<IconFilter> {
                 style: TextStyle(
                   color: Color.fromRGBO(0, 191, 186, 1),
                   fontWeight: FontWeight.bold,
-                  fontSize: 10,
+                  fontSize: 9,
                 ),
               )
             ],
@@ -201,7 +257,7 @@ class _IconFilterState extends State<IconFilter> {
       width: 75,
       height: 60,
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color.fromRGBO(237, 243, 247, 1), 
           borderRadius: BorderRadius.circular(15)),
     );
   }
