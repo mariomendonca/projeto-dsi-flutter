@@ -1,3 +1,4 @@
+import 'package:cmedapp/screens/FiltroScreen/filter_screen.dart';
 import 'package:flutter/material.dart';
 
 class TextAndFilter extends StatefulWidget {
@@ -21,7 +22,10 @@ class _TextAndFilterState extends State<TextAndFilter> {
           Text("Doutores",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FilterScreen()));             
+              },
               child: Text(
                 "Filtros",
                 style: TextStyle(color: Color(0xff00BFBA)),

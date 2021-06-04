@@ -1,4 +1,7 @@
 import 'package:cmedapp/components/recentes.dart';
+import 'package:cmedapp/screens/AllDoctors/all_doctors.dart';
+import 'package:cmedapp/screens/FiltroScreen/filter_screen.dart';
+import 'package:cmedapp/screens/PerfilUser/perfil_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
@@ -10,8 +13,8 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [Padding(
+    return ListView(children: [
+      Padding(
           padding: EdgeInsets.all(18),
           child: Column(
             children: [
@@ -39,7 +42,7 @@ class Body extends StatelessWidget {
               FilterArea(),
             ],
           )),
-      ]);
+    ]);
   }
 }
 
@@ -58,7 +61,8 @@ class FilterArea extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: FilterIcons(),
-            )],
+            )
+          ],
         ));
   }
 }
@@ -72,51 +76,81 @@ class FilterIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      width: size.width,
-      child: Column(
-        children: [
-          Row(
-            children: [
-              IconFilter(
-                  icone: Icons.volunteer_activism_outlined,
-                  especialidade: "Cardiologista"),
-              SizedBox(width: size.width* 0.02),
-              IconFilter(
-                  icone: Icons.monitor_weight_outlined,
-                  especialidade: "Nutricionista"),
-              SizedBox(width: size.width* 0.02),
-              IconFilter(
-                  icone: Icons.visibility_outlined,
-                  especialidade: "Oftalmologista"),
-              SizedBox(width: size.width* 0.02),
-              IconFilter(
-                  icone: Icons.child_friendly_outlined,
-                  especialidade: "Pediatra"),
-            ],
-          ),
-          SizedBox(height: size.height * 0.02),
-          Row(
-            children: [
-          IconFilter(
-              icone: Icons.health_and_safety_outlined,
-              especialidade: "Clínico Geral"),
-          SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.face_outlined,
-              especialidade: "Dermatologista"),
-          SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.elderly_outlined,
-              especialidade: "Geriatra"),
-          SizedBox(width: size.width* 0.02),
-          IconFilter(
-              icone: Icons.pregnant_woman_outlined,
-              especialidade: "Obstetra"),
-        
-            ],
-          )
-        ],
-      ));
+        width: size.width,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                IconFilter(
+                    icone: Icons.volunteer_activism_outlined,
+                    especialidade: "Cardiologista",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.monitor_weight_outlined,
+                    especialidade: "Nutricionista",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.visibility_outlined,
+                    especialidade: "Oftalmologista",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.child_friendly_outlined,
+                    especialidade: "Pediatra",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+              ],
+            ),
+            SizedBox(height: size.height * 0.02),
+            Row(
+              children: [
+                IconFilter(
+                    icone: Icons.health_and_safety_outlined,
+                    especialidade: "Clínico Geral",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.face_outlined,
+                    especialidade: "Dermatologista",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.elderly_outlined, especialidade: "Geriatra",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+                SizedBox(width: size.width * 0.02),
+                IconFilter(
+                    icone: Icons.pregnant_woman_outlined,
+                    especialidade: "Obstetra",
+                    press: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => AllDoctors()));
+                    }),
+              ],
+            )
+          ],
+        ));
   }
 }
 
@@ -175,7 +209,10 @@ class SearchBar extends StatelessWidget {
                 Icons.filter_list_outlined,
               ),
               padding: EdgeInsets.only(right: 20),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => FilterScreen()));
+              },
             )),
       ),
     );
@@ -212,17 +249,21 @@ class UserIcon extends StatelessWidget {
       IconButton(
           icon: Icon(Icons.account_circle_outlined,
               size: 30, color: Color.fromRGBO(0, 191, 181, 1)),
-          onPressed: () {})
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => PerfilUser()));
+          })
     ]);
   }
 }
 
 class IconFilter extends StatefulWidget {
-  const IconFilter({Key key, this.icone, this.especialidade = ""})
+  const IconFilter({Key key, this.icone, this.especialidade = "", this.press})
       : super(key: key);
 
   final IconData icone;
   final String especialidade;
+  final Function press;
 
   @override
   _IconFilterState createState() => _IconFilterState();
@@ -233,6 +274,7 @@ class _IconFilterState extends State<IconFilter> {
   Widget build(BuildContext context) {
     var icone = widget.icone;
     var especialidade = widget.especialidade;
+    var press = widget.press;
     return Container(
       child: Column(
         children: [
@@ -241,7 +283,7 @@ class _IconFilterState extends State<IconFilter> {
             children: [
               IconButton(
                 icon: Icon(icone, color: Color.fromRGBO(0, 191, 186, 1)),
-                onPressed: () {},
+                onPressed: press,
                 iconSize: 25,
               ),
             ],
@@ -265,7 +307,7 @@ class _IconFilterState extends State<IconFilter> {
       width: 75,
       height: 60,
       decoration: BoxDecoration(
-          color: Color.fromRGBO(237, 243, 247, 1), 
+          color: Color.fromRGBO(237, 243, 247, 1),
           borderRadius: BorderRadius.circular(15)),
     );
   }

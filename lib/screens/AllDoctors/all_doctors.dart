@@ -2,6 +2,7 @@ import 'package:cmedapp/components/recentes.dart';
 
 import 'package:cmedapp/screens/AllDoctors/scroll_doctor.dart';
 import 'package:cmedapp/screens/AllDoctors/text_and_filter.dart';
+import 'package:cmedapp/screens/PerfilMed/perfil_med.dart';
 import 'package:flutter/material.dart';
 
 class AllDoctors extends StatefulWidget {
@@ -23,7 +24,9 @@ class _AllDoctorsState extends State<AllDoctors> {
         leading: IconButton(
           icon: Icon(Icons.chevron_left),
           color: Color(0xff00BFBA),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         actions: [
           IconButton(
@@ -31,7 +34,10 @@ class _AllDoctorsState extends State<AllDoctors> {
               Icons.account_circle_outlined,
             ),
             color: Color(0xff00BFBA),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => PerfilMed()));
+            },
           )
         ],
       ),
@@ -56,13 +62,7 @@ class _AllDoctorsState extends State<AllDoctors> {
               width: size.width * 0.8,
               child: Recentes(),
             ),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
             TextAndFilter(),
-            SizedBox(
-              height: size.height * 0.02,
-            ),
             ScrollDoctors()
           ],
         ),

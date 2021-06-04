@@ -1,6 +1,5 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/screens/CadastroMed/body_p1.dart';
 import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
 import 'package:flutter/material.dart';
 import 'cadastro_med_p2.dart';

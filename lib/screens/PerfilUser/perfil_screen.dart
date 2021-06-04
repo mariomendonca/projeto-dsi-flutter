@@ -15,7 +15,9 @@ class _PerfilUserState extends State<PerfilUser> {
         elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_outlined),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           color: Color.fromRGBO(0, 191, 186, 1),
         ),
         actions: <Widget>[
@@ -23,7 +25,7 @@ class _PerfilUserState extends State<PerfilUser> {
             icon: Icon(Icons.edit_outlined),
             onPressed: () {},
             color: Color.fromRGBO(0, 191, 186, 1),
-        ),
+          ),
         ],
       ),
       body: BodyUser(),

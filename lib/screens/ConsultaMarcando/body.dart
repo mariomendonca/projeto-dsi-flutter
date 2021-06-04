@@ -2,6 +2,7 @@ import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:cmedapp/screens/ConsultaMarcando/schedulesBox.dart';
+import 'package:cmedapp/screens/MarcandoConsulta/marcar_consulta.dart';
 import 'package:flutter/material.dart';
 
 class MarcandoConsultaPage extends StatelessWidget {
@@ -161,7 +162,7 @@ class MarcandoConsultaPage extends StatelessWidget {
                         press: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => CadastroPac(),
+                              builder: (context) => MarcandoConsulta(),
                             ),
                           );
                         }),

@@ -1,4 +1,5 @@
 import 'package:cmedapp/screens/AllDoctors/card_doctor.dart';
+import 'package:cmedapp/screens/PerfilMed/perfil_med.dart';
 import 'package:flutter/material.dart';
 
 class ScrollDoctors extends StatelessWidget {
@@ -25,7 +26,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
             CardDoctor(
               nome: "Carlos",
@@ -35,7 +39,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
             CardDoctor(
               nome: "Carlos",
@@ -45,7 +52,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
             CardDoctor(
               nome: "Carlos",
@@ -55,7 +65,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
             CardDoctor(
               nome: "Carlos",
@@ -65,7 +78,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
             CardDoctor(
               nome: "Carlos",
@@ -75,7 +91,10 @@ class ScrollDoctors extends StatelessWidget {
                   "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
               descricao:
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => PerfilMed()));
+              },
             ),
           ],
         ),
