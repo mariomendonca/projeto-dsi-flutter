@@ -1,7 +1,8 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/screens/Login.dart';
 import 'package:flutter/material.dart';
-import '../LoginPaciente.dart';
+
 import 'input_cadastro.dart';
 
 class CadastroPac extends StatefulWidget {
@@ -174,15 +175,16 @@ class CadastroPacState extends State<CadastroPac> {
               Padding(
                 padding: const EdgeInsets.only(top: 26, right: 14, left: 14),
                 child: ButtonPadrao(
-                    text: "Finalizar",
-                    press: () {
-                      final isValid = formKey.currentState.validate();
-                      Navigator.of(context).push(
+                  text: "Finalizar",
+                  press: () {
+                    // final isValid = formKey.currentState.validate();
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                      builder: (context) => LoginPac(),
-                       ),
-                      );
-                    }),
+                        builder: (context) => Login(),
+                      ),
+                    );
+                  },
+                ),
               ),
               Spacer()
             ],

@@ -172,10 +172,10 @@ class CadastroMedState extends State<CadastroMed> {
               child: ButtonPadrao(
                   text: "Avançar",
                   press: () {
+                    // final isValid = formKeyMed.currentState.validate();
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder: (context) => CadastroMed2(),
-                        //final isValid = formKeyMed.currentState.validate();
                       ),
                     );
                   }),

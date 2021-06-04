@@ -1,5 +1,5 @@
 import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/screens/ConsultaMarcando/body.dart';
+import 'package:cmedapp/screens/MarcandoConsulta/body.dart';
 
 import 'package:cmedapp/screens/PerfilMed/descricao.dart';
 import 'package:cmedapp/screens/PerfilMed/email_and_phone.dart';
@@ -76,9 +76,9 @@ class BodyPerfilMed extends StatelessWidget {
             child: ButtonPadrao(
               text: "Avançar",
               press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => MarcandoConsultaPage()));
-                    },
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MarcandoConsultaPage()));
+              },
             ),
           ),
         ],

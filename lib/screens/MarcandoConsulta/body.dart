@@ -1,48 +1,165 @@
+import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/screens/MarcandoConsulta/label_marcando_consulta.dart';
-import 'package:cmedapp/screens/MarcandoConsulta/text_confirmacao.dart';
+
+import 'package:cmedapp/screens/ConsultaMarcada/marcar_consulta.dart';
+import 'package:cmedapp/screens/MarcandoConsulta/schedulesBox.dart';
+
 import 'package:flutter/material.dart';
 
-class BodyMarcandoConsulta extends StatelessWidget {
-  const BodyMarcandoConsulta({
-    Key key,
-  }) : super(key: key);
-
+class MarcandoConsultaPage extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height,
-      width: size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(
-              40,
-            ),
-            topRight: Radius.circular(40)),
-        color: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(size.height * 0.3),
+        child: MyAppBar(),
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: LabelMarcandoConsulta(),
+      body: Container(
+        height: size.height,
+        width: size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(
+                40,
+              ),
+              topRight: Radius.circular(40)),
+          color: Colors.white,
+        ),
+        child: ListView(children: <Widget>[
+          Column(
+            children: [
+              Container(
+                width: size.width * 0.8,
+                margin: EdgeInsets.only(top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Marcando consulta",
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Spacer(),
-          TextConfirmaConsulta(
-            nome: "Isadora",
-            sobrenome: "Tavares",
-            horario: "18h ás 19h",
-            dia: "sábado",
+          Column(
+            children: [
+              Container(
+                width: size.width * 0.8,
+                margin: EdgeInsets.only(top: 20, bottom: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.normal),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          Spacer(),
+          Column(
+            children: [
+              Container(
+                width: size.width * 0.8,
+                margin: EdgeInsets.only(top: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Horários disponíveis",
+                      style:
+                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: ButtonPadrao(
-              text: "Marcar consulta",
-              press: () {},
-            ),
-          )
-        ],
+            padding: const EdgeInsets.only(top: 30),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              SchedulesBox(
+                from: "8",
+                to: "9",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "10",
+                to: "11",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "14",
+                to: "15",
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              SchedulesBox(
+                from: "16",
+                to: "17",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "17",
+                to: "18",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "18",
+                to: "19",
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              SchedulesBox(
+                from: "19",
+                to: "20",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "20",
+                to: "21",
+              ),
+              SizedBox(width: size.width * 0.1),
+              SchedulesBox(
+                from: "21",
+                to: "22",
+              ),
+            ]),
+          ),
+          Container(
+              width: size.width * 0.8,
+              margin: EdgeInsets.only(top: 50),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ButtonPadrao(
+                        text: "Marcar consulta",
+                        press: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ConsultaMarcada(),
+                            ),
+                          );
+                        }),
+                  ])),
+        ]),
       ),
     );
   }

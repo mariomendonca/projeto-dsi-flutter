@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import '../components/Logo.dart';
 import 'Home/Home.dart';
 
-class LoginPac extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _LoginPacState createState() => _LoginPacState();
+  _LoginState createState() => _LoginState();
 }
 
-class _LoginPacState extends State<LoginPac> {
+class _LoginState extends State<Login> {
   containerHeight(size) {
     double height;
     if (size.height < 600) {

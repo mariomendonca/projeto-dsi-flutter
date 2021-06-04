@@ -1,11 +1,10 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
+import 'package:cmedapp/screens/Login.dart';
 
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
-
-import '../LoginPaciente.dart';
 
 class CadastroMed2 extends StatefulWidget {
   @override
@@ -193,10 +192,17 @@ class CadastroMed2State extends State<CadastroMed2> {
                           right: 14,
                           left: 14,
                         ),
-                        child: ButtonPadrao(text: "Finalizar", press: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => LoginPac()));
-                        }),
+                        child: ButtonPadrao(
+                            text: "Finalizar",
+                            press: () {
+                              // final isValid =
+                              //     formKeyMed2.currentState.validate();
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => Login(),
+                                ),
+                              );
+                            }),
                       ),
                       Spacer()
                     ],
