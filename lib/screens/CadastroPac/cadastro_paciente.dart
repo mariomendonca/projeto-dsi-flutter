@@ -177,10 +177,11 @@ class CadastroPacState extends State<CadastroPac> {
                     text: "Finalizar",
                     press: () {
                       final isValid = formKey.currentState.validate();
+
                       Navigator.of(context).push(
-                      MaterialPageRoute(
-                      builder: (context) => LoginPac(),
-                       ),
+                        MaterialPageRoute(
+                          builder: (context) => LoginPac(),
+                        ),
                       );
                     }),
               ),

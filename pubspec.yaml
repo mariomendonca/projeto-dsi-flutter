@@ -13,6 +13,8 @@ dependencies:
   auto_size_text: ^2.1.0
   cupertino_icons: ^1.0.1
   weekday_selector: ^1.0.0
+  cloud_firestore: ^2.2.2
+  http:
 
 dev_dependencies:
   flutter_test:

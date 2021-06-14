@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1054186509728",
+    "firebase_url": "https://cmed-ae22c-default-rtdb.firebaseio.com",
+    "project_id": "cmed-ae22c",
+    "storage_bucket": "cmed-ae22c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1054186509728:android:87ef8f5cad1eb7e2e180c5",
+        "android_client_info": {
+          "package_name": "com.example.cmedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1054186509728-qip9ukal6lti1t2u0djk5o4at9jnni67.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cmedapp",
+            "certificate_hash": "da6353bd15908c72b8e4fc76d828e2e9447fb22f"
+          }
+        },
+        {
+          "client_id": "1054186509728-ccq4c2v97r9r3cpf1p9j01pqschhohme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlpitLtD-TLVz3jqeLEU1gW44JCHBTsBs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1054186509728-ccq4c2v97r9r3cpf1p9j01pqschhohme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
