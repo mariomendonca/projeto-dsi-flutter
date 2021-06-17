@@ -1,6 +1,8 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/screens/CadastroMed/model.dart';
 import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
+import 'package:cmedapp/screens/CadastroPac/model.dart';
 import 'package:flutter/material.dart';
 import 'cadastro_med_p2.dart';
 
@@ -10,13 +12,40 @@ class CadastroMed extends StatefulWidget {
 }
 
 class CadastroMedState extends State<CadastroMed> {
-  GlobalKey<FormState> formKeyMed = new GlobalKey();
+  GlobalKey<FormState> _formKeyMed = new GlobalKey();
 
-  final TextEditingController cpfcontroladormed = TextEditingController();
+  final TextEditingController controllerCpf = TextEditingController();
+  final TextEditingController controllerNome = TextEditingController();
+  final TextEditingController controllerSobrenome = TextEditingController();
+  final TextEditingController controllerCell = TextEditingController();
+  final TextEditingController controllerEspecialidade = TextEditingController();
+  final TextEditingController controllerSenha = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerConfirmPass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    String validarcpf(String value) {
+    var confirmp;
+
+    bool validateAndPass() {
+      if (_formKeyMed.currentState.validate()) {
+        _formKeyMed.currentState.save();
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    String confirmarSenha(value) {
+      if (value.isEmpty) {
+        return "Este campo não pode estar vazio. *";
+      } else if (value != confirmp) {
+        return "As senhas devem ser iguais! *";
+      }
+      return null;
+    }
+
+    String validarCpf(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (value.length < 10) {
@@ -26,7 +55,7 @@ class CadastroMedState extends State<CadastroMed> {
       }
     }
 
-    String validarespec(String value) {
+    String validarCell(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (value.length < 10) {
@@ -36,7 +65,7 @@ class CadastroMedState extends State<CadastroMed> {
       }
     }
 
-    String validaremailmed(String value) {
+    String validarEmailmed(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (!(value.contains('@') && value.contains('.com'))) {
@@ -46,17 +75,18 @@ class CadastroMedState extends State<CadastroMed> {
       }
     }
 
-    String validarsenhamed(String value) {
+    String validarSenhamed(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (value.length < 8) {
         return "A senha deve conter no minimo 8 digitos";
       } else {
+        confirmp = value;
         return null;
       }
     }
 
-    String validarnomemed(String value) {
+    String validarNomemed(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (value.length < 2) {
@@ -66,7 +96,7 @@ class CadastroMedState extends State<CadastroMed> {
       }
     }
 
-    String validarsobrenomemed(String value) {
+    String validarSobrenomemed(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
       } else if (value.length < 2) {
@@ -74,6 +104,23 @@ class CadastroMedState extends State<CadastroMed> {
       } else {
         return null;
       }
+    }
+
+    void guardarValor() {
+      String nome = controllerNome.text.trim();
+      String sobrenome = controllerSobrenome.text.trim();
+      String email = controllerEmail.text.trim();
+      String senha = controllerSenha.text.trim();
+      String especialidade = controllerEspecialidade.text.trim();
+      String cpf = controllerCpf.text.trim();
+      String telefone = controllerCell.text.trim();
+      print(nome);
+      print(sobrenome);
+      print(email);
+      print(senha);
+      print(especialidade);
+      print(cpf);
+      print(telefone);
     }
 
     var size = MediaQuery.of(context).size;
@@ -84,7 +131,7 @@ class CadastroMedState extends State<CadastroMed> {
         child: MyAppBar(),
       ),
       body: Form(
-        key: formKeyMed,
+        key: _formKeyMed,
         child: Container(
           height: size.height,
           width: size.width,
@@ -103,7 +150,8 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Nome",
                 hint: "Digite seu nome",
                 senha: false,
-                validador: validarnomemed,
+                validador: validarNomemed,
+                controlador: controllerNome,
               ),
             ),
             Spacer(),
@@ -113,7 +161,8 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Sobrenome",
                 hint: "Digite seu sobrenome",
                 senha: false,
-                validador: validarsobrenomemed,
+                validador: validarSobrenomemed,
+                controlador: controllerSobrenome,
               ),
             ),
             Spacer(),
@@ -123,7 +172,8 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Email",
                 hint: "exemplo@dominio.com",
                 senha: false,
-                validador: validaremailmed,
+                validador: validarEmailmed,
+                controlador: controllerEmail,
               ),
             ),
             Spacer(),
@@ -133,7 +183,9 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "CPF",
                 hint: "Apenas os números",
                 senha: false,
-                validador: validarcpf,
+                validador: validarCpf,
+                controlador: controllerCpf,
+                numeromaximo: 11,
               ),
             ),
             Spacer(),
@@ -143,7 +195,19 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Especialidade",
                 hint: "Digite sua especialidade",
                 senha: false,
-                validador: validarespec,
+                controlador: controllerEspecialidade,
+              ),
+            ),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
+              child: InputCadastro(
+                label: "Telefone",
+                hint: "Digite seu telefone",
+                senha: true,
+                validador: validarCell,
+                controlador: controllerCell,
+                numeromaximo: 11,
               ),
             ),
             Spacer(),
@@ -153,7 +217,8 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Senha",
                 hint: "No mínimo 8 dígitos",
                 senha: true,
-                validador: validarsenhamed,
+                validador: validarSenhamed,
+                controlador: controllerSenha,
               ),
             ),
             Spacer(),
@@ -163,7 +228,8 @@ class CadastroMedState extends State<CadastroMed> {
                 label: "Confirmar senha",
                 hint: "Confirme sua senha",
                 senha: true,
-                validador: validarsenhamed,
+                validador: confirmarSenha,
+                controlador: controllerConfirmPass,
               ),
             ),
             Spacer(),
@@ -172,12 +238,23 @@ class CadastroMedState extends State<CadastroMed> {
               child: ButtonPadrao(
                   text: "Avançar",
                   press: () {
+                    validateAndPass();
+                    if (validateAndPass()) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CadastroMed2(
+                              controllerNome.text,
+                              controllerSobrenome.text,
+                              controllerCell.text,
+                              controllerCpf.text,
+                              controllerEspecialidade.text,
+                              controllerSenha.text,
+                              controllerEmail.text),
+                        ),
+                      );
+                    }
+
                     // final isValid = formKeyMed.currentState.validate();
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => CadastroMed2(),
-                      ),
-                    );
                   }),
             ),
           ]),

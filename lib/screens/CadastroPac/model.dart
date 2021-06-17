@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+var _db = FirebaseFirestore.instance;
+
 class Pacientes {
   String nome;
   String sobrenome;
@@ -20,5 +22,17 @@ class Pacientes {
       "senha": senha,
       "email": email,
     };
+  }
+
+  addInfo1(cpf) {
+    var medico = Pacientes(
+      nome,
+      sobrenome,
+      telefone,
+      cpf,
+      senha,
+      email,
+    );
+    _db.collection("pacientes").doc(cpf).set(medico.toMap());
   }
 }

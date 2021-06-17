@@ -1,8 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+var _db = FirebaseFirestore.instance;
+
 class Medicos {
   String nome;
   String sobrenome;
   String telefone;
   String cpf;
+  String especialidade;
   String senha;
   String email;
   String endereco;
@@ -22,7 +27,8 @@ class Medicos {
       this.endereco,
       this.fimExpediente,
       this.inicioExpediente,
-      this.numero);
+      this.numero,
+      this.especialidade);
 
   Map<String, dynamic> toMap() {
     return {
@@ -30,6 +36,7 @@ class Medicos {
       "sobrenome": sobrenome,
       "telefone": telefone,
       "cpf": cpf,
+      "especialidade": especialidade,
       "senha": senha,
       "email": email,
       "endereco": endereco,
@@ -38,5 +45,11 @@ class Medicos {
       "fimExpediente": fimExpediente,
       "descricao": descricao,
     };
+  }
+
+  addInfo(cpf) {
+    var medico = Medicos(nome, sobrenome, telefone, cpf, especialidade, senha,
+        email, endereco, numero, inicioExpediente, fimExpediente, descricao);
+    _db.collection("medicos").doc(cpf).set(medico.toMap());
   }
 }

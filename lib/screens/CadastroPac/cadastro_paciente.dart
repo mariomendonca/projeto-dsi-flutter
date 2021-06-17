@@ -1,5 +1,6 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/screens/CadastroPac/model.dart';
 import 'package:cmedapp/screens/Login.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,27 @@ class CadastroPac extends StatefulWidget {
 class CadastroPacState extends State<CadastroPac> {
   GlobalKey<FormState> formKey = new GlobalKey();
 
-  final TextEditingController cpfcontrolador = TextEditingController();
+  final TextEditingController controllerNome = TextEditingController();
+  final TextEditingController controllerSobrenome = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerSenha = TextEditingController();
+  final TextEditingController controllerCell = TextEditingController();
+  final TextEditingController controllerCpf = TextEditingController();
+  final TextEditingController controllerConfirmPass = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var confirmp;
+
+    bool validateAndSave() {
+      if (formKey.currentState.validate()) {
+        formKey.currentState.save();
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     String validarcpf(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
@@ -25,6 +43,15 @@ class CadastroPacState extends State<CadastroPac> {
       } else {
         return null;
       }
+    }
+
+    String confirmarSenha(value) {
+      if (value.isEmpty) {
+        return "Este campo não pode estar vazio. *";
+      } else if (value != confirmp) {
+        return "As senhas devem ser iguais! *";
+      }
+      return null;
     }
 
     String validarcelular(String value) {
@@ -53,6 +80,7 @@ class CadastroPacState extends State<CadastroPac> {
       } else if (value.length < 8) {
         return "A senha deve conter no minimo 8 digitos";
       } else {
+        confirmp = value;
         return null;
       }
     }
@@ -106,6 +134,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "Digite seu nome",
                   senha: false,
                   validador: validarnome,
+                  controlador: controllerNome,
                 ),
               ),
               Spacer(),
@@ -116,6 +145,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "Digite seu nome",
                   senha: false,
                   validador: validarsobrenome,
+                  controlador: controllerSobrenome,
                 ),
               ),
               Spacer(),
@@ -126,6 +156,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "exemplo@dominio.com",
                   senha: false,
                   validador: validaremail,
+                  controlador: controllerEmail,
                 ),
               ),
               Spacer(),
@@ -138,6 +169,7 @@ class CadastroPacState extends State<CadastroPac> {
                   tipodeteclado: TextInputType.number,
                   numeromaximo: 11,
                   validador: validarcpf,
+                  controlador: controllerCpf,
                 ),
               ),
               Spacer(),
@@ -149,6 +181,7 @@ class CadastroPacState extends State<CadastroPac> {
                   senha: false,
                   numeromaximo: 11,
                   validador: validarcelular,
+                  controlador: controllerCell,
                 ),
               ),
               Spacer(),
@@ -159,6 +192,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "No mínimo 8 dígitos",
                   senha: true,
                   validador: validarsenha,
+                  controlador: controllerSenha,
                 ),
               ),
               Spacer(),
@@ -169,6 +203,7 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "Confirme sua senha",
                   senha: true,
                   validador: validarsenha,
+                  controlador: controllerConfirmPass,
                 ),
               ),
               Spacer(),
@@ -177,12 +212,24 @@ class CadastroPacState extends State<CadastroPac> {
                 child: ButtonPadrao(
                   text: "Finalizar",
                   press: () {
+                    validateAndSave();
+                    if (validateAndSave()) {
+                      Pacientes(
+                              controllerNome.text.trim(),
+                              controllerSobrenome.text.trim(),
+                              controllerCell.text,
+                              controllerCpf.text,
+                              controllerEmail.text.trim(),
+                              controllerSenha.text)
+                          .addInfo1(controllerCpf.text);
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => Login(),
+                        ),
+                      );
+                    }
+
                     // final isValid = formKey.currentState.validate();
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => Login(),
-                      ),
-                    );
                   },
                 ),
               ),

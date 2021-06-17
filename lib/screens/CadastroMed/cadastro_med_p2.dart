@@ -1,5 +1,6 @@
 import 'package:cmedapp/components/AppBarWithLogo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/screens/CadastroMed/model.dart';
 import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
 import 'package:cmedapp/screens/Login.dart';
 
@@ -7,17 +8,49 @@ import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 
 class CadastroMed2 extends StatefulWidget {
+  String nome;
+  String sobrenome;
+  String telefone;
+  String cpf;
+  String especialidade;
+  String senha;
+  String email;
+
+  CadastroMed2(
+    this.nome,
+    this.sobrenome,
+    this.telefone,
+    this.cpf,
+    this.especialidade,
+    this.senha,
+    this.email,
+  );
+
   @override
   CadastroMed2State createState() => CadastroMed2State();
 }
 
 class CadastroMed2State extends State<CadastroMed2> {
-  GlobalKey<FormState> formKeyMed2 = new GlobalKey();
+  GlobalKey<FormState> _formKeyMed2 = new GlobalKey();
 
-  final TextEditingController cpfcontroladormed2 = TextEditingController();
+  final TextEditingController _controllerEndereco = TextEditingController();
+  final TextEditingController _controllerNumero = TextEditingController();
+  final TextEditingController _controllerInicioExpediente =
+      TextEditingController();
+  final TextEditingController _controllerFimExpediente =
+      TextEditingController();
+  final TextEditingController _controllerDescricao = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    bool validate() {
+      if (_formKeyMed2.currentState.validate()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
     String validarend(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
@@ -77,7 +110,7 @@ class CadastroMed2State extends State<CadastroMed2> {
           child: MyAppBar(),
         ),
         body: Form(
-          key: formKeyMed2,
+          key: _formKeyMed2,
           child: Container(
             height: size.height,
             width: size.width,
@@ -115,6 +148,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                           hint: "Rua dos bobos",
                           senha: false,
                           validador: validarend,
+                          controlador: _controllerEndereco,
                         ),
                       ),
                       Spacer(),
@@ -126,6 +160,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                           hint: "290",
                           senha: false,
                           validador: validarnum,
+                          controlador: _controllerNumero,
                         ),
                       ),
                       Spacer(),
@@ -158,6 +193,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 hint: "00:00",
                                 senha: false,
                                 validador: validarinicio,
+                                controlador: _controllerInicioExpediente,
                               ),
                             ),
                             Container(
@@ -167,6 +203,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 hint: "00:00",
                                 senha: false,
                                 validador: validarfim,
+                                controlador: _controllerFimExpediente,
                               ),
                             ),
                           ],
@@ -183,6 +220,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                             hint: "Conte-nos um pouco sobre você",
                             senha: false,
                             validador: validardesc,
+                            controlador: _controllerDescricao,
                           ),
                         ),
                       ),
@@ -195,13 +233,28 @@ class CadastroMed2State extends State<CadastroMed2> {
                         child: ButtonPadrao(
                             text: "Finalizar",
                             press: () {
-                              // final isValid =
-                              //     formKeyMed2.currentState.validate();
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => Login(),
-                                ),
-                              );
+                              validate();
+                              if (validate()) {
+                                _formKeyMed2.currentState.save();
+                                Medicos(
+                                        widget.nome,
+                                        widget.sobrenome,
+                                        widget.telefone,
+                                        widget.cpf,
+                                        widget.email,
+                                        widget.senha,
+                                        _controllerDescricao.text,
+                                        _controllerEndereco.text,
+                                        _controllerFimExpediente.text,
+                                        _controllerInicioExpediente.text,
+                                        _controllerNumero.text,
+                                        widget.especialidade)
+                                    .addInfo(widget.cpf);
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                      builder: (context) => Login()),
+                                );
+                              }
                             }),
                       ),
                       Spacer()
