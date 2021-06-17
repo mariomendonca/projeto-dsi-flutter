@@ -38,7 +38,7 @@ class CadastroPacState extends State<CadastroPac> {
     String validarcpf(String value) {
       if (value.isEmpty) {
         return "Esse campo não pode estar vazio";
-      } else if (value.length < 10) {
+      } else if (value.length != 11) {
         return "Preencha os 11 digitos do seu Cpf";
       } else {
         return null;
@@ -202,7 +202,7 @@ class CadastroPacState extends State<CadastroPac> {
                   label: "Confirmar senha",
                   hint: "Confirme sua senha",
                   senha: true,
-                  validador: validarsenha,
+                  validador: confirmarSenha,
                   controlador: controllerConfirmPass,
                 ),
               ),
