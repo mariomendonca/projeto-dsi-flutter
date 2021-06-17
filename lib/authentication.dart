@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+FirebaseAuth auth = FirebaseAuth.instance;
+
 addUser(email, password) {
-  FirebaseAuth auth = FirebaseAuth.instance;
   auth
       .createUserWithEmailAndPassword(email: email, password: password)
       .then((firebaseUser) {

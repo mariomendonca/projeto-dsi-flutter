@@ -1,6 +1,5 @@
 // import 'package:cmedapp/screens/CadastroMed.dart';
 // import 'package:cmedapp/screens/Paci.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/screens/Login.dart';
 import 'package:cmedapp/screens/SecondPage.dart';
 import 'package:cmedapp/components/Logo.dart';
