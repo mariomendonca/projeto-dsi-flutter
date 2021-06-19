@@ -1,3 +1,4 @@
+import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
 import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
@@ -63,7 +64,7 @@ class _LoginState extends State<Login> {
   }
 }
 
-class LoginArea extends StatelessWidget {
+class LoginArea extends StatefulWidget {
   const LoginArea({
     Key key,
     @required this.size,
@@ -72,7 +73,48 @@ class LoginArea extends StatelessWidget {
   final Size size;
 
   @override
+  _LoginAreaState createState() => _LoginAreaState();
+}
+
+class _LoginAreaState extends State<LoginArea> {
+  GlobalKey<FormState> formLoginKey = new GlobalKey();
+
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerSenha = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
+///// conferir se os dados existem
+
+    bool validateAndConfirm() {
+      if (formLoginKey.currentState.validate()) {
+        formLoginKey.currentState.save();
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    String validaremail(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (!(value.contains('@') && value.contains('.com'))) {
+        return "Digite um email válido ";
+      } else {
+        return null;
+      }
+    }
+
+    String validarsenha(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 8) {
+        return "A senha deve conter no minimo 8 digitos";
+      } else {
+        return null;
+      }
+    }
+
     submitButton(size) {
       if (size.width > 300) {
         return Row(
@@ -104,8 +146,11 @@ class LoginArea extends StatelessWidget {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Home()));
+                  validateAndConfirm();
+                  if (validateAndConfirm()) {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/login', (Route<dynamic> route) => false);
+                  }
                 },
                 child: Text("Entrar"),
                 style: ElevatedButton.styleFrom(
@@ -171,56 +216,57 @@ class LoginArea extends StatelessWidget {
       }
     }
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 40, right: 35, left: 35),
-          child: Container(
-            margin: EdgeInsets.only(bottom: 40),
-            child: Text(
-              "Seja bem-vindo(a) de volta",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+    return Form(
+      key: formLoginKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40, right: 35, left: 35),
+            child: Container(
+              margin: EdgeInsets.only(bottom: 40),
+              child: Text(
+                "Seja bem-vindo(a) de volta",
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
+              ),
             ),
           ),
-        ),
-        Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20),
-            child: Container(
-              height: 55,
-              child: TextFormField(
-                style: TextStyle(color: Colors.tealAccent[700]),
-                keyboardType: TextInputType.emailAddress,
-                obscureText: false,
-                autofocus: false,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    labelText: 'E-mail'),
-              ),
-            )),
-        SizedBox(
-          height: 30,
-        ),
-        Padding(
-            padding: const EdgeInsets.only(right: 20, left: 20),
-            child: Container(
-              height: 55,
-              child: TextFormField(
-                style: TextStyle(color: Colors.tealAccent[700]),
-                keyboardType: TextInputType.emailAddress,
-                obscureText: true,
-                autofocus: false,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    labelText: 'Senha'),
-              ),
-            )),
-        Padding(padding: const EdgeInsets.all(20), child: submitButton(size))
-      ],
+          Padding(
+              padding: const EdgeInsets.only(right: 20, left: 20),
+              child: Container(
+                height: 55,
+
+                //// criar formulario
+                child: InputCadastro(
+                  label: "Email",
+                  hint: "exemplo@dominio.com",
+                  senha: false,
+                  validador: validaremail,
+                  controlador: controllerEmail,
+                ),
+              )),
+          SizedBox(
+            height: 30,
+          ),
+          Padding(
+              padding: const EdgeInsets.only(right: 20, left: 20),
+              child: Container(
+                height: 55,
+
+                ////criar formulario
+                child: InputCadastro(
+                  label: "Senha",
+                  hint: "No mínimo 8 dígitos",
+                  senha: true,
+                  validador: validarsenha,
+                  controlador: controllerSenha,
+                ),
+              )),
+          Padding(
+              padding: const EdgeInsets.all(20),
+              child: submitButton(widget.size))
+        ],
+      ),
     );
   }
 }
