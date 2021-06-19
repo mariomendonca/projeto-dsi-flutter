@@ -222,11 +222,8 @@ class CadastroPacState extends State<CadastroPac> {
                               controllerEmail.text.trim(),
                               controllerSenha.text)
                           .addInfo1(controllerCpf.text);
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => Login(),
-                        ),
-                      );
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/login', (Route<dynamic> route) => false);
                     }
 
                     // final isValid = formKey.currentState.validate();

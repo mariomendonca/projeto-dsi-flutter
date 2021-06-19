@@ -142,8 +142,8 @@ class LoginArea extends StatelessWidget {
                 ),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => Home()));
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/home', (Route<dynamic> route) => false);
                   },
                   child: Text("Entrar"),
                   style: ElevatedButton.styleFrom(

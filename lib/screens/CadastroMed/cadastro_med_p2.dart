@@ -250,10 +250,8 @@ class CadastroMed2State extends State<CadastroMed2> {
                                         _controllerNumero.text,
                                         widget.especialidade)
                                     .addInfo(widget.cpf);
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) => Login()),
-                                );
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    '/login', (Route<dynamic> route) => false);
                               }
                             }),
                       ),
