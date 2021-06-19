@@ -1,4 +1,5 @@
-import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
+import 'package:cmedapp/components/input.dart';
+
 import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
@@ -219,7 +220,6 @@ class _LoginAreaState extends State<LoginArea> {
     return Form(
       key: formLoginKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 40, right: 35, left: 35),
@@ -232,12 +232,12 @@ class _LoginAreaState extends State<LoginArea> {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20),
+              padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
               child: Container(
                 height: 55,
 
                 //// criar formulario
-                child: InputCadastro(
+                child: Input(
                   label: "Email",
                   hint: "exemplo@dominio.com",
                   senha: false,
@@ -249,12 +249,12 @@ class _LoginAreaState extends State<LoginArea> {
             height: 30,
           ),
           Padding(
-              padding: const EdgeInsets.only(right: 20, left: 20),
+              padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
               child: Container(
                 height: 55,
 
                 ////criar formulario
-                child: InputCadastro(
+                child: Input(
                   label: "Senha",
                   hint: "No mínimo 8 dígitos",
                   senha: true,

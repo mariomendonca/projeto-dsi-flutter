@@ -1,4 +1,4 @@
-import 'package:cmedapp/components/AppBarWithLogo.dart';
+import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/screens/CadastroMed/cadastro_med_p1.dart';
 import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 

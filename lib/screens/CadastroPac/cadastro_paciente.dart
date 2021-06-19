@@ -1,10 +1,10 @@
-import 'package:cmedapp/components/AppBarWithLogo.dart';
+import 'package:cmedapp/authentication.dart';
+import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/screens/CadastroPac/model.dart';
-import 'package:cmedapp/screens/Login.dart';
-import 'package:flutter/material.dart';
 
-import 'input_cadastro.dart';
+import 'package:flutter/material.dart';
 
 class CadastroPac extends StatefulWidget {
   @override
@@ -25,6 +25,18 @@ class CadastroPacState extends State<CadastroPac> {
   @override
   Widget build(BuildContext context) {
     var confirmp;
+
+    void registerUser() {
+      Pacientes(
+              controllerNome.text.trim(),
+              controllerSobrenome.text.trim(),
+              controllerCell.text,
+              controllerCpf.text,
+              controllerEmail.text.trim(),
+              controllerSenha.text)
+          .addInfo(controllerCpf.text);
+      addUser(controllerEmail.text.trim(), controllerSenha.text);
+    }
 
     bool validateAndSave() {
       if (formKey.currentState.validate()) {
@@ -129,7 +141,7 @@ class CadastroPacState extends State<CadastroPac> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Nome",
                   hint: "Digite seu nome",
                   senha: false,
@@ -140,7 +152,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Sobrenome",
                   hint: "Digite seu nome",
                   senha: false,
@@ -151,7 +163,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Email",
                   hint: "exemplo@dominio.com",
                   senha: false,
@@ -162,7 +174,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "CPF",
                   hint: "Apenas os números",
                   senha: false,
@@ -175,7 +187,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Telefone",
                   hint: "(81)99999-9999",
                   senha: false,
@@ -187,7 +199,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Senha",
                   hint: "No mínimo 8 dígitos",
                   senha: true,
@@ -198,7 +210,7 @@ class CadastroPacState extends State<CadastroPac> {
               Spacer(),
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-                child: InputCadastro(
+                child: Input(
                   label: "Confirmar senha",
                   hint: "Confirme sua senha",
                   senha: true,
@@ -214,14 +226,7 @@ class CadastroPacState extends State<CadastroPac> {
                   press: () {
                     validateAndSave();
                     if (validateAndSave()) {
-                      Pacientes(
-                              controllerNome.text.trim(),
-                              controllerSobrenome.text.trim(),
-                              controllerCell.text,
-                              controllerCpf.text,
-                              controllerEmail.text.trim(),
-                              controllerSenha.text)
-                          .addInfo1(controllerCpf.text);
+                      registerUser();
                       Navigator.of(context).pushNamedAndRemoveUntil(
                           '/login', (Route<dynamic> route) => false);
                     }

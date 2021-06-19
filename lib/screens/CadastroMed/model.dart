@@ -47,9 +47,9 @@ class Medicos {
     };
   }
 
-  addInfo(cpf) {
+  addInfo(email) {
     var medico = Medicos(nome, sobrenome, telefone, cpf, especialidade, senha,
         email, endereco, numero, inicioExpediente, fimExpediente, descricao);
-    _db.collection("medicos").doc(cpf).set(medico.toMap());
+    _db.collection("medicos").doc(email).set(medico.toMap());
   }
 }

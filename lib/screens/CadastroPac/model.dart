@@ -24,8 +24,8 @@ class Pacientes {
     };
   }
 
-  addInfo1(cpf) {
-    var medico = Pacientes(
+  addInfo(email) {
+    var paciente = Pacientes(
       nome,
       sobrenome,
       telefone,
@@ -33,6 +33,6 @@ class Pacientes {
       senha,
       email,
     );
-    _db.collection("pacientes").doc(cpf).set(medico.toMap());
+    _db.collection("pacientes").doc(email).set(paciente.toMap());
   }
 }

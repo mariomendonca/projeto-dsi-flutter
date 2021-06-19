@@ -1,10 +1,9 @@
 import 'package:cmedapp/screens/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/screens/CadastroMed/cadastro_med_p1.dart';
-import 'package:cmedapp/screens/CadastroMed/cadastro_med_p2.dart';
 import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
 import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:cmedapp/screens/Home/Home.dart';
-import 'package:cmedapp/screens/Login.dart';
+import 'package:cmedapp/screens/login_page.dart';
 import 'package:cmedapp/screens/SecondPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

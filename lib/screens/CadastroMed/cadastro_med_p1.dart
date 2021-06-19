@@ -1,7 +1,8 @@
-import 'package:cmedapp/components/AppBarWithLogo.dart';
+import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/screens/CadastroMed/model.dart';
-import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
+
 import 'package:cmedapp/screens/CadastroPac/model.dart';
 import 'package:flutter/material.dart';
 import 'cadastro_med_p2.dart';
@@ -146,7 +147,7 @@ class CadastroMedState extends State<CadastroMed> {
           child: ListView(children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Nome",
                 hint: "Digite seu nome",
                 senha: false,
@@ -157,7 +158,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Sobrenome",
                 hint: "Digite seu sobrenome",
                 senha: false,
@@ -168,7 +169,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Email",
                 hint: "exemplo@dominio.com",
                 senha: false,
@@ -179,7 +180,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "CPF",
                 hint: "Apenas os números",
                 senha: false,
@@ -191,7 +192,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Especialidade",
                 hint: "Digite sua especialidade",
                 senha: false,
@@ -201,7 +202,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Telefone",
                 hint: "Digite seu telefone",
                 senha: true,
@@ -213,7 +214,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Senha",
                 hint: "No mínimo 8 dígitos",
                 senha: true,
@@ -224,7 +225,7 @@ class CadastroMedState extends State<CadastroMed> {
             Spacer(),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
-              child: InputCadastro(
+              child: Input(
                 label: "Confirmar senha",
                 hint: "Confirme sua senha",
                 senha: true,

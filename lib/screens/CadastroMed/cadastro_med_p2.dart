@@ -1,9 +1,8 @@
-import 'package:cmedapp/components/AppBarWithLogo.dart';
+import 'package:cmedapp/authentication.dart';
+import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/screens/CadastroMed/model.dart';
-import 'package:cmedapp/screens/CadastroPac/input_cadastro.dart';
-import 'package:cmedapp/screens/Login.dart';
-
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 
@@ -43,6 +42,24 @@ class CadastroMed2State extends State<CadastroMed2> {
 
   @override
   Widget build(BuildContext context) {
+    void registrarUser() {
+      Medicos(
+              widget.nome,
+              widget.sobrenome,
+              widget.telefone,
+              widget.cpf,
+              widget.email,
+              widget.senha,
+              _controllerDescricao.text,
+              _controllerEndereco.text,
+              _controllerFimExpediente.text,
+              _controllerInicioExpediente.text,
+              _controllerNumero.text,
+              widget.especialidade)
+          .addInfo(widget.email);
+      addUser(widget.email, widget.senha);
+    }
+
     bool validate() {
       if (_formKeyMed2.currentState.validate()) {
         return true;
@@ -143,7 +160,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 10, right: 14, left: 14),
-                        child: InputCadastro(
+                        child: Input(
                           label: "Endereço",
                           hint: "Rua dos bobos",
                           senha: false,
@@ -155,7 +172,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 10, right: 14, left: 14),
-                        child: InputCadastro(
+                        child: Input(
                           label: "Número",
                           hint: "290",
                           senha: false,
@@ -188,7 +205,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                           children: [
                             Container(
                               width: size.width * 0.40,
-                              child: InputCadastro(
+                              child: Input(
                                 label: "Início de expediente",
                                 hint: "00:00",
                                 senha: false,
@@ -198,7 +215,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                             ),
                             Container(
                               width: size.width * 0.40,
-                              child: InputCadastro(
+                              child: Input(
                                 label: "Fim de expediente",
                                 hint: "00:00",
                                 senha: false,
@@ -215,7 +232,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                         child: Padding(
                           padding: const EdgeInsets.only(
                               top: 10, right: 14, left: 14),
-                          child: InputCadastro(
+                          child: Input(
                             label: "Descrição",
                             hint: "Conte-nos um pouco sobre você",
                             senha: false,
@@ -236,20 +253,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                               validate();
                               if (validate()) {
                                 _formKeyMed2.currentState.save();
-                                Medicos(
-                                        widget.nome,
-                                        widget.sobrenome,
-                                        widget.telefone,
-                                        widget.cpf,
-                                        widget.email,
-                                        widget.senha,
-                                        _controllerDescricao.text,
-                                        _controllerEndereco.text,
-                                        _controllerFimExpediente.text,
-                                        _controllerInicioExpediente.text,
-                                        _controllerNumero.text,
-                                        widget.especialidade)
-                                    .addInfo(widget.cpf);
+                                registrarUser();
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     '/login', (Route<dynamic> route) => false);
                               }

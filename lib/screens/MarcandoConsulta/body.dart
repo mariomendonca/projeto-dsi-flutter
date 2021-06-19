@@ -1,4 +1,4 @@
-import 'package:cmedapp/components/AppBarWithLogo.dart';
+import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 
 import 'package:cmedapp/screens/ConsultaMarcada/marcar_consulta.dart';
