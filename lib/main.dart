@@ -1,13 +1,13 @@
-import 'package:cmedapp/screens/AllDoctors/all_doctors.dart';
-import 'package:cmedapp/screens/CadastroMed/view/cadastro_med_p1.dart';
-import 'package:cmedapp/screens/CadastroPac/view.dart';
-import 'package:cmedapp/screens/EsqueceuSenha.dart';
-import 'package:cmedapp/screens/Home/Home.dart';
-import 'package:cmedapp/screens/login_page.dart';
-import 'package:cmedapp/screens/SecondPage.dart';
+import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
+import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
+import 'package:cmedapp/src/CadastroPac/view.dart';
+import 'package:cmedapp/src/EsqueceuSenha.dart';
+import 'package:cmedapp/src/Home/Home.dart';
+import 'package:cmedapp/src/login_page.dart';
+import 'package:cmedapp/src/SecondPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:cmedapp/screens/FirstPage.dart';
+import 'package:cmedapp/src/FirstPage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
