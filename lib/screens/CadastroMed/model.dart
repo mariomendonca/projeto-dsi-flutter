@@ -1,4 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cmedapp/authentication.dart';
+import 'package:cmedapp/screens/CadastroPac/model.dart';
+
+import 'controller.dart';
 
 var _db = FirebaseFirestore.instance;
 
@@ -54,3 +58,97 @@ class Medicos {
     _db.collection("medicos").doc(email).set(medico.toMap());
   }
 }
+
+var confirmp;
+
+void registerUser() {
+      Pacientes(
+              controllerNome.text.trim(),
+              controllerSobrenome.text.trim(),
+              controllerCell.text,
+              controllerCpf.text,
+              controllerEmail.text.trim(),
+              controllerSenha.text)
+          .addInfo(controllerCpf.text);
+      addUser(controllerEmail.text.trim(), controllerSenha.text);
+    }
+
+bool validateAndSave() {
+      var formKey;
+      if (formKey.currentState.validate()) {
+        formKey.currentState.save();
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+String validarcpf(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length != 11) {
+        return "Preencha os 11 digitos do seu Cpf";
+      } else {
+        return null;
+      }
+    }
+
+String confirmarSenha(value) {
+      if (value.isEmpty) {
+        return "Este campo não pode estar vazio. *";
+      } else if (value != confirmp) {
+        return "As senhas devem ser iguais! *";
+      }
+      return null;
+    }
+
+String validarcelular(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 10) {
+        return "Preencha os 11 digitos do seu telefone";
+      } else {
+        return null;
+      }
+    }
+
+String validaremail(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (!(value.contains('@') && value.contains('.com'))) {
+        return "Digite um email válido ";
+      } else {
+        return null;
+      }
+    }
+
+String validarsenha(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 8) {
+        return "A senha deve conter no minimo 8 digitos";
+      } else {
+        confirmp = value;
+        return null;
+      }
+    }
+
+String validarnome(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 2) {
+        return "Insira um nome valido";
+      } else {
+        return null;
+      }
+    }
+
+String validarsobrenome(String value) {
+      if (value.isEmpty) {
+        return "Esse campo não pode estar vazio";
+      } else if (value.length < 2) {
+        return "Insira um sobrenome valido";
+      } else {
+        return null;
+      }
+    }

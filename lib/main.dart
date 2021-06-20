@@ -1,6 +1,6 @@
 import 'package:cmedapp/screens/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/screens/CadastroMed/view/cadastro_med_p1.dart';
-import 'package:cmedapp/screens/CadastroPac/cadastro_paciente.dart';
+import 'package:cmedapp/screens/CadastroPac/view.dart';
 import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:cmedapp/screens/Home/Home.dart';
 import 'package:cmedapp/screens/login_page.dart';
