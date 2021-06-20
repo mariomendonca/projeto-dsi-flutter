@@ -5,7 +5,9 @@ import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/screens/CadastroMed/model.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
+import 'package:cmedapp/screens/CadastroMed/controller.dart';
 
+// ignore: must_be_immutable
 class CadastroMed2 extends StatefulWidget {
   String nome;
   String sobrenome;
@@ -31,15 +33,6 @@ class CadastroMed2 extends StatefulWidget {
 
 class CadastroMed2State extends State<CadastroMed2> {
   GlobalKey<FormState> _formKeyMed2 = new GlobalKey();
-
-  final TextEditingController _controllerEndereco = TextEditingController();
-  final TextEditingController _controllerNumero = TextEditingController();
-  final TextEditingController _controllerInicioExpediente =
-      TextEditingController();
-  final TextEditingController _controllerFimExpediente =
-      TextEditingController();
-  final TextEditingController _controllerDescricao = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     void registrarUser() {
@@ -50,11 +43,11 @@ class CadastroMed2State extends State<CadastroMed2> {
               widget.cpf,
               widget.email,
               widget.senha,
-              _controllerDescricao.text,
-              _controllerEndereco.text,
-              _controllerFimExpediente.text,
-              _controllerInicioExpediente.text,
-              _controllerNumero.text,
+              controllerDescricao.text,
+              controllerEndereco.text,
+              controllerFimExpediente.text,
+              controllerInicioExpediente.text,
+              controllerNumero.text,
               widget.especialidade)
           .addInfo(widget.email);
       addUser(widget.email, widget.senha);
@@ -165,7 +158,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                           hint: "Rua dos bobos",
                           senha: false,
                           validador: validarend,
-                          controlador: _controllerEndereco,
+                          controlador: controllerEndereco,
                         ),
                       ),
                       Spacer(),
@@ -177,7 +170,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                           hint: "290",
                           senha: false,
                           validador: validarnum,
-                          controlador: _controllerNumero,
+                          controlador: controllerNumero,
                         ),
                       ),
                       Spacer(),
@@ -210,7 +203,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 hint: "00:00",
                                 senha: false,
                                 validador: validarinicio,
-                                controlador: _controllerInicioExpediente,
+                                controlador: controllerInicioExpediente,
                               ),
                             ),
                             Container(
@@ -220,7 +213,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 hint: "00:00",
                                 senha: false,
                                 validador: validarfim,
-                                controlador: _controllerFimExpediente,
+                                controlador: controllerFimExpediente,
                               ),
                             ),
                           ],
@@ -237,7 +230,7 @@ class CadastroMed2State extends State<CadastroMed2> {
                             hint: "Conte-nos um pouco sobre você",
                             senha: false,
                             validador: validardesc,
-                            controlador: _controllerDescricao,
+                            controlador: controllerDescricao,
                           ),
                         ),
                       ),

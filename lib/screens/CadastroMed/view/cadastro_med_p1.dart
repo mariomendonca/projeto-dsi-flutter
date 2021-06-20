@@ -1,9 +1,7 @@
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
-import 'package:cmedapp/screens/CadastroMed/model.dart';
-
-import 'package:cmedapp/screens/CadastroPac/model.dart';
+import 'package:cmedapp/screens/CadastroMed/controller.dart';
 import 'package:flutter/material.dart';
 import 'cadastro_med_p2.dart';
 
@@ -14,16 +12,6 @@ class CadastroMed extends StatefulWidget {
 
 class CadastroMedState extends State<CadastroMed> {
   GlobalKey<FormState> _formKeyMed = new GlobalKey();
-
-  final TextEditingController controllerCpf = TextEditingController();
-  final TextEditingController controllerNome = TextEditingController();
-  final TextEditingController controllerSobrenome = TextEditingController();
-  final TextEditingController controllerCell = TextEditingController();
-  final TextEditingController controllerEspecialidade = TextEditingController();
-  final TextEditingController controllerSenha = TextEditingController();
-  final TextEditingController controllerEmail = TextEditingController();
-  final TextEditingController controllerConfirmPass = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     var confirmp;
@@ -107,22 +95,6 @@ class CadastroMedState extends State<CadastroMed> {
       }
     }
 
-    void guardarValor() {
-      String nome = controllerNome.text.trim();
-      String sobrenome = controllerSobrenome.text.trim();
-      String email = controllerEmail.text.trim();
-      String senha = controllerSenha.text.trim();
-      String especialidade = controllerEspecialidade.text.trim();
-      String cpf = controllerCpf.text.trim();
-      String telefone = controllerCell.text.trim();
-      print(nome);
-      print(sobrenome);
-      print(email);
-      print(senha);
-      print(especialidade);
-      print(cpf);
-      print(telefone);
-    }
 
     var size = MediaQuery.of(context).size;
     return Scaffold(

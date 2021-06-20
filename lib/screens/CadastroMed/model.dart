@@ -36,20 +36,21 @@ class Medicos {
       "sobrenome": sobrenome,
       "telefone": telefone,
       "cpf": cpf,
-      "especialidade": especialidade,
+      "especialidade": descricao, //descricao
       "senha": senha,
-      "email": email,
+      "email": especialidade, // especialidade
       "endereco": endereco,
-      "numero": numero,
+      "numero": fimExpediente, //fimExpediente
       "inicioExpediente": inicioExpediente,
-      "fimExpediente": fimExpediente,
-      "descricao": descricao,
+      "fimExpediente": numero, //numero
+      "descricao": email, //email
     };
   }
 
   addInfo(email) {
     var medico = Medicos(nome, sobrenome, telefone, cpf, especialidade, senha,
         email, endereco, numero, inicioExpediente, fimExpediente, descricao);
+    print(medico.toMap());
     _db.collection("medicos").doc(email).set(medico.toMap());
   }
 }

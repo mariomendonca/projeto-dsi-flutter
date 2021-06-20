@@ -4,7 +4,6 @@ import 'package:cmedapp/screens/EsqueceuSenha.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
-import 'Home/Home.dart';
 
 class Login extends StatefulWidget {
   @override
