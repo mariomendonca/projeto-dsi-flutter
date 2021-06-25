@@ -11,3 +11,13 @@ addUser(email, password) {
     print("Novo usuário: erro" + erro.toString());
   });
 }
+
+signIn(email, password) {
+  auth
+      .signInWithEmailAndPassword(email: email, password: password)
+      .then((firebaseUser) {
+    return print("Logged in");
+  }).catchError((erro) {
+    print("Não logou");
+  });
+}

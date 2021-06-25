@@ -58,17 +58,3 @@ class Medicos {
     _db.collection("medicos").doc(email).set(medico.toMap());
   }
 }
-
-var confirmp;
-
-void registerUser() {
-  Pacientes(
-          controllerNome.text.trim(),
-          controllerSobrenome.text.trim(),
-          controllerCell.text,
-          controllerCpf.text,
-          controllerEmail.text.trim(),
-          controllerSenha.text)
-      .addInfo(controllerCpf.text);
-  addUser(controllerEmail.text.trim(), controllerSenha.text);
-}

@@ -1,9 +1,11 @@
+import 'package:cmedapp/authentication.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
-import 'package:cmedapp/components/validate.dart';
-import 'package:cmedapp/src/CadastroMed/model.dart';
+
 import 'package:cmedapp/src/CadastroPac/controller.dart';
+import 'package:cmedapp/src/CadastroPac/model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,11 +17,40 @@ class CadastroPac extends StatefulWidget {
 }
 
 class CadastroPacState extends State<CadastroPac> {
-  GlobalKey<FormState> formKey = new GlobalKey();
+  final _firebase = FirebaseAuth.instance;
+  GlobalKey<FormState> _formKey = new GlobalKey();
+  final TextEditingController controllerNome = TextEditingController();
+  final TextEditingController controllerSobrenome = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerSenha = TextEditingController();
+  final TextEditingController controllerCell = TextEditingController();
+  final TextEditingController controllerCpf = TextEditingController();
+  final TextEditingController controllerConfirmPass = TextEditingController();
+  bool validateAndSave() {
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void registerUser() {
+    Pacientes(
+      controllerNome.text.trim(),
+      controllerSobrenome.text.trim(),
+      controllerCell.text,
+      controllerCpf.text,
+      controllerSenha.text,
+      controllerEmail.text.trim(),
+    ).addInfo(controllerEmail.text);
+    addUser(controllerEmail.text.trim(), controllerSenha.text);
+  }
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       appBar: PreferredSize(
@@ -27,7 +58,7 @@ class CadastroPacState extends State<CadastroPac> {
         child: MyAppBar(),
       ),
       body: Form(
-        key: formKey,
+        key: _formKey,
         child: Container(
           height: size.height,
           width: size.width,
@@ -127,6 +158,7 @@ class CadastroPacState extends State<CadastroPac> {
                   text: "Finalizar",
                   press: () {
                     validateAndSave();
+                    print("aqui");
                     if (validateAndSave()) {
                       registerUser();
                       Navigator.of(context).pushNamedAndRemoveUntil(

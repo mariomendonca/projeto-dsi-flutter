@@ -10,8 +10,8 @@ class Pacientes {
   String senha;
   String email;
 
-  Pacientes(this.nome, this.sobrenome, this.telefone, this.cpf, this.email,
-      this.senha);
+  Pacientes(this.nome, this.sobrenome, this.telefone, this.cpf, this.senha,
+      this.email);
 
   Map<String, dynamic> toMap() {
     return {

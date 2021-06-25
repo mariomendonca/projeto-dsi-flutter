@@ -1,3 +1,4 @@
+import 'package:cmedapp/authentication.dart';
 import 'package:cmedapp/components/input.dart';
 
 import 'package:cmedapp/src/EsqueceuSenha.dart';
@@ -148,6 +149,7 @@ class _LoginAreaState extends State<LoginArea> {
                 onPressed: () {
                   validateAndConfirm();
                   if (validateAndConfirm()) {
+                    signIn(controllerEmail.text, controllerSenha.text);
                     Navigator.of(context).pushNamedAndRemoveUntil(
                         '/login', (Route<dynamic> route) => false);
                   }
