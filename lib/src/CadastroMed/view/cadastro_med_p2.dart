@@ -33,6 +33,13 @@ class CadastroMed2 extends StatefulWidget {
 
 class CadastroMed2State extends State<CadastroMed2> {
   GlobalKey<FormState> _formKeyMed2 = new GlobalKey();
+  final TextEditingController controllerEndereco = TextEditingController();
+  final TextEditingController controllerNumero = TextEditingController();
+  final TextEditingController controllerInicioExpediente =
+      TextEditingController();
+  final TextEditingController controllerFimExpediente = TextEditingController();
+  final TextEditingController controllerDescricao = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     void registrarUser() {
@@ -58,56 +65,6 @@ class CadastroMed2State extends State<CadastroMed2> {
         return true;
       } else {
         return false;
-      }
-    }
-
-    String validarend(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira um endereço valido";
-      } else {
-        return null;
-      }
-    }
-
-    String validarnum(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira um numero de enreço valido";
-      } else {
-        return null;
-      }
-    }
-
-    String validarinicio(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira o horario de inicio do seu expediente";
-      } else {
-        return null;
-      }
-    }
-
-    String validarfim(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira o horario final do seu expediente";
-      } else {
-        return null;
-      }
-    }
-
-    String validardesc(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Faça uma breve descrição sobre você";
-      } else {
-        return null;
       }
     }
 

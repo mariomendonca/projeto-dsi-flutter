@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
     } else if (size.width < 400 && size.height >= 640 && size.height < 800) {
       height = size.height * 0.70;
     } else {
-      height = size.height * 0.60;
+      height = size.height * 0.65;
     }
     return height;
   }
@@ -147,11 +147,11 @@ class _LoginAreaState extends State<LoginArea> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  validateAndConfirm();
+                  print(signIn(controllerEmail.text, controllerSenha.text));
+
                   if (validateAndConfirm()) {
-                    signIn(controllerEmail.text, controllerSenha.text);
                     Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/login', (Route<dynamic> route) => false);
+                        '/home', (Route<dynamic> route) => false);
                   }
                 },
                 child: Text("Entrar"),

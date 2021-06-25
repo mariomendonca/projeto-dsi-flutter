@@ -12,86 +12,22 @@ class CadastroMed extends StatefulWidget {
 
 class CadastroMedState extends State<CadastroMed> {
   GlobalKey<FormState> _formKeyMed = new GlobalKey();
+  final TextEditingController controllerCpf = TextEditingController();
+  final TextEditingController controllerNome = TextEditingController();
+  final TextEditingController controllerSobrenome = TextEditingController();
+  final TextEditingController controllerCell = TextEditingController();
+  final TextEditingController controllerEspecialidade = TextEditingController();
+  final TextEditingController controllerSenha = TextEditingController();
+  final TextEditingController controllerEmail = TextEditingController();
+  final TextEditingController controllerConfirmPass = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var confirmp;
-
     bool validateAndPass() {
       if (_formKeyMed.currentState.validate()) {
         _formKeyMed.currentState.save();
         return true;
       } else {
         return false;
-      }
-    }
-
-    String confirmarSenha(value) {
-      if (value.isEmpty) {
-        return "Este campo não pode estar vazio. *";
-      } else if (value != confirmp) {
-        return "As senhas devem ser iguais! *";
-      }
-      return null;
-    }
-
-    String validarCpf(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 10) {
-        return "Preencha os 11 digitos do seu Cpf";
-      } else {
-        return null;
-      }
-    }
-
-    String validarCell(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 10) {
-        return "Preencha os 11 digitos do seu telefone";
-      } else {
-        return null;
-      }
-    }
-
-    String validarEmailmed(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (!(value.contains('@') && value.contains('.com'))) {
-        return "Digite um email válido ";
-      } else {
-        return null;
-      }
-    }
-
-    String validarSenhamed(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 8) {
-        return "A senha deve conter no minimo 8 digitos";
-      } else {
-        confirmp = value;
-        return null;
-      }
-    }
-
-    String validarNomemed(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira um nome valido";
-      } else {
-        return null;
-      }
-    }
-
-    String validarSobrenomemed(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 2) {
-        return "Insira um sobrenome valido";
-      } else {
-        return null;
       }
     }
 

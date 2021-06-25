@@ -12,12 +12,17 @@ addUser(email, password) {
   });
 }
 
-signIn(email, password) {
-  auth
-      .signInWithEmailAndPassword(email: email, password: password)
-      .then((firebaseUser) {
-    return print("Logged in");
-  }).catchError((erro) {
-    print("Não logou");
-  });
+Future<void> signIn(email, password) async {
+  try {
+    // ignore: unused_local_variable
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
+    return 'entrou';
+  } on FirebaseAuthException catch (e) {
+    if (e.code == 'user-not-found') {
+      return 'não existe';
+    } else if (e.code == 'wrong-password') {
+      return 'senha errada';
+    }
+  }
 }

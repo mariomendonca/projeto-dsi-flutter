@@ -8,6 +8,7 @@ class EsqueceuSenha extends StatefulWidget {
 }
 
 class _EsqueceuSenhaState extends State<EsqueceuSenha> {
+  GlobalKey<FormState> _formKey = new GlobalKey();
   containerHeight(size) {
     double height;
     if (size.height < 600) {
@@ -101,6 +102,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var _formkey;
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
       body: ListView(
@@ -126,63 +128,66 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 50, right: 35, left: 35),
-                        child: Container(
-                          margin: EdgeInsets.only(bottom: 40),
-                          child: Text(
-                            "Esqueceu sua senha?",
-                            style: TextStyle(
-                                fontSize: 35, fontWeight: FontWeight.w700),
+                  child: Form(
+                    key: _formkey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 50, right: 35, left: 35),
+                          child: Container(
+                            margin: EdgeInsets.only(bottom: 40),
+                            child: Text(
+                              "Esqueceu sua senha?",
+                              style: TextStyle(
+                                  fontSize: 35, fontWeight: FontWeight.w700),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.only(right: 20, left: 20),
-                          child: Container(
-                            height: 55,
-                            child: TextFormField(
-                              style: TextStyle(color: Colors.tealAccent[700]),
-                              keyboardType: TextInputType.emailAddress,
-                              obscureText: false,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  labelText: 'E-mail',
-                                  hintText: "exemplo@dominio.com"),
-                            ),
-                          )),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Padding(
-                          padding: const EdgeInsets.only(right: 20, left: 20),
-                          child: Container(
-                            height: 55,
-                            child: TextFormField(
-                              style: TextStyle(color: Colors.tealAccent[700]),
-                              keyboardType: TextInputType.emailAddress,
-                              obscureText: true,
-                              autofocus: false,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  labelText: 'Nova senha',
-                                  hintText:
-                                      "Sua senha deve conter no mínimo 8 dígitos"),
-                            ),
-                          )),
-                      Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: submitButton(size))
-                    ],
+                        Padding(
+                            padding: const EdgeInsets.only(right: 20, left: 20),
+                            child: Container(
+                              height: 55,
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.tealAccent[700]),
+                                keyboardType: TextInputType.emailAddress,
+                                obscureText: false,
+                                autofocus: false,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    labelText: 'E-mail',
+                                    hintText: "exemplo@dominio.com"),
+                              ),
+                            )),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.only(right: 20, left: 20),
+                            child: Container(
+                              height: 55,
+                              child: TextFormField(
+                                style: TextStyle(color: Colors.tealAccent[700]),
+                                keyboardType: TextInputType.emailAddress,
+                                obscureText: true,
+                                autofocus: false,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    labelText: 'Nova senha',
+                                    hintText:
+                                        "Sua senha deve conter no mínimo 8 dígitos"),
+                              ),
+                            )),
+                        Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: submitButton(size))
+                      ],
+                    ),
                   ),
                 ),
               ],

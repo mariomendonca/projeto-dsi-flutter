@@ -158,7 +158,7 @@ class CadastroPacState extends State<CadastroPac> {
                   text: "Finalizar",
                   press: () {
                     validateAndSave();
-                    print("aqui");
+
                     if (validateAndSave()) {
                       registerUser();
                       Navigator.of(context).pushNamedAndRemoveUntil(
