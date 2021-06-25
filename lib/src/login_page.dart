@@ -147,11 +147,11 @@ class _LoginAreaState extends State<LoginArea> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  print(signIn(controllerEmail.text, controllerSenha.text));
-
                   if (validateAndConfirm()) {
-                    Navigator.of(context).pushNamedAndRemoveUntil(
-                        '/home', (Route<dynamic> route) => false);
+                    print(signIn(controllerEmail.text, controllerSenha.text));
+                    print(error);
+                    // Navigator.of(context).pushNamedAndRemoveUntil(
+                    //     '/home', (Route<dynamic> route) => false);
                   }
                 },
                 child: Text("Entrar"),
