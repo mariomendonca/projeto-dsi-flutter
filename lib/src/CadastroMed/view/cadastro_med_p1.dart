@@ -112,7 +112,7 @@ class CadastroMedState extends State<CadastroMed> {
               child: Input(
                 label: "Telefone",
                 hint: "Digite seu telefone",
-                senha: true,
+                senha: false,
                 validador: validarCell,
                 controlador: controllerCell,
                 numeromaximo: 11,

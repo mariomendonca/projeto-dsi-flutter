@@ -1,4 +1,5 @@
 import 'package:cmedapp/authentication.dart';
+import 'package:cmedapp/components/alertDialog.dart';
 import 'package:cmedapp/components/input.dart';
 
 import 'package:cmedapp/src/EsqueceuSenha.dart';
@@ -84,6 +85,25 @@ class _LoginAreaState extends State<LoginArea> {
   final TextEditingController controllerSenha = TextEditingController();
 
   @override
+  // ignore: override_on_non_overriding_member
+  void _showDialog(text) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Alert_Box(
+            buttons: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                        "/login", (Route<dynamic> route) => false);
+                  },
+                  child: Text("Voltar", style: TextStyle()))
+            ],
+            text: text,
+          );
+        });
+  }
+
   Widget build(BuildContext context) {
 ///// conferir se os dados existem
 
@@ -148,10 +168,15 @@ class _LoginAreaState extends State<LoginArea> {
               child: ElevatedButton(
                 onPressed: () {
                   if (validateAndConfirm()) {
-                    print(signIn(controllerEmail.text, controllerSenha.text));
-                    print(error);
-                    // Navigator.of(context).pushNamedAndRemoveUntil(
-                    //     '/home', (Route<dynamic> route) => false);
+                    if (signIn(controllerEmail.text, controllerSenha.text) ==
+                        'entrou') {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          "/home", (Route<dynamic> route) => false);
+                    } else {
+                      _showDialog(error);
+
+                      print(error);
+                    }
                   }
                 },
                 child: Text("Entrar"),

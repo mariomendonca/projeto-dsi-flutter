@@ -27,7 +27,7 @@ Future<void> signIn(email, password) async {
         break;
       case "ERROR_WRONG_PASSWORD":
       case "wrong-password":
-        error = "Combinação de e-mail/senha incorreta.";
+        error = "Dados Inválidos, tente novamente.";
 
         break;
       case "ERROR_USER_NOT_FOUND":
