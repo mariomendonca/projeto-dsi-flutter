@@ -5,9 +5,11 @@ import 'package:cmedapp/src/EsqueceuSenha.dart';
 import 'package:cmedapp/src/Home/Home.dart';
 import 'package:cmedapp/src/login_page.dart';
 import 'package:cmedapp/src/SecondPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cmedapp/src/FirstPage.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,21 +20,44 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'C-MED',
-        theme: ThemeData(
-            primaryColor: Colors.tealAccent[700], fontFamily: 'Inter'),
-        routes: {
-          "/homePage": (context) => MyHomePage(),
-          "/secondPage": (context) => SecondPage(),
-          "/cadastroPac": (context) => CadastroPac(),
-          "/cadastroMed1": (context) => CadastroMed(),
-          "/login": (context) => Login(),
-          "/home": (context) => Home(),
-          "/esqueceuSenha": (context) => EsqueceuSenha(),
-          "/doctors": (context) => AllDoctors(),
-        },
-        home: MyHomePage());
+    return MultiProvider(
+      providers: [
+        Provider<AuthenticationService>(
+          create: (_) => AuthenticationService(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          create: (context) =>
+              context.read<AuthenticationService>().authStateChanges,
+        )
+      ],
+      child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'C-MED',
+          theme: ThemeData(
+              primaryColor: Colors.tealAccent[700], fontFamily: 'Inter'),
+          routes: {
+            "/homePage": (context) => MyHomePage(),
+            "/secondPage": (context) => SecondPage(),
+            "/cadastroPac": (context) => CadastroPac(),
+            "/cadastroMed1": (context) => CadastroMed(),
+            "/login": (context) => Login(),
+            "/home": (context) => Home(),
+            "/esqueceuSenha": (context) => EsqueceuSenha(),
+            "/doctors": (context) => AllDoctors(),
+          },
+          home: MyHomePage()),
+    );
+  }
+}
+
+class Authenticate extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
+    if (firebaseUser != null) {
+      return Home();
+    }
+    return Login();
   }
 }
