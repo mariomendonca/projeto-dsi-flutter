@@ -168,14 +168,14 @@ class _LoginAreaState extends State<LoginArea> {
               child: ElevatedButton(
                 onPressed: () {
                   if (validateAndConfirm()) {
-                    if (signIn(controllerEmail.text, controllerSenha.text) ==
-                        'entrou') {
+                    signIn(controllerEmail.text, controllerSenha.text);
+                    // ignore: unrelated_type_equality_checks
+                    print('-------------------------'+ error + '-------------------------');
+                    if (error == 'entrou') {
                       Navigator.of(context).pushNamedAndRemoveUntil(
                           "/home", (Route<dynamic> route) => false);
                     } else {
                       _showDialog(error);
-
-                      print(error);
                     }
                   }
                 },
@@ -258,10 +258,9 @@ class _LoginAreaState extends State<LoginArea> {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+              padding: const EdgeInsets.only(right: 14, left: 14),
               child: Container(
                 height: 55,
-
                 //// criar formulario
                 child: Input(
                   label: "Email",
@@ -272,13 +271,12 @@ class _LoginAreaState extends State<LoginArea> {
                 ),
               )),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           Padding(
-              padding: const EdgeInsets.only(top: 10, right: 14, left: 14),
+              padding: const EdgeInsets.only(top: 5, right: 14, left: 14),
               child: Container(
                 height: 55,
-
                 ////criar formulario
                 child: Input(
                   label: "Senha",

@@ -1,12 +1,8 @@
-// import 'package:cmedapp/screens/CadastroMed.dart';
-// import 'package:cmedapp/screens/Paci.dart';
 import 'package:cmedapp/src/login_page.dart';
 import 'package:cmedapp/src/SecondPage.dart';
 import 'package:cmedapp/components/Logo.dart';
 
 import 'package:flutter/material.dart';
-
-// import 'package:cmedapp/screens/CadastroMedP2.dart';
 
 class MyHomePage extends StatefulWidget {
   @override

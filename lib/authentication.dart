@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 String error;
 FirebaseAuth auth = FirebaseAuth.instance;
@@ -15,9 +16,8 @@ addUser(email, password) {
 
 Future<void> signIn(email, password) async {
   try {
-    UserCredential userCredential = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
-    return 'entrou';
+    auth.signInWithEmailAndPassword(email: email, password: password);
+    error = 'entrou';
   } on FirebaseAuthException catch (e) {
     switch (e.code) {
       case "ERROR_EMAIL_ALREADY_IN_USE":

@@ -1,3 +1,4 @@
+import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
 import 'package:cmedapp/src/CadastroPac/view.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) =>
               context.read<AuthenticationService>().authStateChanges,
+          initialData: null,
         )
       ],
       child: MaterialApp(
