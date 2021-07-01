@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/authentication.dart';
 import 'package:cmedapp/src/CadastroPac/model.dart';
-
 import 'controller.dart';
 
 var _db = FirebaseFirestore.instance;

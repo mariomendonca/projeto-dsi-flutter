@@ -1,11 +1,15 @@
-import 'package:cmedapp/authentication.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/components/alertDialog.dart';
 import 'package:cmedapp/components/input.dart';
 
 import 'package:cmedapp/src/EsqueceuSenha.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
+
+FirebaseAuth auth = FirebaseAuth.instance;
 
 class Login extends StatefulWidget {
   @override
@@ -136,7 +140,19 @@ class _LoginAreaState extends State<LoginArea> {
       }
     }
 
-    submitButton(size) {
+    Future<void> loginUser(context) async {
+      String erro;
+      if (validateAndConfirm()) {
+        var user = AuthenticationService();
+        erro = await user.signIn(
+            email: controllerEmail.text.trim(),
+            password: controllerSenha.text.trim());
+        // ignore: await_only_futures
+        await print(erro);
+      }
+    }
+
+    submitButton(size, context) {
       if (size.width > 300) {
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,16 +182,18 @@ class _LoginAreaState extends State<LoginArea> {
                 color: Colors.white,
               ),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (validateAndConfirm()) {
-                    signIn(controllerEmail.text, controllerSenha.text);
-                    // ignore: unrelated_type_equality_checks
-                    print('-------------------------'+ error + '-------------------------');
-                    if (error == 'entrou') {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          "/home", (Route<dynamic> route) => false);
+                    var user = AuthenticationService();
+                    var erro2 = await user.signIn(
+                        email: controllerEmail.text.trim(),
+                        password: controllerSenha.text.trim());
+                    if (erro2 != "LogIn") {
+                      print(erro2);
+                      _showDialog(erro2);
                     } else {
-                      _showDialog(error);
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        '/home', (Route<dynamic> route) => false);
                     }
                   }
                 },
@@ -288,7 +306,7 @@ class _LoginAreaState extends State<LoginArea> {
               )),
           Padding(
               padding: const EdgeInsets.all(20),
-              child: submitButton(widget.size))
+              child: submitButton(widget.size, context))
         ],
       ),
     );

@@ -17,7 +17,7 @@ addUser(email, password) {
 Future<void> signIn(email, password) async {
   try {
     auth.signInWithEmailAndPassword(email: email, password: password);
-    error = 'entrou';
+    print('entrou');
   } on FirebaseAuthException catch (e) {
     switch (e.code) {
       case "ERROR_EMAIL_ALREADY_IN_USE":
@@ -57,7 +57,6 @@ Future<void> signIn(email, password) async {
         break;
       default:
         error = "O login falhou, tente novamente.";
-
         break;
     }
   }
