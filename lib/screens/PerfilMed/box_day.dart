@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 class BoxDay extends StatelessWidget {
-  const BoxDay({
-    Key key,
-    this.dia,
-    this.horas,
-  }) : super(key: key);
+  const BoxDay({Key key, this.dia, this.horas, this.active}) : super(key: key);
   final String dia;
   final String horas;
+  final bool active;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +12,7 @@ class BoxDay extends StatelessWidget {
       width: 76,
       height: 43,
       decoration: BoxDecoration(
-        color: Color(0xffEDF3F7),
+        color: this.active ? Color(0xff00BFBA) : Color(0xffEDF3F7),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -27,7 +24,7 @@ class BoxDay extends StatelessWidget {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
-              color: Color(0xff00BFBA),
+              color: this.active ? Color(0xffEDF3F7) : Color(0xff00BFBA),
             ),
           ),
           Text(
@@ -35,7 +32,7 @@ class BoxDay extends StatelessWidget {
             style: TextStyle(
               fontSize: 10,
               fontWeight: FontWeight.w600,
-              color: Color(0xff00BFBA),
+              color: this.active ? Color(0xffEDF3F7) : Color(0xff00BFBA),
             ),
           )
         ],

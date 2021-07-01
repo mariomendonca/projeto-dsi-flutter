@@ -1,6 +1,7 @@
 import 'package:cmedapp/components/recentes.dart';
 import 'package:cmedapp/screens/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/screens/FiltroScreen/filter_screen.dart';
+import 'package:cmedapp/screens/Home/medBox.dart';
 import 'package:cmedapp/screens/PerfilUser/perfil_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -81,72 +82,119 @@ class FilterIcons extends StatelessWidget {
           children: [
             Row(
               children: [
-                IconFilter(
-                    icone: Icons.volunteer_activism_outlined,
-                    especialidade: "Cardiologista",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.volunteer_activism_outlined,
+                  text: 'Cardio',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.monitor_weight_outlined,
-                    especialidade: "Nutricionista",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.monitor_weight_outlined,
+                  text: 'Nutri',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.visibility_outlined,
-                    especialidade: "Oftalmologista",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.visibility_outlined,
+                  text: 'Oftalmo',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.child_friendly_outlined,
-                    especialidade: "Pediatra",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.child_friendly_outlined,
+                  text: 'Pediatra',
+                  active: false,
+                ),
+                SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.volunteer_activism_outlined,
+                //     especialidade: "Cardiologista",
+                //     press: () {
+                //       print('test');
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.monitor_weight_outlined,
+                //     especialidade: "Nutricionista",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.visibility_outlined,
+                //     especialidade: "Oftalmologista",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.child_friendly_outlined,
+                //     especialidade: "Pediatra",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
               ],
             ),
             SizedBox(height: size.height * 0.02),
             Row(
               children: [
-                IconFilter(
-                    icone: Icons.health_and_safety_outlined,
-                    especialidade: "Clínico Geral",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.health_and_safety_outlined,
+                  text: 'Clínico',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.face_outlined,
-                    especialidade: "Dermatologista",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.face_outlined,
+                  text: 'Derma',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.elderly_outlined, especialidade: "Geriatra",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.elderly_outlined,
+                  text: 'Geriatra',
+                  active: false,
+                ),
                 SizedBox(width: size.width * 0.02),
-                IconFilter(
-                    icone: Icons.pregnant_woman_outlined,
-                    especialidade: "Obstetra",
-                    press: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
-                    }),
+                MedBox(
+                  icon: Icons.pregnant_woman_outlined,
+                  text: 'Obstetra',
+                  active: false,
+                ),
+                SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.health_and_safety_outlined,
+                //     especialidade: "Clínico Geral",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.face_outlined,
+                //     especialidade: "Dermatologista",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.elderly_outlined, especialidade: "Geriatra",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
+                // SizedBox(width: size.width * 0.02),
+                // IconFilter(
+                //     icone: Icons.pregnant_woman_outlined,
+                //     especialidade: "Obstetra",
+                //     press: () {
+                //       Navigator.of(context).push(MaterialPageRoute(
+                //           builder: (context) => AllDoctors()));
+                //     }),
               ],
             )
           ],
