@@ -1,4 +1,5 @@
 import 'package:cmedapp/authentication.dart';
+import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
@@ -36,15 +37,18 @@ class CadastroPacState extends State<CadastroPac> {
   }
 
   void registerUser() {
+    var user = AuthenticationService();
     Pacientes(
       controllerNome.text.trim(),
       controllerSobrenome.text.trim(),
-      controllerCell.text,
-      controllerCpf.text,
-      controllerSenha.text,
+      controllerCell.text.trim(),
+      controllerCpf.text.trim(),
+      controllerSenha.text.trim(),
       controllerEmail.text.trim(),
-    ).addInfo(controllerEmail.text);
-    addUser(controllerEmail.text.trim(), controllerSenha.text);
+    ).addInfo(controllerEmail.text.trim());
+    user.signUp(
+        email: controllerEmail.text.trim(),
+        password: controllerSenha.text.trim());
   }
 
   @override

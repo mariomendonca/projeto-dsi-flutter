@@ -57,7 +57,6 @@ class CadastroMed2State extends State<CadastroMed2> {
               controllerNumero.text,
               widget.especialidade)
           .addInfo(widget.email);
-      addUser(widget.email, widget.senha);
     }
 
     bool validate() {
