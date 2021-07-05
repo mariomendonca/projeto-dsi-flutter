@@ -39,14 +39,14 @@ class Medicos {
       "sobrenome": sobrenome,
       "telefone": telefone,
       "cpf": cpf,
-      "especialidade": descricao, //descricao
+      "especialidade": especialidade, //descricao
       "senha": senha,
-      "email": especialidade, // especialidade
+      "email": email, // especialidade
       "endereco": endereco,
-      "numero": fimExpediente, //fimExpediente
+      "numero": numero, //fimExpediente
       "inicioExpediente": inicioExpediente,
-      "fimExpediente": numero, //numero
-      "descricao": email, //email
+      "fimExpediente": fimExpediente, //numero
+      "descricao": descricao, //email
     };
   }
 
