@@ -21,18 +21,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AuthenticationService>(
-          create: (_) => AuthenticationService(),
-        ),
-        StreamProvider(
-          create: (context) =>
-              context.read<AuthenticationService>().authStateChanges,
-          initialData: null,
-        )
-      ],
-      child: MaterialApp(
+    return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'C-MED',
           theme: ThemeData(
@@ -47,7 +36,5 @@ class MyApp extends StatelessWidget {
             "/esqueceuSenha": (context) => EsqueceuSenha(),
             "/doctors": (context) => AllDoctors(),
           },
-          home: MyHomePage()),
-    );
-  }
+          home: MyHomePage()); }
 }

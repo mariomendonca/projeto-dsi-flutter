@@ -16,7 +16,6 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<String, dynamic> data;
-
     return ListView(children: [
       Padding(
           padding: EdgeInsets.all(18),
@@ -231,8 +230,7 @@ class HelloUser extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference user =
-        FirebaseFirestore.instance.collection('pacientes');
+    CollectionReference user = FirebaseFirestore.instance.collection('pacientes');
     return FutureBuilder<DocumentSnapshot>(
         future: user.doc(FirebaseAuth.instance.currentUser.email).get(),
         builder:
@@ -244,7 +242,6 @@ class HelloUser extends StatelessWidget {
           }
           if (snapshot.connectionState == ConnectionState.done) {
             Map<String, dynamic> data = snapshot.data.data();
-
             var nome = data["nome"].toString();
             print(nome);
             return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
