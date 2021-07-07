@@ -192,14 +192,11 @@ class _LoginAreaState extends State<LoginArea> {
                     if (erro2 != "LogIn") {
                       print(erro2);
                       _showDialog(erro2);
-                    } //else {
-                    //Navigator.of(context).pushNamedAndRemoveUntil(
-                    //    '/home', (Route<dynamic> route) => false);
-                    //}
+                    } else {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/home', (Route<dynamic> route) => false);
+                    }
                   }
-                  var user2 = new FirestoreModel(controllerEmail.text.trim(),
-                      password: controllerSenha.text.trim());
-                  user2.getUser();
                 },
                 child: Text("Entrar"),
                 style: ElevatedButton.styleFrom(
