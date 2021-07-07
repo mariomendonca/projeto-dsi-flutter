@@ -1,8 +1,10 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/src/CadastroMed/controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'cadastro_med_p2.dart';
 
 class CadastroMed extends StatefulWidget {
@@ -88,12 +90,15 @@ class CadastroMedState extends State<CadastroMed> {
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
               child: Input(
+                mascara: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  CpfInputFormatter()
+                ],
                 label: "CPF",
                 hint: "Apenas os números",
                 senha: false,
                 validador: validarCpf,
                 controlador: controllerCpf,
-                numeromaximo: 11,
               ),
             ),
             Spacer(),
@@ -110,12 +115,15 @@ class CadastroMedState extends State<CadastroMed> {
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
               child: Input(
+                mascara: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  TelefoneInputFormatter(),
+                ],
                 label: "Telefone",
                 hint: "Digite seu telefone",
                 senha: false,
                 validador: validarCell,
                 controlador: controllerCell,
-                numeromaximo: 11,
               ),
             ),
             Spacer(),

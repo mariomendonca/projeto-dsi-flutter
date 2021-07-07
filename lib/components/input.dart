@@ -1,4 +1,6 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Input extends StatelessWidget {
   const Input({
@@ -11,6 +13,7 @@ class Input extends StatelessWidget {
     this.senha,
     this.validador,
     this.numeromaximo,
+    this.mascara,
   }) : super(key: key);
   final String label;
   final String hint;
@@ -20,9 +23,11 @@ class Input extends StatelessWidget {
   final int numeromaximo;
   final String mensagemErro;
   final controlador;
+  final mascara;
 
   Widget build(BuildContext context) {
     return TextFormField(
+      inputFormatters: mascara,
       style: TextStyle(color: Colors.tealAccent[700]),
       keyboardType: tipodeteclado,
       obscureText: senha,

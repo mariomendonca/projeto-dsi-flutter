@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
@@ -8,6 +9,7 @@ import 'package:cmedapp/src/CadastroPac/model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'controller.dart';
 
@@ -111,11 +113,15 @@ class CadastroPacState extends State<CadastroPac> {
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
                 child: Input(
+                  mascara: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    CpfInputFormatter()
+                  ],
                   label: "CPF",
                   hint: "Apenas os números",
                   senha: false,
                   tipodeteclado: TextInputType.number,
-                  numeromaximo: 11,
+                  numeromaximo: 14,
                   validador: validarcpf,
                   controlador: controllerCpf,
                 ),
@@ -124,10 +130,13 @@ class CadastroPacState extends State<CadastroPac> {
               Padding(
                 padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
                 child: Input(
+                  mascara: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    TelefoneInputFormatter(),
+                  ],
                   label: "Telefone",
                   hint: "(81)99999-9999",
                   senha: false,
-                  numeromaximo: 11,
                   validador: validarcelular,
                   controlador: controllerCell,
                 ),
