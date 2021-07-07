@@ -140,18 +140,6 @@ class _LoginAreaState extends State<LoginArea> {
       }
     }
 
-    Future<void> loginUser(context) async {
-      String erro;
-      if (validateAndConfirm()) {
-        var user = AuthenticationService();
-        erro = await user.signIn(
-            email: controllerEmail.text.trim(),
-            password: controllerSenha.text.trim());
-        // ignore: await_only_futures
-        await print(erro);
-      }
-    }
-
     submitButton(size, context) {
       if (size.width > 300) {
         return Row(

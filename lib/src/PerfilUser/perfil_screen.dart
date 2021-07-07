@@ -1,6 +1,9 @@
+import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/src/PerfilUser/Body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+FirebaseAuth auth = FirebaseAuth.instance;
 
 class PerfilUser extends StatefulWidget {
   @override
@@ -34,6 +37,8 @@ class _PerfilUserState extends State<PerfilUser> {
                         actions: [
                           TextButton(
                               onPressed: () {
+                                var user = AuthenticationService();
+                                user.logOut();
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     '/homePage',
                                     (Route<dynamic> route) => false);

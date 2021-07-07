@@ -35,13 +35,16 @@ class AuthenticationService {
 
   // ignore: missing_return
   Future<String> signUp({String email, String password}) async {
-      return await _firebaseAuth
-          .createUserWithEmailAndPassword(email: email, password: password)
-          .then((firebaseUser) {
-        print('Novo usuario! Email: ' + firebaseUser.user.email);
-      }).catchError((erro) {
-        print("Novo usuário: erro" + erro.toString());
-      });
-    }
+    return await _firebaseAuth
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((firebaseUser) {
+      print('Novo usuario! Email: ' + firebaseUser.user.email);
+    }).catchError((erro) {
+      print("Novo usuário: erro" + erro.toString());
+    });
   }
 
+  logOut() {
+    return _firebaseAuth.signOut();
+  }
+}
