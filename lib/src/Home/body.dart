@@ -1,28 +1,31 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/recentes.dart';
+import 'package:cmedapp/firestore_model.dart';
 import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/src/FiltroScreen/filter_screen.dart';
 import 'package:cmedapp/src/PerfilUser/perfil_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
 
-class Body extends StatelessWidget {
-  const Body({
-    Key key,
-  }) : super(key: key);
+class Body extends StatefulWidget {
+  @override
+  _BodyState createState() => _BodyState();
+}
 
+class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    Map<String, dynamic> data;
+    addUserToLocalStorage();
+    var nome = getUserToLocalStorage('nome');
+
     return ListView(children: [
       Padding(
           padding: EdgeInsets.all(18),
           child: Column(
             children: [
               UserIcon(),
-              HelloUser(),
+              HelloUser(nome),
               SearchBar(),
               Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
               Padding(
@@ -50,10 +53,6 @@ class Body extends StatelessWidget {
 }
 
 class FilterArea extends StatelessWidget {
-  const FilterArea({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -159,10 +158,6 @@ class FilterIcons extends StatelessWidget {
 }
 
 class FilterTitle extends StatelessWidget {
-  const FilterTitle({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -182,10 +177,6 @@ class FilterTitle extends StatelessWidget {
 }
 
 class SearchBar extends StatelessWidget {
-  const SearchBar({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -224,39 +215,19 @@ class SearchBar extends StatelessWidget {
 }
 
 class HelloUser extends StatelessWidget {
-  const HelloUser({
-    Key key,
-  }) : super(key: key);
-
+  String nome;
+  HelloUser(this.nome);
   @override
   Widget build(BuildContext context) {
-    CollectionReference user = FirebaseFirestore.instance.collection('pacientes');
-    return FutureBuilder<DocumentSnapshot>(
-        future: user.doc(FirebaseAuth.instance.currentUser.email).get(),
-        builder:
-            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-          if (snapshot.hasError) {
-            return Text(
-              "",
-            );
-          }
-          if (snapshot.connectionState == ConnectionState.done) {
-            Map<String, dynamic> data = snapshot.data.data();
-            var nome = data["nome"].toString();
-            print(nome);
-            return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Text(
-                'Olá, $nome!',
-                style: TextStyle(
-                    color: Color.fromRGBO(40, 58, 67, 1),
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold),
-              )
-            ]);
-          } else {
-            return new Center(child: CircularProgressIndicator());
-          }
-        });
+    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+      Text(
+        'Olá, ${this.nome}!',
+        style: TextStyle(
+            color: Color.fromRGBO(40, 58, 67, 1),
+            fontSize: 30.0,
+            fontWeight: FontWeight.bold),
+      )
+    ]);
   }
 }
 
