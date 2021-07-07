@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../components/Logo.dart';
@@ -6,6 +7,9 @@ class EsqueceuSenha extends StatefulWidget {
   @override
   _EsqueceuSenhaState createState() => _EsqueceuSenhaState();
 }
+
+String _email;
+final auth = FirebaseAuth.instance;
 
 class _EsqueceuSenhaState extends State<EsqueceuSenha> {
   GlobalKey<FormState> _formKey = new GlobalKey();
@@ -41,7 +45,10 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
               color: Colors.white,
             ),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                auth.sendPasswordResetEmail(email: _email);
+                Navigator.of(context).pop();
+              },
               child: Text("Avançar"),
               style: ElevatedButton.styleFrom(
                 primary: Color.fromRGBO(0, 191, 186, 1),
@@ -56,47 +63,7 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
           )
         ],
       );
-    } else {
-      return Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: 45,
-              margin: EdgeInsets.only(bottom: 10),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.tealAccent[700].withOpacity(0.5),
-                      blurRadius: 5.0,
-                      offset: Offset(0.0, 5.0))
-                ],
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              ),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: Text("Entrar"),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.tealAccent[700],
-                  onPrimary: Colors.white,
-                  onSurface: Colors.grey,
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-            TextButton(
-                onPressed: () {},
-                child: Text(
-                  "Esqueci minha senha",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black),
-                )),
-          ]);
-    }
+    } else {}
   }
 
   @override
@@ -160,29 +127,16 @@ class _EsqueceuSenhaState extends State<EsqueceuSenha> {
                                     ),
                                     labelText: 'E-mail',
                                     hintText: "exemplo@dominio.com"),
+                                onChanged: (value) {
+                                  setState(() {
+                                    _email = value.trim();
+                                  });
+                                },
                               ),
                             )),
                         SizedBox(
                           height: 30,
                         ),
-                        Padding(
-                            padding: const EdgeInsets.only(right: 20, left: 20),
-                            child: Container(
-                              height: 55,
-                              child: TextFormField(
-                                style: TextStyle(color: Colors.tealAccent[700]),
-                                keyboardType: TextInputType.emailAddress,
-                                obscureText: true,
-                                autofocus: false,
-                                decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    labelText: 'Nova senha',
-                                    hintText:
-                                        "Sua senha deve conter no mínimo 8 dígitos"),
-                              ),
-                            )),
                         Padding(
                             padding: const EdgeInsets.all(20),
                             child: submitButton(size))
