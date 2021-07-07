@@ -85,7 +85,7 @@ class FilterIcons extends StatelessWidget {
             Row(
               children: [
                 IconFilter(
-                    icone: Icons.volunteer_activism_outlined,
+                    icone: Icons.volunteer_activism,
                     especialidade: "Cardiologista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(

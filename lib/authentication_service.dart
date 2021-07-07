@@ -1,6 +1,4 @@
-import 'package:cmedapp/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 String erro = '';
 
@@ -35,13 +33,15 @@ class AuthenticationService {
     return erro2;
   }
 
+  // ignore: missing_return
   Future<String> signUp({String email, String password}) async {
-    try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      return "Signed up";
-    } on FirebaseAuthException catch (e) {
-      return e.message;
+      return await _firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((firebaseUser) {
+        print('Novo usuario! Email: ' + firebaseUser.user.email);
+      }).catchError((erro) {
+        print("Novo usuário: erro" + erro.toString());
+      });
     }
   }
-}
+

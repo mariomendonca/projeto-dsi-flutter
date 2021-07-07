@@ -1,4 +1,3 @@
-import 'package:cmedapp/authentication.dart';
 import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
