@@ -43,19 +43,19 @@ class CadastroMed2State extends State<CadastroMed2> {
   Widget build(BuildContext context) {
     void registrarUser() {
       Medicos(
-              widget.nome,
-              widget.sobrenome,
-              widget.telefone,
-              widget.cpf,
-              widget.email,
-              widget.senha,
-              controllerDescricao.text,
-              controllerEndereco.text,
-              controllerFimExpediente.text,
-              controllerInicioExpediente.text,
-              controllerNumero.text,
-              widget.especialidade)
-          .addInfo(widget.email);
+        widget.nome,
+        widget.sobrenome,
+        widget.telefone,
+        widget.cpf,
+        widget.especialidade,
+        widget.senha,
+        widget.email,
+        controllerEndereco.text,
+        controllerNumero.text,
+        controllerInicioExpediente.text,
+        controllerFimExpediente.text,
+        controllerDescricao.text,
+      ).addInfo(widget.email);
     }
 
     bool validate() {
@@ -202,6 +202,12 @@ class CadastroMed2State extends State<CadastroMed2> {
                               if (validate()) {
                                 _formKeyMed2.currentState.save();
                                 registrarUser();
+                                print(widget.nome +
+                                    widget.sobrenome +
+                                    widget.cpf +
+                                    widget.especialidade +
+                                    widget.telefone +
+                                    widget.senha);
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     '/login', (Route<dynamic> route) => false);
                               }

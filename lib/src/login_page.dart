@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/components/alertDialog.dart';
 import 'package:cmedapp/components/input.dart';
-import 'package:cmedapp/firestore_model.dart';
 
 import 'package:cmedapp/src/EsqueceuSenha.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -191,15 +190,14 @@ class _LoginAreaState extends State<LoginArea> {
                         password: controllerSenha.text.trim());
                     if (erro2 != "LogIn") {
                       print(erro2);
-                      _showDialog(erro2);
-                    } //else {
-                    //Navigator.of(context).pushNamedAndRemoveUntil(
-                    //    '/home', (Route<dynamic> route) => false);
-                    //}
+                      _showDialog(
+                        erro2,
+                      );
+                    } else {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          '/home', (Route<dynamic> route) => false);
+                    }
                   }
-                  var user2 = new FirestoreModel(controllerEmail.text.trim(),
-                      password: controllerSenha.text.trim());
-                  user2.getUser();
                 },
                 child: Text("Entrar"),
                 style: ElevatedButton.styleFrom(
