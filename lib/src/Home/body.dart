@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../globals.dart';
 import 'dashboard.dart';
 
 class Body extends StatefulWidget {
@@ -89,7 +88,7 @@ class FilterIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width,
+        width: size.width * 0.8,
         child: Column(
           children: [
             Row(
@@ -237,10 +236,10 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, $nome!',
+      Text('Olá, ${globals.nome}!',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
             color: Color.fromRGBO(40, 58, 67, 1),
+            fontWeight: FontWeight.bold,
             fontSize: 30.0,
           ))
     ]);
