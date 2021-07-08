@@ -5,7 +5,8 @@ import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
 import 'package:flutter/material.dart';
 
 class AllDoctors extends StatefulWidget {
-  const AllDoctors({key}) : super(key: key);
+  final String especialidade;
+  const AllDoctors({key, this.especialidade}) : super(key: key);
 
   @override
   _AllDoctorsState createState() => _AllDoctorsState();

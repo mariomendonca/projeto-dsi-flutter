@@ -96,10 +96,12 @@ class FilterIcons extends StatelessWidget {
               children: [
                 IconFilter(
                     icone: Icons.volunteer_activism,
-                    especialidade: "Cardiologista",
+                    especialidade: "cardiologia",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: "cardiologia",
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
