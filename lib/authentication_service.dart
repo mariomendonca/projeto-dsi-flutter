@@ -25,7 +25,7 @@ class AuthenticationService {
 
           break;
         default:
-          erro2 = "O login falhou, tente novamente.";
+          erro2 = erro.toString();
           break;
       }
     });

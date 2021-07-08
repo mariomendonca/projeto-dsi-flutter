@@ -8,7 +8,7 @@ import 'package:cmedapp/src/SecondPage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cmedapp/src/FirstPage.dart';
-import 'package:localstorage/localstorage.dart';
+import 'globals.dart' as globals;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,8 +19,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final LocalStorage storage = new LocalStorage('localstorage_app');
-
+    globals.user = {};
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'C-MED',

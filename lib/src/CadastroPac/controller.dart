@@ -1,6 +1,3 @@
-import 'package:cmedapp/src/CadastroMed/model.dart';
-import 'package:flutter/material.dart';
-
 var confirmp;
 
 String validarcpf(String value) {

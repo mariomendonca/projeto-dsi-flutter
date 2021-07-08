@@ -2,6 +2,7 @@ import 'package:cmedapp/authentication_service.dart';
 import 'package:cmedapp/src/PerfilUser/Body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cmedapp/globals.dart' as globals;
 
 FirebaseAuth auth = FirebaseAuth.instance;
 

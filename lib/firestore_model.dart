@@ -1,22 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:localstorage/localstorage.dart';
+import 'globals.dart' as globals;
 
-final LocalStorage storage = LocalStorage('localstorage_app');
 
-void addUserToLocalStorage() async {
-  //To do : pegar os dados do usuario do firebase
+addUserToLocalStorage() async {
   CollectionReference user = FirebaseFirestore.instance.collection('pacientes');
   DocumentSnapshot<Object> snapshot =
       await user.doc(FirebaseAuth.instance.currentUser.email).get();
   if (snapshot != null) {
     Map<String, dynamic> data = snapshot.data();
-    storage.setItem('user', data);
+    globals.user = data;
+    globals.nome = await data['nome'];
+    print(data['nome']);
   }
-}
-
-String getUserToLocalStorage(String item) {
-  Map<String, dynamic> info = storage.getItem("user");
-  var dado = info[item];
-  return dado;
 }

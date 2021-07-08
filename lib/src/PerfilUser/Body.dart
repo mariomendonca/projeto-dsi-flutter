@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/recentes.dart';
 import 'package:cmedapp/firestore_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cmedapp/globals.dart' as globals;
 
 class BodyUser extends StatefulWidget {
   @override
@@ -12,7 +11,7 @@ class BodyUser extends StatefulWidget {
 class _BodyUserState extends State<BodyUser> {
   @override
   Widget build(BuildContext context) {
-    var nome = getUserToLocalStorage('nome');
+    var nome = globals.nome;
 
     var sobrenome = getUserToLocalStorage('sobrenome');
     var size = MediaQuery.of(context).size;

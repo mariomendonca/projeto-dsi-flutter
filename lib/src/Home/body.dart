@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/recentes.dart';
 import 'package:cmedapp/firestore_model.dart';
 import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
 import 'package:cmedapp/src/FiltroScreen/filter_screen.dart';
 import 'package:cmedapp/src/PerfilUser/perfil_screen.dart';
+
+import 'package:cmedapp/globals.dart' as globals;
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,41 +20,48 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
+    CollectionReference user =
+        FirebaseFirestore.instance.collection('pacientes');
     addUserToLocalStorage();
-    var nome = getUserToLocalStorage('nome');
-
-    return ListView(children: [
-      Padding(
-          padding: EdgeInsets.all(18),
-          child: Column(
-            children: [
-              UserIcon(),
-              HelloUser(nome),
-              SearchBar(),
-              Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        'Recentes',
-                        style: TextStyle(
-                            color: Color.fromRGBO(40, 58, 67, 1),
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold),
+    return FutureBuilder(
+        future: user.doc(FirebaseAuth.instance.currentUser.email).get(),
+        builder:
+            (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (!snapshot.hasData) {
+            return Center(child: CircularProgressIndicator());
+          } else {
+            return Padding(
+              padding: const EdgeInsets.all(18),
+              child: ListView(children: [
+                      UserIcon(),
+                      HelloUser(snapshot.data['nome']),
+                      SearchBar(),
+                      Padding(
+                          padding: EdgeInsets.only(top: 15), child: Dashboard()),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Row(
+                          children: [
+                            Flexible(
+                              child: Text(
+                                'Recentes',
+                                style: TextStyle(
+                                    color: Color.fromRGBO(40, 58, 67, 1),
+                                    fontSize: 22.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Recentes(),
-              FilterArea(),
-            ],
-          )),
-    ]);
+                      Recentes(),
+                      FilterArea(),
+                    ]),
+            );
+                }});
+          }
   }
-}
+
 
 class FilterArea extends StatelessWidget {
   @override
@@ -92,7 +103,7 @@ class FilterIcons extends StatelessWidget {
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
-                    icone: Icons.monitor_weight_outlined,
+                    icone: Icons.face_outlined,
                     especialidade: "Nutricionista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -120,7 +131,7 @@ class FilterIcons extends StatelessWidget {
             Row(
               children: [
                 IconFilter(
-                    icone: Icons.health_and_safety_outlined,
+                    icone: Icons.face_outlined,
                     especialidade: "Clínico Geral",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
@@ -214,19 +225,23 @@ class SearchBar extends StatelessWidget {
   }
 }
 
-class HelloUser extends StatelessWidget {
-  String nome;
+class HelloUser extends StatefulWidget {
+  final nome;
   HelloUser(this.nome);
+
+  @override
+  _HelloUserState createState() => _HelloUserState();
+}
+
+class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text(
-        'Olá, ${this.nome}!',
-        style: TextStyle(
+      Text('Olá, ${globals.nome}!',
+          style: TextStyle(
             color: Color.fromRGBO(40, 58, 67, 1),
             fontSize: 30.0,
-            fontWeight: FontWeight.bold),
-      )
+          ))
     ]);
   }
 }
@@ -236,6 +251,7 @@ class UserIcon extends StatelessWidget {
     Key key,
   }) : super(key: key);
 
+  @override
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.end, children: [

@@ -6,7 +6,6 @@ import 'package:cmedapp/components/input.dart';
 
 import 'package:cmedapp/src/CadastroPac/controller.dart';
 import 'package:cmedapp/src/CadastroPac/model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +18,6 @@ class CadastroPac extends StatefulWidget {
 }
 
 class CadastroPacState extends State<CadastroPac> {
-  final _firebase = FirebaseAuth.instance;
   GlobalKey<FormState> _formKey = new GlobalKey();
   final TextEditingController controllerNome = TextEditingController();
   final TextEditingController controllerSobrenome = TextEditingController();

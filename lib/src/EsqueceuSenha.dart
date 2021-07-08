@@ -12,7 +12,6 @@ String _email;
 final auth = FirebaseAuth.instance;
 
 class _EsqueceuSenhaState extends State<EsqueceuSenha> {
-  GlobalKey<FormState> _formKey = new GlobalKey();
   containerHeight(size) {
     double height;
     if (size.height < 600) {

@@ -1,6 +1,3 @@
-import 'package:cmedapp/src/CadastroPac/controller.dart';
-import 'package:flutter/material.dart';
-
 //cadastro pt.1
 var confirmp;
 String confirmarSenha(value) {
