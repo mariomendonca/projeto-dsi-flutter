@@ -13,7 +13,7 @@ class _BodyUserState extends State<BodyUser> {
   Widget build(BuildContext context) {
     var nome = globals.nome;
 
-    var sobrenome = getUserToLocalStorage('sobrenome');
+    var sobrenome = globals.user["sobrenome"];
     var size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(color: Colors.white),

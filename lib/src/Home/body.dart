@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../globals.dart';
 import 'dashboard.dart';
 
 class Body extends StatefulWidget {
@@ -33,35 +34,34 @@ class _BodyState extends State<Body> {
             return Padding(
               padding: const EdgeInsets.all(18),
               child: ListView(children: [
-                      UserIcon(),
-                      HelloUser(snapshot.data['nome']),
-                      SearchBar(),
-                      Padding(
-                          padding: EdgeInsets.only(top: 15), child: Dashboard()),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15.0),
-                        child: Row(
-                          children: [
-                            Flexible(
-                              child: Text(
-                                'Recentes',
-                                style: TextStyle(
-                                    color: Color.fromRGBO(40, 58, 67, 1),
-                                    fontSize: 22.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ],
+                UserIcon(),
+                HelloUser(snapshot.data['nome']),
+                SearchBar(),
+                Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          'Recentes',
+                          style: TextStyle(
+                              color: Color.fromRGBO(40, 58, 67, 1),
+                              fontSize: 22.0,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Recentes(),
-                      FilterArea(),
-                    ]),
+                    ],
+                  ),
+                ),
+                Recentes(),
+                FilterArea(),
+              ]),
             );
-                }});
           }
+        });
   }
-
+}
 
 class FilterArea extends StatelessWidget {
   @override
@@ -237,8 +237,9 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, ${globals.nome}!',
+      Text('Olá, $nome!',
           style: TextStyle(
+            fontWeight: FontWeight.bold,
             color: Color.fromRGBO(40, 58, 67, 1),
             fontSize: 30.0,
           ))
