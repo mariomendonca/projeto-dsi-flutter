@@ -10,7 +10,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../globals.dart';
 import 'dashboard.dart';
 
 class Body extends StatefulWidget {
@@ -89,18 +88,18 @@ class FilterIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width,
+        width: size.width * 0.8,
         child: Column(
           children: [
             Row(
               children: [
                 IconFilter(
                     icone: Icons.volunteer_activism,
-                    especialidade: "cardiologia",
+                    especialidade: "Cardiologista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
-                                especialidade: "cardiologia",
+                                especialidade: "cardiologista",
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -109,7 +108,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Nutricionista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: "nutricionista",
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
@@ -117,7 +118,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Oftalmologista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'oftalmologista',
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
@@ -125,7 +128,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Pediatra",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'pediatra',
+                              )));
                     }),
               ],
             ),
@@ -137,7 +142,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Clínico Geral",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'clinico geral',
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
@@ -145,7 +152,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Dermatologista",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'dermatologista',
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
@@ -153,7 +162,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Geriatra",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'geriatra',
+                              )));
                     }),
                 SizedBox(width: size.width * 0.02),
                 IconFilter(
@@ -161,7 +172,9 @@ class FilterIcons extends StatelessWidget {
                     especialidade: "Obstetra",
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => AllDoctors()));
+                          builder: (context) => AllDoctors(
+                                especialidade: 'obstetra',
+                              )));
                     }),
               ],
             )
@@ -239,10 +252,10 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, $nome!',
+      Text('Olá, ${globals.nome}!',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
             color: Color.fromRGBO(40, 58, 67, 1),
+            fontWeight: FontWeight.bold,
             fontSize: 30.0,
           ))
     ]);

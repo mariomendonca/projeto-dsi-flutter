@@ -63,7 +63,9 @@ class _AllDoctorsState extends State<AllDoctors> {
               child: Recentes(),
             ),
             TextAndFilter(),
-            ScrollDoctors()
+            ScrollDoctors(
+              especialidade: widget.especialidade,
+            )
           ],
         ),
       ),

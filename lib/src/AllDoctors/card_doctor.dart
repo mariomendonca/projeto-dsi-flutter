@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cmedapp/components/fonte.dart';
 import 'package:flutter/material.dart';
 
 class CardDoctor extends StatelessWidget {
@@ -49,19 +50,20 @@ class CardDoctor extends StatelessWidget {
                   children: [
                     AutoSizeText(
                       "Dr. $nome $sobrenome",
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: quicksand(
+                          fontSize: 16.0, fontWeight: FontWeight.bold),
                       minFontSize: 12,
                     ),
                     SizedBox(
-                      height: size.height * 0.01,
+                      height: size.height * 0.002,
                     ),
                     AutoSizeText(
                       especialidade,
-                      style: TextStyle(
-                        fontSize: 10,
+                      style: quicksand(
+                        fontSize: 12.0,
+                        color: Colors.black,
                       ),
-                      minFontSize: 8,
+                      minFontSize: 10,
                     ),
                     SizedBox(
                       height: size.height * 0.01,
@@ -70,11 +72,11 @@ class CardDoctor extends StatelessWidget {
                       child: AutoSizeText(
                         descricao,
                         textAlign: TextAlign.justify,
-                        style: TextStyle(
-                          fontSize: 8,
-                          color: Color(0xff94999C),
-                        ),
-                        minFontSize: 6,
+                        style: quicksand(
+                            fontSize: 10.0,
+                            color: Colors.tealAccent[700],
+                            fontWeight: FontWeight.bold),
+                        minFontSize: 8,
                       ),
                     )
                   ],

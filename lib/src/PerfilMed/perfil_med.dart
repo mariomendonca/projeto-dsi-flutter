@@ -4,6 +4,9 @@ import 'package:cmedapp/src/PerfilMed/body.dart';
 import 'package:flutter/material.dart';
 
 class PerfilMed extends StatefulWidget {
+  const PerfilMed({
+    Key key,
+  }) : super(key: key);
   @override
   _PerfilMedState createState() => _PerfilMedState();
 }
