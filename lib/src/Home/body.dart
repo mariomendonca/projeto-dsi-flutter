@@ -34,7 +34,7 @@ class _BodyState extends State<Body> {
               padding: const EdgeInsets.all(18),
               child: ListView(children: [
                 UserIcon(),
-                HelloUser(snapshot.data['nome']),
+                HelloUser(),
                 SearchBar(),
                 Padding(padding: EdgeInsets.only(top: 15), child: Dashboard()),
                 Padding(
@@ -241,9 +241,6 @@ class SearchBar extends StatelessWidget {
 }
 
 class HelloUser extends StatefulWidget {
-  final nome;
-  HelloUser(this.nome);
-
   @override
   _HelloUserState createState() => _HelloUserState();
 }
