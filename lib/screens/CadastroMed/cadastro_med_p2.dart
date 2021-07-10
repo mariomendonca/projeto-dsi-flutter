@@ -14,6 +14,8 @@ class CadastroMed2 extends StatefulWidget {
 
 class CadastroMed2State extends State<CadastroMed2> {
   GlobalKey<FormState> formKeyMed2 = new GlobalKey();
+  int lastTapped;
+  final values = List.filled(7, false);
 
   final TextEditingController cpfcontroladormed2 = TextEditingController();
 
@@ -134,16 +136,13 @@ class CadastroMed2State extends State<CadastroMed2> {
                         padding:
                             const EdgeInsets.only(top: 10, right: 14, left: 14),
                         child: WeekdaySelector(
-                          onChanged: (v) {},
-                          values: [
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                            true,
-                          ],
+                          values: values,
+                          onChanged: (i) {
+                            print(i);
+                            setState(() {
+                              values[i % 7] = !values[i % 7];
+                            });
+                          },
                         ),
                       ),
                       Spacer(),
