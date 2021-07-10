@@ -143,6 +143,9 @@ class CadastroMed2State extends State<CadastroMed2> {
                               values[i % 7] = !values[i % 7];
                             });
                           },
+                          selectedFillColor: Colors.indigo[900],
+                          disabledFillColor: Colors.cyanAccent,
+                          fillColor: Colors.tealAccent[700],
                         ),
                       ),
                       Spacer(),
