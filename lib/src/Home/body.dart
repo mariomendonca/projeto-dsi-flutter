@@ -143,7 +143,7 @@ class FilterIcons extends StatelessWidget {
                     press: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
-                                especialidade: 'clinico geral',
+                                especialidade: 'clínico geral',
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),

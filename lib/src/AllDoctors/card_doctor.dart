@@ -32,12 +32,17 @@ class CardDoctor extends StatelessWidget {
             borderRadius: BorderRadius.circular(20), color: Color(0xffE5F6FE)),
         child: Row(
           children: [
-            Image(
-              width: size.width * 0.3,
-              height: size.height,
-              fit: BoxFit.cover,
-              alignment: Alignment.topLeft,
-              image: NetworkImage(url),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+              child: Image(
+                width: size.width * 0.3,
+                height: size.height,
+                fit: BoxFit.fill,
+                alignment: Alignment.center,
+                image: NetworkImage(url),
+              ),
             ),
             Container(
               width: size.width * 0.5,
@@ -50,7 +55,7 @@ class CardDoctor extends StatelessWidget {
                   children: [
                     AutoSizeText(
                       "Dr. $nome $sobrenome",
-                      style: quicksand(
+                      style: TextStyle(
                           fontSize: 16.0, fontWeight: FontWeight.bold),
                       minFontSize: 12,
                     ),
@@ -58,12 +63,12 @@ class CardDoctor extends StatelessWidget {
                       height: size.height * 0.002,
                     ),
                     AutoSizeText(
-                      especialidade,
-                      style: quicksand(
-                        fontSize: 12.0,
+                      especialidade.toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 10.0,
                         color: Colors.black,
                       ),
-                      minFontSize: 10,
+                      minFontSize: 8,
                     ),
                     SizedBox(
                       height: size.height * 0.01,
@@ -72,11 +77,11 @@ class CardDoctor extends StatelessWidget {
                       child: AutoSizeText(
                         descricao,
                         textAlign: TextAlign.justify,
-                        style: quicksand(
-                            fontSize: 10.0,
-                            color: Colors.tealAccent[700],
-                            fontWeight: FontWeight.bold),
-                        minFontSize: 8,
+                        style: TextStyle(
+                            fontSize: 11.0,
+                            color: Color(0xff94999C),
+                            fontWeight: FontWeight.w500),
+                        minFontSize: 10,
                       ),
                     )
                   ],

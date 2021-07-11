@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/src/AllDoctors/card_doctor.dart';
 import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
 
@@ -16,7 +14,7 @@ class ScrollDoctors extends StatelessWidget {
         .collection("medicos")
         .where("especialidade", isEqualTo: especialidade)
         .snapshots();
-
+    String documentId;
     return Container(
       width: size.width * 0.8,
       height: size.height * 0.6,
@@ -42,8 +40,11 @@ class ScrollDoctors extends StatelessWidget {
                   url:
                       "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
                   press: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => PerfilMed()));
+                    documentId = doctor["email"];
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => PerfilMed(
+                              documentId: documentId,
+                            )));
                   },
                 );
               },
