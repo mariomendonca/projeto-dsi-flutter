@@ -15,6 +15,7 @@ class Medicos {
   String inicioExpediente;
   String fimExpediente;
   String descricao;
+  List dias;
 
   Medicos(
       this.nome,
@@ -28,7 +29,20 @@ class Medicos {
       this.numero,
       this.inicioExpediente,
       this.fimExpediente,
-      this.descricao);
+      this.descricao,
+      this.dias);
+
+  Map<String, dynamic> diastoMap() {
+    return {
+      "dom" : dias[0],
+      "seg" : dias[1],
+      "ter" : dias[2],
+      "qua" : dias[3],
+      "qui" : dias[4],
+      "sex" : dias[5],
+      "sab" : dias[6],
+    };
+  }
 
   Map<String, dynamic> toMap() {
     return {
@@ -44,12 +58,13 @@ class Medicos {
       "inicioExpediente": inicioExpediente,
       "fimExpediente": fimExpediente, //numero
       "descricao": descricao, //email
+      "dias": diastoMap()
     };
   }
 
   addInfo(email) {
     var medico = Medicos(nome, sobrenome, telefone, cpf, especialidade, senha,
-        email, endereco, numero, inicioExpediente, fimExpediente, descricao);
+        email, endereco, numero, inicioExpediente, fimExpediente, descricao, dias);
     print(medico.toMap());
     _db.collection("medicos").doc(email).set(medico.toMap());
   }

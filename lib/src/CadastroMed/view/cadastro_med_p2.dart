@@ -56,7 +56,8 @@ class CadastroMed2State extends State<CadastroMed2> {
         controllerInicioExpediente.text,
         controllerFimExpediente.text,
         controllerDescricao.text,
-      ).addInfo(widget.email);
+        values
+      ).addInfo(widget.email, );
     }
 
     bool validate() {
@@ -135,6 +136,8 @@ class CadastroMed2State extends State<CadastroMed2> {
                             const EdgeInsets.only(top: 10, right: 14, left: 14),
                         child: WeekdaySelector(
                           values: values,
+                          // firstDayOfWeek: values[0],
+                          shortWeekdays: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
                           onChanged: (i) {
                             print(i);
                             setState(() {
