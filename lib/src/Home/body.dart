@@ -203,11 +203,14 @@ class FilterTitle extends StatelessWidget {
 }
 
 class SearchBar extends StatelessWidget {
+  TextEditingController _pesquisa = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
+        controller: _pesquisa,
         autofocus: false,
         style: TextStyle(color: Colors.tealAccent[700]),
         decoration: InputDecoration(
@@ -217,7 +220,13 @@ class SearchBar extends StatelessWidget {
                   color: Color.fromRGBO(0, 191, 181, 1),
                 ),
                 padding: EdgeInsets.only(left: 20, right: 10),
-                onPressed: () {}),
+                onPressed: () {
+                  print(_pesquisa.text.toLowerCase().trim());
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AllDoctors(
+                            especialidade: _pesquisa.text.toLowerCase().trim(),
+                          )));
+                }),
             filled: true,
             fillColor: Color.fromRGBO(229, 246, 254, 1),
             border: OutlineInputBorder(
