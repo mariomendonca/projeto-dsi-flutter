@@ -119,7 +119,6 @@ class CadastroPacState extends State<CadastroPac> {
                   hint: "Apenas os números",
                   senha: false,
                   tipodeteclado: TextInputType.number,
-                  numeromaximo: 14,
                   validador: validarcpf,
                   controlador: controllerCpf,
                 ),
@@ -172,7 +171,7 @@ class CadastroPacState extends State<CadastroPac> {
                     if (validateAndSave()) {
                       registerUser();
                       Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/login', (Route<dynamic> route) => false);
+                          '/homePage', (Route<dynamic> route) => false);
                     }
 
                     // final isValid = formKey.currentState.validate();
