@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/src/PerfilMed/box_day.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cmedapp/globals.dart' as globals;
 // class ScrollDiasConsulta extends StatelessWidget {
 //   const ScrollDiasConsulta({
 //     Key key,
@@ -66,6 +66,8 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
                     onTap: () {
                       setState(() {
                         _weekDay = list[snapshot].toString().toUpperCase();
+                        globals.diaDaConsulta = _weekDay;
+                        globals.medicoId = widget.id;
                       });
                     },
                     child: BoxDay(

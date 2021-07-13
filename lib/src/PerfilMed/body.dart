@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/button_padrao.dart';
+import 'package:cmedapp/src/ConsultaMarcada/marcar_consulta.dart';
 import 'package:cmedapp/src/MarcandoConsulta/body.dart';
 
 import 'package:cmedapp/src/PerfilMed/descricao.dart';
@@ -94,7 +95,7 @@ class BodyPerfilMed extends StatelessWidget {
                       text: "Avançar",
                       press: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => MarcandoConsultaPage()));
+                            builder: (context) => ConsultaMarcada()));
                       },
                     ),
                   ),
