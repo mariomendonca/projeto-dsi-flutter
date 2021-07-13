@@ -41,6 +41,10 @@ class ScrollDoctors extends StatelessWidget {
               return Center(
                 child: CircularProgressIndicator(),
               );
+            } 
+            
+            if (snapshot.data.docs.length == 0) {
+              return Center(child: Text('Nenhum médico encontrado', style: TextStyle(fontSize: 18),));
             }
             print(snapshot.data);
             return ListView.builder(
