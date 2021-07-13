@@ -2,7 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/src/ConsultaMarcada/label_consulta_marcada.dart';
 import 'package:cmedapp/globals.dart' as globals;
+import 'package:cmedapp/src/ConsultaMarcada/model.dart';
 import 'package:cmedapp/src/ConsultaMarcada/text_consulta_confirmada.dart';
+import 'package:cmedapp/src/PerfilUser/Body.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -26,40 +29,55 @@ class BodyConsultaMarcada extends StatelessWidget {
           } else {
             Map<dynamic, dynamic> medico = snapshots.data.data();
             return Container(
-            height: size.height,
-            width: size.width,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                    40,
+              height: size.height,
+              width: size.width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(
+                      40,
+                    ),
+                    topRight: Radius.circular(40)),
+                color: Colors.white,
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: LabelConsultaMarcada(),
                   ),
-                  topRight: Radius.circular(40)),
-              color: Colors.white,
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: LabelConsultaMarcada(),
-                ),
-                Spacer(),
-                TextConsultaConfirmada(
-                  nome: medico["nome"],
-                  sobrenome: medico["sobrenome"],
-                  horario: "${medico['inicioExpediente']}h ás ${medico['fimExpediente']}h",
-                  dia: globals.diaDaConsulta,
-                ),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: ButtonPadrao(
-                    text: "Finalizar",
-                    press: () {},
+                  Spacer(),
+                  TextConsultaConfirmada(
+                    nome: medico["nome"],
+                    sobrenome: medico["sobrenome"],
+                    horario:
+                        "${medico['inicioExpediente']}h ás ${medico['fimExpediente']}h",
+                    dia: globals.diaDaConsulta,
+                    especialidade: medico["especialidade"],
                   ),
-                )
-              ],
-            ),
-          );
+                  Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: ButtonPadrao(
+                      text: "Confirmar consulta",
+                      press: () {
+                        MarcarConsulta(
+                                globals.diaDaConsulta,
+                                medico["nome"],
+                                medico["sobrenome"],
+                                medico["especialidade"],
+                                medico["email"],
+                                medico['inicioExpediente'],
+                                medico['fimExpediente'])
+                            .addConsulta(
+                                FirebaseAuth.instance.currentUser.email);
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            "/home", (Route<dynamic> route) => false);
+                      },
+                    ),
+                  )
+                ],
+              ),
+            );
           }
         });
   }

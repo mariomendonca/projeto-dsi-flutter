@@ -70,10 +70,10 @@ class FilterArea extends StatelessWidget {
         child: Column(
           children: [
             FilterTitle(),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              child: FilterIcons(),
-            )
+            SizedBox(
+              height: 15,
+            ),
+            FilterIcons()
           ],
         ));
   }
@@ -88,8 +88,10 @@ class FilterIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width * 0.8,
+        width: size.width * 0.85,
+        
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
