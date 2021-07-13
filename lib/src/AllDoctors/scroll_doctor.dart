@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cmedapp/globals.dart';
 import 'package:cmedapp/src/AllDoctors/card_doctor.dart';
 import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
 
@@ -6,14 +7,28 @@ import 'package:flutter/material.dart';
 
 class ScrollDoctors extends StatelessWidget {
   final String especialidade;
-  const ScrollDoctors({key, this.especialidade}) : super(key: key);
+  final String nome;
+  final bool isEspecialidade;
+  const ScrollDoctors(
+      {key, this.especialidade, this.isEspecialidade, this.nome})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var snapshots = FirebaseFirestore.instance
-        .collection("medicos")
-        .where("especialidade", isEqualTo: especialidade)
-        .snapshots();
+    var snapshots;
+    if (isEspecialidade) {
+      snapshots = FirebaseFirestore.instance
+          .collection("medicos")
+          .where("especialidade", isEqualTo: especialidade)
+          .snapshots();
+      // ignore: dead_code
+    } else {
+      snapshots = FirebaseFirestore.instance
+          .collection("medicos")
+          .where("nome", isEqualTo: nome)
+          .snapshots();
+    }
+
     String documentId;
     return Container(
       width: size.width * 0.8,
@@ -33,8 +48,8 @@ class ScrollDoctors extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 Map<dynamic, dynamic> doctor = snapshot.data.docs[index].data();
                 return CardDoctor(
-                  nome: doctor["nome"],
-                  sobrenome: doctor["sobrenome"],
+                  nome: doctor["nome"].toString().toUpperCase(),
+                  sobrenome: doctor["sobrenome"].toString().toUpperCase(),
                   especialidade: doctor["especialidade"],
                   descricao: doctor["descricao"],
                   url:

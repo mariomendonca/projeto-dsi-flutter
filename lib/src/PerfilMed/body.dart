@@ -50,8 +50,8 @@ class BodyPerfilMed extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: ImageAndName(
                       size: size,
-                      nome: info["nome"],
-                      sobrenome: info["sobrenome"],
+                      nome: info["nome"].toString().toUpperCase(),
+                      sobrenome: info["sobrenome"].toString().toUpperCase(),
                       especialidade: info["especialidade"],
                     ),
                   ),

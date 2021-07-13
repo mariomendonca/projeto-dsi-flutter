@@ -1,4 +1,5 @@
 import 'package:cmedapp/components/recentes.dart';
+import 'package:cmedapp/globals.dart';
 import 'package:cmedapp/src/AllDoctors/scroll_doctor.dart';
 import 'package:cmedapp/src/AllDoctors/text_and_filter.dart';
 import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
@@ -6,7 +7,11 @@ import 'package:flutter/material.dart';
 
 class AllDoctors extends StatefulWidget {
   final String especialidade;
-  const AllDoctors({key, this.especialidade}) : super(key: key);
+  final String nome;
+  final bool isEspecialidade;
+
+  const AllDoctors({key, this.especialidade, this.isEspecialidade, this.nome})
+      : super(key: key);
 
   @override
   _AllDoctorsState createState() => _AllDoctorsState();
@@ -64,8 +69,9 @@ class _AllDoctorsState extends State<AllDoctors> {
             ),
             TextAndFilter(),
             ScrollDoctors(
-              especialidade: widget.especialidade,
-            )
+                especialidade: widget.especialidade,
+                nome: widget.nome,
+                isEspecialidade: widget.isEspecialidade)
           ],
         ),
       ),

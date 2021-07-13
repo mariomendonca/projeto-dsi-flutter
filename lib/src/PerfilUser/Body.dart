@@ -11,9 +11,9 @@ class BodyUser extends StatefulWidget {
 class _BodyUserState extends State<BodyUser> {
   @override
   Widget build(BuildContext context) {
-    var nome = globals.nome;
+    var nome = globals.nome.toUpperCase();
 
-    var sobrenome = globals.user["sobrenome"];
+    var sobrenome = globals.user["sobrenome"].toString().toUpperCase();
     var size = MediaQuery.of(context).size;
     return Container(
       decoration: BoxDecoration(color: Colors.white),

@@ -205,6 +205,15 @@ class FilterTitle extends StatelessWidget {
 class SearchBar extends StatelessWidget {
   TextEditingController _pesquisa = TextEditingController();
 
+  var lista = [
+    "cardiologista",
+    "nutricionista",
+    "oftalmologista",
+    "pediatra",
+    "clinico geral",
+    "desmatologista",
+    "obstetra",
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -221,11 +230,20 @@ class SearchBar extends StatelessWidget {
                 ),
                 padding: EdgeInsets.only(left: 20, right: 10),
                 onPressed: () {
-                  print(_pesquisa.text.toLowerCase().trim());
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => AllDoctors(
-                            especialidade: _pesquisa.text.toLowerCase().trim(),
-                          )));
+                  if (lista.contains(_pesquisa.text.toLowerCase().trim())) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AllDoctors(
+                              isEspecialidade: true,
+                              especialidade:
+                                  _pesquisa.text.toLowerCase().trim(),
+                            )));
+                  } else {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AllDoctors(
+                              isEspecialidade: false,
+                              nome: _pesquisa.text.toLowerCase().trim(),
+                            )));
+                  }
                 }),
             filled: true,
             fillColor: Color.fromRGBO(229, 246, 254, 1),
@@ -258,7 +276,7 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, ${globals.nome}!',
+      Text('Olá, ${globals.nome.toUpperCase()}!',
           style: TextStyle(
             color: Color.fromRGBO(40, 58, 67, 1),
             fontWeight: FontWeight.bold,

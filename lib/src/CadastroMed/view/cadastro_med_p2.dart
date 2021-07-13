@@ -51,11 +51,11 @@ class CadastroMed2State extends State<CadastroMed2> {
               widget.especialidade,
               widget.senha,
               widget.email,
-              controllerEndereco.text,
-              controllerNumero.text,
-              controllerInicioExpediente.text,
-              controllerFimExpediente.text,
-              controllerDescricao.text,
+              controllerEndereco.text.trim().toLowerCase(),
+              controllerNumero.text.trim().toLowerCase(),
+              controllerInicioExpediente.text.trim().toLowerCase(),
+              controllerFimExpediente.text.trim().toLowerCase(),
+              controllerDescricao.text.trim().toLowerCase(),
               values)
           .addInfo(
         widget.email,
