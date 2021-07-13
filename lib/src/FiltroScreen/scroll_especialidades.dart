@@ -20,6 +20,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: "cardiologista",
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -29,6 +30,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: "nutricionista",
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -38,6 +40,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: 'oftalmologista',
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -47,6 +50,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: 'pediatra',
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -56,6 +60,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: 'clínico geral',
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -65,6 +70,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: 'dermatologista',
+                          isEspecialidade: true,
                         )));
               }),
           Espaco(),
@@ -74,6 +80,7 @@ class ScrollEspecialidades extends StatelessWidget {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => AllDoctors(
                           especialidade: 'obstetra',
+                          isEspecialidade: true,
                         )));
               }),
           // Espaco(),

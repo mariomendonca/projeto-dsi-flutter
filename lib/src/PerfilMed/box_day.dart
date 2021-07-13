@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BoxDay extends StatelessWidget {
-  const BoxDay({Key key, this.dia, this.horas, this.active}) : super(key: key);
+  const BoxDay({Key key, this.dia, this.active}) : super(key: key);
   final String dia;
-  final String horas;
   final bool active;
 
   @override
@@ -22,19 +21,11 @@ class BoxDay extends StatelessWidget {
           Text(
             dia,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 16,
               fontWeight: FontWeight.bold,
               color: this.active ? Color(0xffEDF3F7) : Color(0xff00BFBA),
             ),
           ),
-          Text(
-            horas,
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.w600,
-              color: this.active ? Color(0xffEDF3F7) : Color(0xff00BFBA),
-            ),
-          )
         ],
       ),
     );

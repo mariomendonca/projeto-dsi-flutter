@@ -47,7 +47,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Seg", horas: "8h ás 22h", active: 'Seg' == _weekDay),
+                dia: "Seg", active: 'Seg' == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -57,7 +57,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Ter", horas: "8h ás 22h", active: "Ter" == _weekDay),
+                dia: "Ter", active: "Ter" == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -67,7 +67,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Qua", horas: "8h ás 22h", active: 'Qua' == _weekDay),
+                dia: "Qua", active: 'Qua' == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -77,7 +77,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Qui", horas: "8h ás 22h", active: 'Qui' == _weekDay),
+                dia: "Qui", active: 'Qui' == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -87,7 +87,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Sex", horas: "8h ás 22h", active: 'Sex' == _weekDay),
+                dia: "Sex", active: 'Sex' == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -97,7 +97,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Sab", horas: "8h ás 22h", active: 'Sab' == _weekDay),
+                dia: "Sab", active: 'Sab' == _weekDay),
           ),
           SizedBox(width: size.width * 0.02),
           GestureDetector(
@@ -107,7 +107,7 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
               });
             },
             child: BoxDay(
-                dia: "Dom", horas: "8h ás 22h", active: 'Dom' == _weekDay),
+                dia: "Dom", active: 'Dom' == _weekDay),
           ),
         ],
       ),

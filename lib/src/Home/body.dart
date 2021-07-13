@@ -100,6 +100,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: "cardiologista",
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -110,6 +111,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: "nutricionista",
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -120,6 +122,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'oftalmologista',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -130,6 +133,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'pediatra',
+                                isEspecialidade: true,
                               )));
                     }),
               ],
@@ -144,6 +148,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'clínico geral',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -154,6 +159,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'dermatologista',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -164,6 +170,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'geriatra',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -174,6 +181,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'obstetra',
+                                isEspecialidade: true,
                               )));
                     }),
               ],
