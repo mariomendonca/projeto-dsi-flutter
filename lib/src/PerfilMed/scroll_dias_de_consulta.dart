@@ -70,7 +70,6 @@ class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
                     },
                     child: BoxDay(
                         dia: list[snapshot].toString().toUpperCase(),
-                        horas: "8h ás 22h",
                         active: _weekDay ==
                             list[snapshot].toString().toUpperCase()),
                   );

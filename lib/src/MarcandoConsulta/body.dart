@@ -15,16 +15,15 @@ class MarcandoConsultaPage extends StatefulWidget {
 
 class _MarcandoConsultaPageState extends State<MarcandoConsultaPage> {
   @override
-  int _appointmentHour = 0;
+  int _horarioConsulta = 0;
 
   void setAppointmentHour(hour) {
     setState(() {
-      _appointmentHour = hour;
+      _horarioConsulta = hour;
     });
   }
 
   Widget build(BuildContext context) {
-    var number = 8;
     var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.lightBlue[50],
@@ -107,11 +106,11 @@ class _MarcandoConsultaPageState extends State<MarcandoConsultaPage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _appointmentHour = 8;
+                    _horarioConsulta = 8;
                   });
                 },
                 child: SchedulesBox(
-                  active: _appointmentHour == 8,
+                  active: _horarioConsulta == 8,
                   from: "8",
                   to: "9",
                 ),
@@ -120,24 +119,67 @@ class _MarcandoConsultaPageState extends State<MarcandoConsultaPage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _appointmentHour = 10;
+                    _horarioConsulta = 9;
                   });
                 },
                 child: SchedulesBox(
-                  active: _appointmentHour == 10,
-                  from: "10",
-                  to: "11",
+                  active: _horarioConsulta == 9,
+                  from: "9",
+                  to: "10",
                 ),
               ),
               SizedBox(width: size.width * 0.1),
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _appointmentHour = 14;
+                    _horarioConsulta = 10;
                   });
                 },
                 child: SchedulesBox(
-                  active: _appointmentHour == 14,
+                  active: _horarioConsulta == 10,
+                  from: "10",
+                  to: "11",
+                ),
+              ),
+            ]),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30),
+            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _horarioConsulta = 11;
+                  });
+                },
+                child: SchedulesBox(
+                  active: _horarioConsulta == 11,
+                  from: "11",
+                  to: "12",
+                ),
+              ),
+              SizedBox(width: size.width * 0.1),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _horarioConsulta = 13;
+                  });
+                },
+                child: SchedulesBox(
+                  active: _horarioConsulta == 13,
+                  from: "13",
+                  to: "14",
+                ),
+              ),
+              SizedBox(width: size.width * 0.1),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _horarioConsulta = 14;
+                  });
+                },
+                child: SchedulesBox(
+                  active: _horarioConsulta == 14,
                   from: "14",
                   to: "15",
                 ),
@@ -150,11 +192,24 @@ class _MarcandoConsultaPageState extends State<MarcandoConsultaPage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _appointmentHour = 16;
+                    _horarioConsulta = 15;
                   });
                 },
                 child: SchedulesBox(
-                  active: _appointmentHour == 16,
+                  active: _horarioConsulta == 15,
+                  from: "15",
+                  to: "16",
+                ),
+              ),
+              SizedBox(width: size.width * 0.1),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _horarioConsulta = 16;
+                  });
+                },
+                child: SchedulesBox(
+                  active: _horarioConsulta == 16,
                   from: "16",
                   to: "17",
                 ),
@@ -163,69 +218,13 @@ class _MarcandoConsultaPageState extends State<MarcandoConsultaPage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    _appointmentHour = 17;
+                    _horarioConsulta = 17;
                   });
                 },
                 child: SchedulesBox(
-                  active: _appointmentHour == 17,
+                  active: _horarioConsulta == 17,
                   from: "17",
                   to: "18",
-                ),
-              ),
-              SizedBox(width: size.width * 0.1),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _appointmentHour = 18;
-                  });
-                },
-                child: SchedulesBox(
-                  active: _appointmentHour == 18,
-                  from: "18",
-                  to: "19",
-                ),
-              ),
-            ]),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 30),
-            child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _appointmentHour = 19;
-                  });
-                },
-                child: SchedulesBox(
-                  active: _appointmentHour == 19,
-                  from: "19",
-                  to: "20",
-                ),
-              ),
-              SizedBox(width: size.width * 0.1),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _appointmentHour = 20;
-                  });
-                },
-                child: SchedulesBox(
-                  active: _appointmentHour == 20,
-                  from: "20",
-                  to: "21",
-                ),
-              ),
-              SizedBox(width: size.width * 0.1),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    _appointmentHour = 21;
-                  });
-                },
-                child: SchedulesBox(
-                  active: _appointmentHour == 21,
-                  from: "21",
-                  to: "22",
                 ),
               ),
             ]),

@@ -3,7 +3,7 @@ var confirmp;
 String validarcpf(String value) {
   if (value.isEmpty) {
     return "Esse campo não pode estar vazio";
-  } else if (value.length != 11) {
+  } else if (value.length < 11) {
     return "Preencha os 11 digitos do seu Cpf";
   } else {
     return null;

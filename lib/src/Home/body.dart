@@ -100,6 +100,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: "cardiologista",
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -110,6 +111,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: "nutricionista",
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -120,6 +122,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'oftalmologista',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -130,6 +133,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'pediatra',
+                                isEspecialidade: true,
                               )));
                     }),
               ],
@@ -144,6 +148,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'clínico geral',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -154,6 +159,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'dermatologista',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -164,6 +170,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'geriatra',
+                                isEspecialidade: true,
                               )));
                     }),
                 SizedBox(width: size.width * 0.02),
@@ -174,6 +181,7 @@ class FilterIcons extends StatelessWidget {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => AllDoctors(
                                 especialidade: 'obstetra',
+                                isEspecialidade: true,
                               )));
                     }),
               ],
@@ -203,11 +211,23 @@ class FilterTitle extends StatelessWidget {
 }
 
 class SearchBar extends StatelessWidget {
+  TextEditingController _pesquisa = TextEditingController();
+
+  var lista = [
+    "cardiologista",
+    "nutricionista",
+    "oftalmologista",
+    "pediatra",
+    "clinico geral",
+    "desmatologista",
+    "obstetra",
+  ];
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 20),
       child: TextFormField(
+        controller: _pesquisa,
         autofocus: false,
         style: TextStyle(color: Colors.tealAccent[700]),
         decoration: InputDecoration(
@@ -217,7 +237,22 @@ class SearchBar extends StatelessWidget {
                   color: Color.fromRGBO(0, 191, 181, 1),
                 ),
                 padding: EdgeInsets.only(left: 20, right: 10),
-                onPressed: () {}),
+                onPressed: () {
+                  if (lista.contains(_pesquisa.text.toLowerCase().trim())) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AllDoctors(
+                              isEspecialidade: true,
+                              especialidade:
+                                  _pesquisa.text.toLowerCase().trim(),
+                            )));
+                  } else {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AllDoctors(
+                              isEspecialidade: false,
+                              nome: _pesquisa.text.toLowerCase().trim(),
+                            )));
+                  }
+                }),
             filled: true,
             fillColor: Color.fromRGBO(229, 246, 254, 1),
             border: OutlineInputBorder(
@@ -249,7 +284,7 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, ${globals.nome}!',
+      Text('Olá, ${globals.nome.toUpperCase()}!',
           style: TextStyle(
             color: Color.fromRGBO(40, 58, 67, 1),
             fontWeight: FontWeight.bold,

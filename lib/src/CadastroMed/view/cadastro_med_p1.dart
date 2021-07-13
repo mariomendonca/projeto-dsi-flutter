@@ -159,13 +159,13 @@ class CadastroMedState extends State<CadastroMed> {
                       Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => CadastroMed2(
-                              controllerNome.text,
-                              controllerSobrenome.text,
-                              controllerCell.text,
-                              controllerCpf.text,
-                              controllerEspecialidade.text,
-                              controllerSenha.text,
-                              controllerEmail.text),
+                              controllerNome.text.trim().toLowerCase(),
+                              controllerSobrenome.text.trim().toLowerCase(),
+                              controllerCell.text.trim().toLowerCase(),
+                              controllerCpf.text.trim().toLowerCase(),
+                              controllerEspecialidade.text.trim().toLowerCase(),
+                              controllerSenha.text.trim(),
+                              controllerEmail.text.trim().toLowerCase()),
                         ),
                       );
                     }
