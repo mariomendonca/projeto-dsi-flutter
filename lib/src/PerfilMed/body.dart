@@ -22,8 +22,8 @@ class BodyPerfilMed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
-
+    var consultadia;
+    var consultahora;
     return StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
             .collection("medicos")
@@ -52,7 +52,8 @@ class BodyPerfilMed extends StatelessWidget {
                       size: size,
                       nome: info["nome"],
                       sobrenome: info["sobrenome"],
-                      especialidade: info["especialidade"],
+                      especialidade:
+                          info["especialidade"].toString().toUpperCase(),
                     ),
                   ),
                   Row(
@@ -78,7 +79,14 @@ class BodyPerfilMed extends StatelessWidget {
                   Spacer(),
                   Container(
                     width: size.width * 0.8,
-                    child: ScrollDiasConsulta(size: size),
+                    child: Row(
+                      children: [
+                        ScrollDiasConsulta(
+                          id: info["email"],
+                          size: size,
+                        ),
+                      ],
+                    ),
                   ),
                   Spacer(),
                   Padding(

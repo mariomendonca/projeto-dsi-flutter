@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 var _db = FirebaseFirestore.instance;
+Map<dynamic, dynamic> _dias;
+Map<dynamic, dynamic> _horas;
+var listHoras = [];
 
 class Medicos {
   String nome;
@@ -34,13 +37,13 @@ class Medicos {
 
   Map<String, dynamic> diastoMap() {
     return {
-      "dom" : dias[0],
-      "seg" : dias[1],
-      "ter" : dias[2],
-      "qua" : dias[3],
-      "qui" : dias[4],
-      "sex" : dias[5],
-      "sab" : dias[6],
+      "dom": dias[0],
+      "seg": dias[1],
+      "ter": dias[2],
+      "qua": dias[3],
+      "qui": dias[4],
+      "sex": dias[5],
+      "sab": dias[6],
     };
   }
 
@@ -58,14 +61,34 @@ class Medicos {
       "inicioExpediente": inicioExpediente,
       "fimExpediente": fimExpediente, //numero
       "descricao": descricao, //email
-      "dias": diastoMap()
     };
   }
 
   addInfo(email) {
-    var medico = Medicos(nome, sobrenome, telefone, cpf, especialidade, senha,
-        email, endereco, numero, inicioExpediente, fimExpediente, descricao, dias);
+    print(listHoras);
+    print(_horas);
+    var medico = Medicos(
+        nome,
+        sobrenome,
+        telefone,
+        cpf,
+        especialidade,
+        senha,
+        email,
+        endereco,
+        numero,
+        inicioExpediente,
+        fimExpediente,
+        descricao,
+        dias);
     print(medico.toMap());
     _db.collection("medicos").doc(email).set(medico.toMap());
+    _dias = diastoMap();
+    _db
+        .collection("medicos")
+        .doc(email)
+        .collection("diasdeconsulta")
+        .doc("dias")
+        .set(diastoMap());
   }
 }

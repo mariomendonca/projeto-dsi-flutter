@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/src/PerfilMed/box_day.dart';
 import 'package:flutter/material.dart';
 
@@ -13,15 +14,13 @@ import 'package:flutter/material.dart';
 //   final Function function;
 
 class ScrollDiasConsulta extends StatefulWidget {
-  const ScrollDiasConsulta({
-    Key key,
-    this.day,
-    this.function,
-    @required this.size,
-  }) : super(key: key);
+  const ScrollDiasConsulta(
+      {Key key, this.day, this.function, this.id, @required this.size})
+      : super(key: key);
   final String day;
   final Size size;
   final Function function;
+  final String id;
 
   @override
   _ScrollDiasConsultaState createState() => _ScrollDiasConsultaState();
@@ -29,88 +28,56 @@ class ScrollDiasConsulta extends StatefulWidget {
 
 class _ScrollDiasConsultaState extends State<ScrollDiasConsulta> {
   @override
-  String _weekDay = "Ter";
+  String _weekDay = "";
 
   Widget build(BuildContext context) {
     var day = widget.day;
-    var size = widget.size;
-    // var press = widget.press;
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Seg';
-              });
-            },
-            child: BoxDay(
-                dia: "Seg", horas: "8h ás 22h", active: 'Seg' == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Ter';
-              });
-            },
-            child: BoxDay(
-                dia: "Ter", horas: "8h ás 22h", active: "Ter" == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Qua';
-              });
-            },
-            child: BoxDay(
-                dia: "Qua", horas: "8h ás 22h", active: 'Qua' == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Qui';
-              });
-            },
-            child: BoxDay(
-                dia: "Qui", horas: "8h ás 22h", active: 'Qui' == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Sex';
-              });
-            },
-            child: BoxDay(
-                dia: "Sex", horas: "8h ás 22h", active: 'Sex' == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Sab';
-              });
-            },
-            child: BoxDay(
-                dia: "Sab", horas: "8h ás 22h", active: 'Sab' == _weekDay),
-          ),
-          SizedBox(width: size.width * 0.02),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                _weekDay = 'Dom';
-              });
-            },
-            child: BoxDay(
-                dia: "Dom", horas: "8h ás 22h", active: 'Dom' == _weekDay),
-          ),
-        ],
-      ),
-    );
+    var dias = [];
+
+    // ignore: missing_return
+    return StreamBuilder<DocumentSnapshot>(
+        stream: FirebaseFirestore.instance
+            .collection("medicos")
+            .doc(widget.id)
+            .collection("diasdeconsulta")
+            .doc("dias")
+            .snapshots(),
+        builder: (context, snapshots) {
+          if (snapshots.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            var list = [];
+            Map<dynamic, dynamic> dias = snapshots.data.data();
+            dias.forEach((key, value) {
+              if (value == true) {
+                list.add(key);
+              }
+            });
+            return Container(
+              width: widget.size.width * 0.8,
+              height: widget.size.height * 0.2,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: list.length,
+                itemBuilder: (context, snapshot) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _weekDay = list[snapshot].toString().toUpperCase();
+                      });
+                    },
+                    child: BoxDay(
+                        dia: list[snapshot].toString().toUpperCase(),
+                        horas: "8h ás 22h",
+                        active: _weekDay ==
+                            list[snapshot].toString().toUpperCase()),
+                  );
+                },
+              ),
+            );
+          }
+        });
   }
 }
