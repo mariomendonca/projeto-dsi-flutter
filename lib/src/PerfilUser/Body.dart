@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/recentes.dart';
+import 'package:cmedapp/firestore_model.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -118,23 +121,31 @@ class _BodyUserState extends State<BodyUser> {
   }
 }
 
-class ScrollConsultas extends StatelessWidget {
+class ScrollConsultas extends StatefulWidget {
   const ScrollConsultas({key, this.snapshots, this.count}) : super(key: key);
   final AsyncSnapshot<QuerySnapshot<Object>> snapshots;
   final int count;
+
+  @override
+  _ScrollConsultasState createState() => _ScrollConsultasState();
+}
+
+class _ScrollConsultasState extends State<ScrollConsultas> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
     return Container(
       height: size.height * 0.4,
       child: ListView.builder(
           scrollDirection: Axis.vertical,
-          itemCount: count,
+          itemCount: widget.count,
           // ignore: missing_return
           itemBuilder: (context, snapshot) {
-            Map<dynamic, dynamic> info = snapshots.data.docs[snapshot].data();
+            Map<dynamic, dynamic> info =
+                widget.snapshots.data.docs[snapshot].data();
 
-            if (snapshots.connectionState == ConnectionState.waiting) {
+            if (widget.snapshots.connectionState == ConnectionState.waiting) {
               return Center(
                 child: CircularProgressIndicator(),
               );
@@ -142,12 +153,58 @@ class ScrollConsultas extends StatelessWidget {
               return Column(
                 children: [
                   // ignore: missing_required_param
-                  Consulta(
-                    nome: info["nome"],
-                    sobrenome: info["sobrenome"],
-                    inicioExpediente: info["inicioExpediente"],
-                    fimExpediente: info["fimExpediente"],
-                    dia: info["dia"],
+                  Dismissible(
+                    key: UniqueKey(),
+                    background: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(15)),
+                      padding: EdgeInsets.symmetric(horizontal: 12.0),
+                      alignment: Alignment.centerLeft,
+                      child: Icon(Icons.delete),
+                    ),
+                    secondaryBackground: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(15)),
+                      padding: EdgeInsets.symmetric(horizontal: 12.0),
+                      alignment: Alignment.centerRight,
+                      child: Icon(Icons.delete),
+                    ),
+                    onDismissed: (direction) async {
+                      if (direction == DismissDirection.startToEnd ||
+                          direction == DismissDirection.endToStart) {
+                        showDialog(
+                            context: context,
+                            builder: (context) => new AlertDialog(
+                                  title: Text("Cancelar consulta"),
+                                  content: Text(
+                                      "Você tem certeza que deseja cancelar sua consulta?"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () async {
+                                          await cancelConsult(widget.snapshots
+                                              .data.docs[snapshot].id);
+                                        },
+                                        child: Text("Sim")),
+                                    /////////////////////////////////////////////////
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          setState(() {});
+                                        },
+                                        child: Text("Não"))
+                                  ],
+                                ));
+                      }
+                    },
+                    child: Consulta(
+                      nome: info["nome"],
+                      sobrenome: info["sobrenome"],
+                      inicioExpediente: info["inicioExpediente"],
+                      fimExpediente: info["fimExpediente"],
+                      dia: info["dia"],
+                    ),
                   ),
                   SizedBox(
                     height: size.height * 0.02,

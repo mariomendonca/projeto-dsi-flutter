@@ -88,8 +88,7 @@ class FilterIcons extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-        width: size.width * 0.85,
-        
+        width: size.width * 0.84,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

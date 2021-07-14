@@ -13,3 +13,12 @@ addUserToLocalStorage() async {
     globals.sobrenome = await data['sobrenome'];
   }
 }
+
+cancelConsult(id) {
+  FirebaseFirestore.instance
+      .collection("pacientes")
+      .doc(FirebaseAuth.instance.currentUser.email)
+      .collection("consultas")
+      .doc(id)
+      .delete();
+}

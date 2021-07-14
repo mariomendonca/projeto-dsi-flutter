@@ -3,6 +3,7 @@ import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
 import 'package:cmedapp/src/CadastroPac/view.dart';
 import 'package:cmedapp/src/EsqueceuSenha.dart';
 import 'package:cmedapp/src/Home/Home.dart';
+import 'package:cmedapp/src/PerfilUser/perfil_screen.dart';
 import 'package:cmedapp/src/login_page.dart';
 import 'package:cmedapp/src/SecondPage.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           "/home": (context) => Home(),
           "/esqueceuSenha": (context) => EsqueceuSenha(),
           "/doctors": (context) => AllDoctors(),
+          "/perfiluser": (context) => PerfilUser(),
         },
         home: MyHomePage());
   }
