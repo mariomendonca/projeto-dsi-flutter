@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'globals.dart' as globals;
 
-
 addUserToLocalStorage() async {
   CollectionReference user = FirebaseFirestore.instance.collection('pacientes');
   DocumentSnapshot<Object> snapshot =
@@ -11,6 +10,6 @@ addUserToLocalStorage() async {
     Map<String, dynamic> data = snapshot.data();
     globals.user = data;
     globals.nome = await data['nome'];
-    print(data['nome']);
+    globals.sobrenome = await data['sobrenome'];
   }
 }
