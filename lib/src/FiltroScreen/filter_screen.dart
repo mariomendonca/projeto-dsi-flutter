@@ -25,8 +25,16 @@ class _FilterScreenState extends State<FilterScreen> {
               padding: const EdgeInsets.only(right: 16),
               child: Container(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_outlined,
+                          color: Color.fromRGBO(0, 191, 186, 1),
+                        )),
                     UserIcon(),
                   ],
                 ),
