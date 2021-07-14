@@ -9,6 +9,7 @@ import 'package:cmedapp/globals.dart' as globals;
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
+import 'package:strings/strings.dart';
 
 import 'dashboard.dart';
 
@@ -285,7 +286,7 @@ class _HelloUserState extends State<HelloUser> {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-      Text('Olá, ${globals.nome.toUpperCase()}!',
+      Text('Olá, ${capitalize(globals.nome.toString())}!',
           style: TextStyle(
             color: Color.fromRGBO(40, 58, 67, 1),
             fontWeight: FontWeight.bold,

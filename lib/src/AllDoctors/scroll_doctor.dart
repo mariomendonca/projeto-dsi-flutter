@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/globals.dart';
+
 import 'package:cmedapp/src/AllDoctors/card_doctor.dart';
 import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
 
 import 'package:flutter/material.dart';
+import 'package:strings/strings.dart';
 
 class ScrollDoctors extends StatelessWidget {
   final String especialidade;
@@ -41,10 +42,14 @@ class ScrollDoctors extends StatelessWidget {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } 
-            
+            }
+
             if (snapshot.data.docs.length == 0) {
-              return Center(child: Text('Nenhum médico encontrado', style: TextStyle(fontSize: 18),));
+              return Center(
+                  child: Text(
+                'Nenhum mÃ©dico encontrado',
+                style: TextStyle(fontSize: 18),
+              ));
             }
             print(snapshot.data);
             return ListView.builder(
@@ -52,8 +57,8 @@ class ScrollDoctors extends StatelessWidget {
               itemBuilder: (BuildContext context, int index) {
                 Map<dynamic, dynamic> doctor = snapshot.data.docs[index].data();
                 return CardDoctor(
-                  nome: doctor["nome"].toString().toUpperCase(),
-                  sobrenome: doctor["sobrenome"].toString().toUpperCase(),
+                  nome: capitalize(doctor["nome"].toString()),
+                  sobrenome: capitalize(doctor["sobrenome"].toString()),
                   especialidade: doctor["especialidade"],
                   descricao: doctor["descricao"],
                   url:
@@ -72,23 +77,3 @@ class ScrollDoctors extends StatelessWidget {
     );
   }
 }
-// padding: EdgeInsets.only(top: 20),
-//                 scrollDirection: Axis.vertical,
-//                 children: [
-//                   Column(
-//                     children: [
-//                       CardDoctor(
-//                           nome: "Carlos",
-//                           sobrenome: "Henrique",
-//                           especialidade: "Dentista",
-//                           url:
-//                               "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
-//                           descricao:
-//                               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//                           press: () {
-//                             Navigator.of(context).push(MaterialPageRoute(
-//                                 builder: (context) => PerfilMed()));
-//                           }),
-//                     ],
-//                   ),
-//                 ];

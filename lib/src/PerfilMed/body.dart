@@ -10,6 +10,7 @@ import 'package:cmedapp/src/PerfilMed/image_and_name.dart';
 import 'package:cmedapp/src/PerfilMed/scroll_dias_de_consulta.dart';
 import 'package:cmedapp/src/PerfilMed/text_dias_de_consulta.dart';
 import 'package:flutter/material.dart';
+import 'package:strings/strings.dart';
 
 class BodyPerfilMed extends StatelessWidget {
   const BodyPerfilMed({
@@ -51,8 +52,8 @@ class BodyPerfilMed extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: ImageAndName(
                       size: size,
-                      nome: info["nome"].toString().toUpperCase(),
-                      sobrenome: info["sobrenome"].toString().toUpperCase(),
+                      nome: capitalize(info["nome"].toString()),
+                      sobrenome: capitalize(info["sobrenome"].toString()),
                       especialidade: info["especialidade"],
                     ),
                   ),

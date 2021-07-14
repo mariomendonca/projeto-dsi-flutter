@@ -7,6 +7,7 @@ import 'package:cmedapp/firestore_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cmedapp/globals.dart' as globals;
+import 'package:strings/strings.dart';
 
 class BodyUser extends StatefulWidget {
   @override
@@ -16,9 +17,9 @@ class BodyUser extends StatefulWidget {
 class _BodyUserState extends State<BodyUser> {
   @override
   Widget build(BuildContext context) {
-    var nome = globals.nome.toUpperCase();
+    var nome = capitalize(globals.nome.toString());
 
-    var sobrenome = globals.sobrenome.toUpperCase();
+    var sobrenome = capitalize(globals.sobrenome.toString());
     var size = MediaQuery.of(context).size;
     return Container(
         decoration: BoxDecoration(color: Colors.white),
