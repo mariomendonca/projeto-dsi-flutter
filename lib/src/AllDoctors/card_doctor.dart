@@ -24,9 +24,15 @@ class CardDoctor extends StatefulWidget {
 }
 
 class _CardDoctorState extends State<CardDoctor> {
+  bool isFavorite = true;
+
+  changeState() {
+    setState(() {
+      isFavorite = !isFavorite;
+    });
+  }
   @override
   Widget build(BuildContext context) {
-    bool _isFavorite = true;
 
     var size = MediaQuery.of(context).size;
     return GestureDetector(
@@ -104,12 +110,8 @@ class _CardDoctorState extends State<CardDoctor> {
             right: 1,
             top: 2,
             child: IconButton(
-                onPressed: () {
-                  _isFavorite = !_isFavorite;
-
-                  setState(() {});
-                },
-                icon: _isFavorite == true
+                onPressed: changeState,
+                icon: isFavorite == true
                     ? Icon(
                         Icons.favorite,
                         color: Colors.red,
