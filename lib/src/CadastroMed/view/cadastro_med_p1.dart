@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
@@ -6,11 +7,14 @@ import 'package:cmedapp/src/CadastroMed/controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'cadastro_med_p2.dart';
+import 'package:image_picker/image_picker.dart';
 
 class CadastroMed extends StatefulWidget {
   @override
   CadastroMedState createState() => CadastroMedState();
 }
+
+final picker = ImagePicker();
 
 class CadastroMedState extends State<CadastroMed> {
   GlobalKey<FormState> _formKeyMed = new GlobalKey();
@@ -22,7 +26,19 @@ class CadastroMedState extends State<CadastroMed> {
   final TextEditingController controllerSenha = TextEditingController();
   final TextEditingController controllerEmail = TextEditingController();
   final TextEditingController controllerConfirmPass = TextEditingController();
+
+  File _image;
   @override
+  Future getImage() async {
+    final PickedFile pickedFile =
+        await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      _image = File(pickedFile.path);
+      print(_image);
+    });
+  }
+
   Widget build(BuildContext context) {
     bool validateAndPass() {
       if (_formKeyMed.currentState.validate()) {
@@ -54,6 +70,25 @@ class CadastroMedState extends State<CadastroMed> {
             color: Colors.white,
           ),
           child: ListView(children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Center(
+                child: Stack(
+                  children: [
+                    CircleAvatar(
+                        radius: 50,
+                        backgroundImage: _image != null ? FileImage(_image) : AssetImage('assets/images/medico-home.png'),
+                        backgroundColor: Colors.white,
+                        ),
+                    Positioned(
+                      bottom: 5,
+                      right: 5,
+                      child: IconButton(icon: Icon(Icons.camera_alt_sharp), onPressed: getImage,)
+                      ),
+                  ],
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 22, right: 14, left: 14),
               child: Input(
