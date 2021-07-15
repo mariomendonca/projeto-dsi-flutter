@@ -10,8 +10,9 @@ class MarcarConsulta {
   String idMed;
   String inicioExpediente;
   String fimExpediente;
+  String url;
   MarcarConsulta(this.dia, this.nomeMed, this.sobrenomeMed, this.especialidade,
-      this.idMed, this.inicioExpediente, this.fimExpediente);
+      this.idMed, this.inicioExpediente, this.fimExpediente, this.url);
 
   Map<String, dynamic> toMap() {
     return {
@@ -21,14 +22,14 @@ class MarcarConsulta {
       "especialidade": especialidade,
       "idMed": idMed,
       "inicioExpediente": inicioExpediente,
-      "fimExpediente": fimExpediente //desc
+      "fimExpediente": fimExpediente ,//desc
+      "url" :url
     };
   }
 
-
   addConsulta(email) {
     var consulta = MarcarConsulta(dia, nomeMed, sobrenomeMed, especialidade,
-        idMed, inicioExpediente, fimExpediente);
+        idMed, inicioExpediente, fimExpediente,url);
     _db.doc(email).collection("consultas").add(consulta.toMap());
   }
 }

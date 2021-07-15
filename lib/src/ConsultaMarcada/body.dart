@@ -67,7 +67,8 @@ class BodyConsultaMarcada extends StatelessWidget {
                                 medico["especialidade"],
                                 medico["email"],
                                 medico['inicioExpediente'],
-                                medico['fimExpediente'])
+                                medico['fimExpediente'],
+                                medico["url"])
                             .addConsulta(
                                 FirebaseAuth.instance.currentUser.email);
                         Navigator.of(context).pushNamedAndRemoveUntil(

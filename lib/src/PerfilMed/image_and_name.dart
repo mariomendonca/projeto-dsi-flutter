@@ -8,12 +8,14 @@ class ImageAndName extends StatelessWidget {
     this.nome,
     this.sobrenome,
     this.especialidade,
+    this.url
   }) : super(key: key);
 
   final Size size;
   final String nome;
   final String sobrenome;
   final String especialidade;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,10 @@ class ImageAndName extends StatelessWidget {
             width: 77,
             height: 77,
             decoration: BoxDecoration(
+                image: DecorationImage(
+              image: NetworkImage(url),
+              fit: BoxFit.cover,
+            ),
                 borderRadius: BorderRadius.circular(10), color: Colors.red),
           ),
           Flexible(

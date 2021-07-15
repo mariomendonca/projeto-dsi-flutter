@@ -55,6 +55,7 @@ class BodyPerfilMed extends StatelessWidget {
                       nome: capitalize(info["nome"].toString()),
                       sobrenome: capitalize(info["sobrenome"].toString()),
                       especialidade: info["especialidade"],
+                      url: info["url"],
                     ),
                   ),
                   Row(

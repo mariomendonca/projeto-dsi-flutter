@@ -45,7 +45,7 @@ class _RecentesState extends State<Recentes> {
                         return Container(
                             child: Padding(
                           padding: const EdgeInsets.all(6.0),
-                          child: CardRecentes(info['url'], info["id"]),
+                          child: CardRecentes(info['url'], info["idMed"]),
                         ));
                       }
                     }),
@@ -59,28 +59,30 @@ class _RecentesState extends State<Recentes> {
 // ignore: must_be_immutable
 class CardRecentes extends StatelessWidget {
   String url;
-  final id;
+  final String id;
   CardRecentes(this.url, this.id);
 
   @override
   Widget build(BuildContext context) {
+    print(id);
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => PerfilMed(documentId: id,)));
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PerfilMed(
+                  documentId: id,
+                )));
       },
       child: Container(
         width: 50,
         height: 5,
         child: Text(''),
         decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(url),
-          fit: BoxFit.cover,
-        ),
-        borderRadius: BorderRadius.circular(10),
-        color: Color.fromRGBO(0, 191, 186, 1)),
-        
+            image: DecorationImage(
+              image: NetworkImage(url),
+              fit: BoxFit.cover,
+            ),
+            borderRadius: BorderRadius.circular(10),
+            color: Color.fromRGBO(0, 191, 186, 1)),
       ),
     );
   }
