@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
@@ -7,6 +8,7 @@ import 'package:cmedapp/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 import 'package:cmedapp/src/CadastroMed/controller.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 // ignore: must_be_immutable
 class CadastroMed2 extends StatefulWidget {
@@ -19,16 +21,8 @@ class CadastroMed2 extends StatefulWidget {
   String email;
   File image;
 
-  CadastroMed2(
-    this.nome,
-    this.sobrenome,
-    this.telefone,
-    this.cpf,
-    this.especialidade,
-    this.senha,
-    this.email,
-    this.image
-  );
+  CadastroMed2(this.nome, this.sobrenome, this.telefone, this.cpf,
+      this.especialidade, this.senha, this.email, this.image);
 
   @override
   CadastroMed2State createState() => CadastroMed2State();
@@ -47,7 +41,6 @@ class CadastroMed2State extends State<CadastroMed2> {
   @override
   Widget build(BuildContext context) {
     void registrarUser() {
-
       Medicos(
               widget.nome,
               widget.sobrenome,
@@ -215,6 +208,8 @@ class CadastroMed2State extends State<CadastroMed2> {
                                 _formKeyMed2.currentState.save();
                                 registrarUser();
                                 uploadImage(widget.email, widget.image);
+                                // getUrl(widget.email);
+                                // updateUrl(widget.email, url);
 
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     '/homePage',

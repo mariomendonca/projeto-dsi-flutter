@@ -78,15 +78,19 @@ class CadastroMedState extends State<CadastroMed> {
                 child: Stack(
                   children: [
                     CircleAvatar(
-                        radius: 50,
-                        backgroundImage: _image != null ? FileImage(_image) : AssetImage('assets/images/medico-home.png'),
-                        backgroundColor: Colors.white,
-                        ),
+                      radius: 50,
+                      backgroundImage: _image != null
+                          ? FileImage(_image)
+                          : AssetImage('assets/images/medico-home.png'),
+                      backgroundColor: Colors.white,
+                    ),
                     Positioned(
-                      bottom: 5,
-                      right: 5,
-                      child: IconButton(icon: Icon(Icons.camera_alt_sharp), onPressed: getImage,)
-                      ),
+                        bottom: 5,
+                        right: 5,
+                        child: IconButton(
+                          icon: Icon(Icons.camera_alt_sharp),
+                          onPressed: getImage,
+                        )),
                   ],
                 ),
               ),
@@ -203,8 +207,7 @@ class CadastroMedState extends State<CadastroMed> {
                               controllerEspecialidade.text.trim().toLowerCase(),
                               controllerSenha.text.trim(),
                               controllerEmail.text.trim().toLowerCase(),
-                              _image
-                              ),
+                              _image),
                         ),
                       );
                     }

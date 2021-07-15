@@ -47,8 +47,8 @@ class ScrollDoctors extends StatelessWidget {
             if (snapshot.data.docs.length == 0) {
               return Center(
                   child: Text(
-                'Nenhum mÃ©dico encontrado',
-                style: TextStyle(fontSize: 18),
+                'Nenhum médico encontrado',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ));
             }
             print(snapshot.data);
@@ -61,8 +61,7 @@ class ScrollDoctors extends StatelessWidget {
                   sobrenome: capitalize(doctor["sobrenome"].toString()),
                   especialidade: doctor["especialidade"],
                   descricao: doctor["descricao"],
-                  url:
-                      "https://p2.trrsf.com/image/fget/cf/460/0/images.terra.com/2013/06/14/01especilidade.jpg",
+                  url: doctor["url"],
                   press: () {
                     documentId = doctor["email"];
                     Navigator.of(context).push(MaterialPageRoute(
