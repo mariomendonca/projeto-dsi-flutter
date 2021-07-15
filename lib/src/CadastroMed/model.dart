@@ -18,6 +18,7 @@ class Medicos {
   String inicioExpediente;
   String fimExpediente;
   String descricao;
+  String url;
   List dias;
 
   Medicos(
@@ -33,6 +34,7 @@ class Medicos {
       this.inicioExpediente,
       this.fimExpediente,
       this.descricao,
+      this.url,
       this.dias);
 
   Map<String, dynamic> diastoMap() {
@@ -60,6 +62,7 @@ class Medicos {
       "numero": numero, //fimExpediente
       "inicioExpediente": inicioExpediente,
       "fimExpediente": fimExpediente, //numero
+      "url": '',
       "descricao": descricao, //email
     };
   }
@@ -80,6 +83,7 @@ class Medicos {
         inicioExpediente,
         fimExpediente,
         descricao,
+        url,
         dias);
     print(medico.toMap());
     _db.collection("medicos").doc(email).set(medico.toMap());

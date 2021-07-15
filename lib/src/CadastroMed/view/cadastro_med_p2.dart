@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/components/button_padrao.dart';
 import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/src/CadastroMed/model.dart';
+import 'package:cmedapp/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 import 'package:cmedapp/src/CadastroMed/controller.dart';
@@ -15,6 +17,7 @@ class CadastroMed2 extends StatefulWidget {
   String especialidade;
   String senha;
   String email;
+  File image;
 
   CadastroMed2(
     this.nome,
@@ -24,6 +27,7 @@ class CadastroMed2 extends StatefulWidget {
     this.especialidade,
     this.senha,
     this.email,
+    this.image
   );
 
   @override
@@ -43,6 +47,7 @@ class CadastroMed2State extends State<CadastroMed2> {
   @override
   Widget build(BuildContext context) {
     void registrarUser() {
+
       Medicos(
               widget.nome,
               widget.sobrenome,
@@ -56,6 +61,7 @@ class CadastroMed2State extends State<CadastroMed2> {
               controllerInicioExpediente.text.trim().toLowerCase(),
               controllerFimExpediente.text.trim().toLowerCase(),
               controllerDescricao.text.trim().toLowerCase(),
+              '',
               values)
           .addInfo(
         widget.email,
@@ -208,12 +214,8 @@ class CadastroMed2State extends State<CadastroMed2> {
                               if (validate()) {
                                 _formKeyMed2.currentState.save();
                                 registrarUser();
-                                print(widget.nome +
-                                    widget.sobrenome +
-                                    widget.cpf +
-                                    widget.especialidade +
-                                    widget.telefone +
-                                    widget.senha);
+                                uploadImage(widget.email, widget.image);
+
                                 Navigator.of(context).pushNamedAndRemoveUntil(
                                     '/homePage',
                                     (Route<dynamic> route) => false);

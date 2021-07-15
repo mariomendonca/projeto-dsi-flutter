@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'cadastro_med_p2.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class CadastroMed extends StatefulWidget {
   @override
@@ -200,7 +202,9 @@ class CadastroMedState extends State<CadastroMed> {
                               controllerCpf.text.trim().toLowerCase(),
                               controllerEspecialidade.text.trim().toLowerCase(),
                               controllerSenha.text.trim(),
-                              controllerEmail.text.trim().toLowerCase()),
+                              controllerEmail.text.trim().toLowerCase(),
+                              _image
+                              ),
                         ),
                       );
                     }

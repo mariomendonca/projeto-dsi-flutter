@@ -1,17 +1,19 @@
-// import 'package:cloud_firestore/cloud_firestore.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 
-// class FirestoreService {
-//   get(String collectionName, String field, resultfield) async {
-//     QuerySnapshot querySnapshot = await FirebaseFirestore.instance
-//         .collection(collectionName)
-//         .where(field, isEqualTo: resultfield)
-//         .get();
-//     List result = [];
-//     querySnapshot.docs.forEach((doc) {
-//       print(result);
-//       result.add(doc.data());
-//     });
-//     return result;
-//   }
-// }
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+
+Future uploadImage(email, image) async {
+  firebase_storage.FirebaseStorage storage = firebase_storage.FirebaseStorage.instance;
+  
+
+  firebase_storage.Reference pastaRaiz = storage.ref();
+  firebase_storage.Reference arquivo = pastaRaiz
+    .child("medicos")
+    .child(email + "jpg");
+
+  arquivo.putFile(image);
+}
+    // .child(email + "jpg");
+  // FirebaseStorage arquivo = pastaRaiz
+  //   .child("medicos")
+  //   // .child(email + "jpg");
+  //   .child(email);
