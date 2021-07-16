@@ -7,12 +7,14 @@ class Favorite {
   String sobrenome;
   String url;
   String especialidade;
+  String email;
 
   Favorite(
     this.nome,
     this.sobrenome,
     this.url,
     this.especialidade,
+    this.email,
   );
 
   Map<String, dynamic> toMap() {
@@ -20,12 +22,13 @@ class Favorite {
       "nome": nome,
       "sobrenome": sobrenome,
       "url": url,
-      "especialidade": especialidade
+      "especialidade": especialidade,
+      "email": email
     };
   }
 
   addFavorite(user, idDoctor) {
-    var medico = Favorite(nome, sobrenome, url, especialidade);
+    var medico = Favorite(nome, sobrenome, url, especialidade, email);
     _db
         .collection("pacientes")
         .doc(user)

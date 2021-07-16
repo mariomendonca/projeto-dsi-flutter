@@ -30,60 +30,57 @@ class CardDoctor extends StatefulWidget {
 
 class _CardDoctorState extends State<CardDoctor> {
   bool isFavorite;
-  List lista = [];
-  void getIsFavorite() async {
-    StreamBuilder(
-      stream: FirebaseFirestore.instance
-          .collection("medicos")
-          .doc(FirebaseAuth.instance.currentUser.email)
-          .collection("favoritos")
-          .snapshots(),
-      // ignore: missing_return
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-            child: CircularProgressIndicator(),
-          );
-        }
+  List<String> lista = [];
 
-        for (var snap in snapshot.data.docs) {
-          Map<dynamic, dynamic> doctors = snap.data();
-          doctors.forEach((key, value) {
-            if (key == "email") {
-              if (lista.contains(value) == false) {
-                lista.add(value);
-              }
-            }
-          });
-        }
-        if (lista.contains(widget.email)) {
-          isFavorite = true;
-        } else {
-          isFavorite = false;
-        }
-      },
-    );
+  bool IsFavorite(List lista, email) {
+    bool _isFavorite;
+    if (lista.contains(email)) {
+      _isFavorite = true;
+    } else {
+      _isFavorite = false;
+    }
+    return _isFavorite;
   }
 
   changeState() {
     setState(() {
       if (isFavorite == true) {
-        Favorite(
-                widget.nome, widget.sobrenome, widget.url, widget.especialidade)
+        Favorite(widget.nome, widget.sobrenome, widget.url,
+                widget.especialidade, widget.email)
             .removeFavorite(
                 FirebaseAuth.instance.currentUser.email, widget.email);
         isFavorite = false;
+        lista.remove(widget.email);
       } else {
-        Favorite(
-                widget.nome, widget.sobrenome, widget.url, widget.especialidade)
+        Favorite(widget.nome, widget.sobrenome, widget.url,
+                widget.especialidade, widget.email)
             .addFavorite(FirebaseAuth.instance.currentUser.email, widget.email);
         isFavorite = true;
+        lista.add(widget.email);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore.instance
+        .collection("pacientes")
+        .doc(FirebaseAuth.instance.currentUser.email)
+        .collection("favoritos")
+        .get()
+        .then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        Map<String, dynamic> doctor = doc.data();
+        doctor.forEach((key, value) {
+          if (key == "email" && lista.contains(value.toString()) != true) {
+            setState(() {
+              lista.add(value.toString());
+            });
+          }
+        });
+      });
+    });
+    isFavorite = IsFavorite(lista, widget.email);
     var size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: widget.press,
