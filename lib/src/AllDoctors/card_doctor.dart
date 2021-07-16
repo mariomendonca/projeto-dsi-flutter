@@ -4,6 +4,7 @@ import 'package:cmedapp/components/fonte.dart';
 import 'package:cmedapp/src/AllDoctors/model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:strings/strings.dart';
 
 class CardDoctor extends StatefulWidget {
   const CardDoctor(
@@ -98,12 +99,14 @@ class _CardDoctorState extends State<CardDoctor> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
-                child: Image(
-                  width: size.width * 0.3,
-                  height: size.height,
-                  fit: BoxFit.fill,
-                  alignment: Alignment.center,
-                  image: NetworkImage(widget.url),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  child: Image.network(
+                    widget.url,
+                    fit: BoxFit.fill,
+                    width: size.width * 0.3,
+                    height: size.height,
+                  ),
                 ),
               ),
               Container(
@@ -137,7 +140,7 @@ class _CardDoctorState extends State<CardDoctor> {
                       ),
                       Flexible(
                         child: AutoSizeText(
-                          widget.descricao,
+                          capitalize(widget.descricao),
                           textAlign: TextAlign.justify,
                           style: TextStyle(
                               fontSize: 11.0,

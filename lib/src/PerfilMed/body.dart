@@ -54,7 +54,8 @@ class BodyPerfilMed extends StatelessWidget {
                       size: size,
                       nome: capitalize(info["nome"].toString()),
                       sobrenome: capitalize(info["sobrenome"].toString()),
-                      especialidade: info["especialidade"],
+                      especialidade:
+                          info["especialidade"].toString().toUpperCase(),
                       url: info["url"],
                     ),
                   ),
@@ -62,7 +63,7 @@ class BodyPerfilMed extends StatelessWidget {
                     children: [
                       Endereco(
                         size: size,
-                        endereco: info["endereco"],
+                        endereco: info["endereco"].toString().toUpperCase(),
                         numero: info["numero"],
                       ),
                       EmailAndPhone(
@@ -72,7 +73,8 @@ class BodyPerfilMed extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Descricao(size: size, descricao: info["descricao"]),
+                  Descricao(
+                      size: size, descricao: capitalize(info["descricao"])),
                   Container(
                     width: size.width * 0.8,
                     margin: EdgeInsets.only(top: 20, bottom: 10),

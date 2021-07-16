@@ -27,6 +27,10 @@ class _RecentesState extends State<Recentes> {
               return Center(
                 child: CircularProgressIndicator(),
               );
+            } else if (snapshots.data.size == 0) {
+              return Container(
+                  height: 65,
+                  child: Center(child: Text("Nenhum médico(a) recente")));
             } else {
               return SizedBox(
                 width: double.infinity,
@@ -66,24 +70,23 @@ class CardRecentes extends StatelessWidget {
   Widget build(BuildContext context) {
     print(id);
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => PerfilMed(
-                  documentId: id,
-                )));
-      },
-      child: Container(
-        width: 50,
-        height: 5,
-        child: Text(''),
-        decoration: BoxDecoration(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => PerfilMed(
+                    documentId: id,
+                  )));
+        },
+        child: Container(
+          width: 50,
+          height: 5,
+          decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(url),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(10),
-            color: Color.fromRGBO(0, 191, 186, 1)),
-      ),
-    );
+            color: Colors.white,
+          ),
+        ));
   }
 }
