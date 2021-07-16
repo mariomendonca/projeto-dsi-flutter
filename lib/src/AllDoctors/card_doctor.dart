@@ -1,5 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cmedapp/components/fonte.dart';
+import 'package:cmedapp/src/AllDoctors/model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CardDoctor extends StatefulWidget {
@@ -10,7 +13,8 @@ class CardDoctor extends StatefulWidget {
       this.especialidade,
       this.url,
       this.descricao,
-      this.press})
+      this.press,
+      this.email})
       : super(key: key);
   final String nome;
   final String sobrenome;
@@ -18,22 +22,68 @@ class CardDoctor extends StatefulWidget {
   final String url;
   final String descricao;
   final Function press;
+  final String email;
 
   @override
   _CardDoctorState createState() => _CardDoctorState();
 }
 
 class _CardDoctorState extends State<CardDoctor> {
-  bool isFavorite = true;
+  bool isFavorite;
+  List lista = [];
+  void getIsFavorite() async {
+    StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection("medicos")
+          .doc(FirebaseAuth.instance.currentUser.email)
+          .collection("favoritos")
+          .snapshots(),
+      // ignore: missing_return
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        for (var snap in snapshot.data.docs) {
+          Map<dynamic, dynamic> doctors = snap.data();
+          doctors.forEach((key, value) {
+            if (key == "email") {
+              if (lista.contains(value) == false) {
+                lista.add(value);
+              }
+            }
+          });
+        }
+        if (lista.contains(widget.email)) {
+          isFavorite = true;
+        } else {
+          isFavorite = false;
+        }
+      },
+    );
+  }
 
   changeState() {
     setState(() {
-      isFavorite = !isFavorite;
+      if (isFavorite == true) {
+        Favorite(
+                widget.nome, widget.sobrenome, widget.url, widget.especialidade)
+            .removeFavorite(
+                FirebaseAuth.instance.currentUser.email, widget.email);
+        isFavorite = false;
+      } else {
+        Favorite(
+                widget.nome, widget.sobrenome, widget.url, widget.especialidade)
+            .addFavorite(FirebaseAuth.instance.currentUser.email, widget.email);
+        isFavorite = true;
+      }
     });
   }
+
   @override
   Widget build(BuildContext context) {
-
     var size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: widget.press,
@@ -111,6 +161,7 @@ class _CardDoctorState extends State<CardDoctor> {
             top: 2,
             child: IconButton(
                 onPressed: changeState,
+                // icon
                 icon: isFavorite == true
                     ? Icon(
                         Icons.favorite,

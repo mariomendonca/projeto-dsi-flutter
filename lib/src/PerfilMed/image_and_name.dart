@@ -2,14 +2,14 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class ImageAndName extends StatelessWidget {
-  const ImageAndName({
-    Key key,
-    @required this.size,
-    this.nome,
-    this.sobrenome,
-    this.especialidade,
-    this.url
-  }) : super(key: key);
+  const ImageAndName(
+      {Key key,
+      @required this.size,
+      this.nome,
+      this.sobrenome,
+      this.especialidade,
+      this.url})
+      : super(key: key);
 
   final Size size;
   final String nome;
@@ -31,10 +31,11 @@ class ImageAndName extends StatelessWidget {
             height: 77,
             decoration: BoxDecoration(
                 image: DecorationImage(
-              image: NetworkImage(url),
-              fit: BoxFit.cover,
-            ),
-                borderRadius: BorderRadius.circular(10), color: Colors.red),
+                  image: NetworkImage(url),
+                  fit: BoxFit.cover,
+                ),
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white),
           ),
           Flexible(
             child: Padding(

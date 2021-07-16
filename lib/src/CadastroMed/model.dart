@@ -19,6 +19,7 @@ class Medicos {
   String fimExpediente;
   String descricao;
   String url;
+
   List dias;
 
   Medicos(
@@ -63,13 +64,12 @@ class Medicos {
       "inicioExpediente": inicioExpediente,
       "fimExpediente": fimExpediente, //numero
       "url": '',
+
       "descricao": descricao, //email
     };
   }
 
   addInfo(email) {
-    print(listHoras);
-    print(_horas);
     var medico = Medicos(
         nome,
         sobrenome,
@@ -85,7 +85,7 @@ class Medicos {
         descricao,
         url,
         dias);
-    print(medico.toMap());
+
     _db.collection("medicos").doc(email).set(medico.toMap());
     _dias = diastoMap();
     _db

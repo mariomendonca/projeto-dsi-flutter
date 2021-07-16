@@ -62,6 +62,7 @@ class ScrollDoctors extends StatelessWidget {
                   especialidade: doctor["especialidade"],
                   descricao: doctor["descricao"],
                   url: doctor["url"],
+                  email: doctor["email"],
                   press: () {
                     documentId = doctor["email"];
                     Navigator.of(context).push(MaterialPageRoute(
