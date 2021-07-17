@@ -1,11 +1,11 @@
 import 'package:brasil_fields/brasil_fields.dart';
-import 'package:cmedapp/authentication_service.dart';
-import 'package:cmedapp/components/appbar_with_logo.dart';
-import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/components/input.dart';
+import 'package:cmedapp/src/utils/authentication_service.dart';
 
 import 'package:cmedapp/src/CadastroPac/controller.dart';
 import 'package:cmedapp/src/CadastroPac/model.dart';
+import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
+import 'package:cmedapp/src/widgets/input.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

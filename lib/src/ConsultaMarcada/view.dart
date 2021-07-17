@@ -1,13 +1,35 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/src/ConsultaMarcada/label_consulta_marcada.dart';
-import 'package:cmedapp/globals.dart' as globals;
-import 'package:cmedapp/src/ConsultaMarcada/model.dart';
-import 'package:cmedapp/src/ConsultaMarcada/text_consulta_confirmada.dart';
-import 'package:cmedapp/src/PerfilUser/Body.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:cmedapp/src/ConsultaMarcada/widgets/label_consulta_marcada.dart';
+import 'package:cmedapp/src/ConsultaMarcada/model.dart';
+import 'package:cmedapp/src/ConsultaMarcada/widgets/text_consulta_confirmada.dart';
+
+import 'package:cmedapp/src/utils/globals.dart' as globals;
+import 'package:cmedapp/src/widgets/app_bar.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+class ConsultaMarcada extends StatefulWidget {
+  @override
+  _ConsultaMarcadaState createState() => _ConsultaMarcadaState();
+}
+
+class _ConsultaMarcadaState extends State<ConsultaMarcada> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(size.height * 0.10),
+        child: AppBar2(),
+      ),
+      body: BodyConsultaMarcada(),
+    );
+  }
+}
 
 class BodyConsultaMarcada extends StatelessWidget {
   const BodyConsultaMarcada({

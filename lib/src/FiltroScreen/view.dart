@@ -1,6 +1,7 @@
-import 'package:cmedapp/src/FiltroScreen/label_text.dart';
-import 'package:cmedapp/src/FiltroScreen/scroll_especialidades.dart';
-import 'package:cmedapp/src/Home/body.dart';
+import 'package:cmedapp/src/FiltroScreen/widgets/label_text.dart';
+import 'package:cmedapp/src/FiltroScreen/widgets/scroll_especialidades.dart';
+import 'package:cmedapp/src/Home/view.dart';
+
 import 'package:flutter/material.dart';
 
 class FilterScreen extends StatefulWidget {

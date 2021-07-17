@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/globals.dart';
-import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
+import 'package:cmedapp/src/utils/globals.dart';
+import 'package:cmedapp/src/PerfilMed/view.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 

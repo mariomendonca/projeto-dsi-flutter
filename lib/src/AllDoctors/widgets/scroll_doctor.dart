@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cmedapp/src/AllDoctors/widgets/card_doctor.dart';
 
-import 'package:cmedapp/src/AllDoctors/card_doctor.dart';
-import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
+import 'package:cmedapp/src/PerfilMed/view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:strings/strings.dart';

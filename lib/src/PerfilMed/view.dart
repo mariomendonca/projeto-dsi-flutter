@@ -1,16 +1,45 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/src/ConsultaMarcada/marcar_consulta.dart';
-import 'package:cmedapp/src/MarcandoConsulta/body.dart';
+import 'package:cmedapp/src/ConsultaMarcada/view.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/descricao.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/email_and_phone.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/endereco.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/image_and_name.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/scroll_dias_de_consulta.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/text_dias_de_consulta.dart';
+import 'package:cmedapp/src/widgets/app_bar.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
 
-import 'package:cmedapp/src/PerfilMed/descricao.dart';
-import 'package:cmedapp/src/PerfilMed/email_and_phone.dart';
-import 'package:cmedapp/src/PerfilMed/endereco.dart';
-import 'package:cmedapp/src/PerfilMed/image_and_name.dart';
-import 'package:cmedapp/src/PerfilMed/scroll_dias_de_consulta.dart';
-import 'package:cmedapp/src/PerfilMed/text_dias_de_consulta.dart';
 import 'package:flutter/material.dart';
 import 'package:strings/strings.dart';
+
+class PerfilMed extends StatefulWidget {
+  const PerfilMed({
+    Key key,
+    @required this.documentId,
+  }) : super(key: key);
+  final documentId;
+  @override
+  _PerfilMedState createState() => _PerfilMedState();
+}
+
+class _PerfilMedState extends State<PerfilMed> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      backgroundColor: Colors.lightBlue[50],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(size.height * 0.10),
+        child: AppBar2(),
+      ),
+      body: BodyPerfilMed(
+        id: widget.documentId,
+        size: size,
+      ),
+    );
+  }
+}
 
 class BodyPerfilMed extends StatelessWidget {
   const BodyPerfilMed({
@@ -24,8 +53,6 @@ class BodyPerfilMed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var consultadia;
-    var consultahora;
     return StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
             .collection("medicos")

@@ -1,6 +1,6 @@
-import 'package:cmedapp/components/appbar_with_logo.dart';
 import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
 import 'package:cmedapp/src/CadastroPac/view.dart';
+import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -74,7 +74,6 @@ class SecondPage extends StatelessWidget {
             height: 240,
             width: 278,
             child: ElevatedButton(
-              
               onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
@@ -82,16 +81,15 @@ class SecondPage extends StatelessWidget {
                   ),
                 );
               },
-              
               style: ElevatedButton.styleFrom(
                 primary: Colors.white,
               ),
               child: Row(
                 children: [
                   Container(
-                    width: 100,
-                    height: 80,
-                    child: new SvgPicture.asset("assets/images/pac.svg")),
+                      width: 100,
+                      height: 80,
+                      child: new SvgPicture.asset("assets/images/pac.svg")),
                   Text(
                     "Sou paciente",
                     style: TextStyle(

@@ -1,17 +1,27 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/components/recentes.dart';
-import 'package:cmedapp/firestore_model.dart';
-import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
-import 'package:cmedapp/src/FiltroScreen/filter_screen.dart';
-import 'package:cmedapp/src/PerfilUser/perfil_screen.dart';
+import 'package:cmedapp/src/AllDoctors/view.dart';
+import 'package:cmedapp/src/FiltroScreen/view.dart';
+import 'package:cmedapp/src/Home/widgets/dashboard.dart';
+import 'package:cmedapp/src/PerfilUser/view.dart';
+import 'package:cmedapp/src/utils/firestore_model.dart';
+import 'package:cmedapp/src/widgets/recentes.dart';
 
-import 'package:cmedapp/globals.dart' as globals;
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
+import 'package:cmedapp/src/utils/globals.dart' as globals;
 import 'package:strings/strings.dart';
 
-import 'dashboard.dart';
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Body());
+  }
+}
 
 class Body extends StatefulWidget {
   @override

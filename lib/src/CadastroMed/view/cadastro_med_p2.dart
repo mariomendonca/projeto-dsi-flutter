@@ -1,14 +1,14 @@
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/components/appbar_with_logo.dart';
-import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/components/input.dart';
+
 import 'package:cmedapp/src/CadastroMed/model.dart';
-import 'package:cmedapp/storage.dart';
+import 'package:cmedapp/src/utils/storage.dart';
+import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
+import 'package:cmedapp/src/widgets/input.dart';
+
 import 'package:flutter/material.dart';
 import 'package:weekday_selector/weekday_selector.dart';
 import 'package:cmedapp/src/CadastroMed/controller.dart';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 // ignore: must_be_immutable
 class CadastroMed2 extends StatefulWidget {

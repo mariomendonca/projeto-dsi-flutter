@@ -1,7 +1,8 @@
-import 'package:cmedapp/components/recentes.dart';
-import 'package:cmedapp/src/AllDoctors/scroll_doctor.dart';
-import 'package:cmedapp/src/AllDoctors/text_and_filter.dart';
-import 'package:cmedapp/src/PerfilMed/perfil_med.dart';
+import 'package:cmedapp/src/AllDoctors/widgets/scroll_doctor.dart';
+import 'package:cmedapp/src/AllDoctors/widgets/text_and_filter.dart';
+import 'package:cmedapp/src/PerfilMed/view.dart';
+import 'package:cmedapp/src/widgets/recentes.dart';
+
 import 'package:flutter/material.dart';
 
 class AllDoctors extends StatefulWidget {

@@ -1,15 +1,14 @@
 import 'dart:io';
 import 'package:brasil_fields/brasil_fields.dart';
-import 'package:cmedapp/components/appbar_with_logo.dart';
-import 'package:cmedapp/components/button_padrao.dart';
-import 'package:cmedapp/components/input.dart';
 import 'package:cmedapp/src/CadastroMed/controller.dart';
+import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
+import 'package:cmedapp/src/widgets/input.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'cadastro_med_p2.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 
 class CadastroMed extends StatefulWidget {
   @override

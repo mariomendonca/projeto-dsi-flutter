@@ -1,13 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/authentication_service.dart';
-import 'package:cmedapp/components/alertDialog.dart';
-import 'package:cmedapp/components/input.dart';
+import 'package:cmedapp/src/Login/controller.dart';
+import 'package:cmedapp/src/utils/authentication_service.dart';
 
-import 'package:cmedapp/src/EsqueceuSenha.dart';
+import 'package:cmedapp/src/EsqueceuSenha/view.dart';
+import 'package:cmedapp/src/widgets/alertDialog.dart';
+import 'package:cmedapp/src/widgets/input.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../components/Logo.dart';
+import '../../components/Logo.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
@@ -117,26 +118,6 @@ class _LoginAreaState extends State<LoginArea> {
         return true;
       } else {
         return false;
-      }
-    }
-
-    String validaremail(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (!(value.contains('@') && value.contains('.com'))) {
-        return "Digite um email válido ";
-      } else {
-        return null;
-      }
-    }
-
-    String validarsenha(String value) {
-      if (value.isEmpty) {
-        return "Esse campo não pode estar vazio";
-      } else if (value.length < 8) {
-        return "A senha deve conter no minimo 8 digitos";
-      } else {
-        return null;
       }
     }
 

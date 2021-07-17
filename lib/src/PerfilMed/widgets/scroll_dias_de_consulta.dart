@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/src/PerfilMed/box_day.dart';
+import 'package:cmedapp/src/PerfilMed/widgets/box_day.dart';
 import 'package:flutter/material.dart';
-import 'package:cmedapp/globals.dart' as globals;
+import 'package:cmedapp/src/utils/globals.dart' as globals;
 // class ScrollDiasConsulta extends StatelessWidget {
 //   const ScrollDiasConsulta({
 //     Key key,

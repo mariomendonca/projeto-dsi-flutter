@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cmedapp/src/AllDoctors/all_doctors.dart';
-import 'package:cmedapp/src/FiltroScreen/box_especialidade.dart';
-import 'package:cmedapp/src/FiltroScreen/filter_screen.dart';
+import 'package:cmedapp/src/AllDoctors/view.dart';
+
+import 'package:cmedapp/src/FiltroScreen/view.dart';
+import 'package:cmedapp/src/FiltroScreen/widgets/box_especialidade.dart';
 import 'package:flutter/material.dart';
 import 'package:strings/strings.dart';
 

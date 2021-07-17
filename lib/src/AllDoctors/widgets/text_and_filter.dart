@@ -1,4 +1,4 @@
-import 'package:cmedapp/src/FiltroScreen/filter_screen.dart';
+import 'package:cmedapp/src/FiltroScreen/view.dart';
 import 'package:flutter/material.dart';
 
 class TextAndFilter extends StatefulWidget {
