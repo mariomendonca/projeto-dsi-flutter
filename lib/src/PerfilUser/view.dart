@@ -405,13 +405,16 @@ class _FavoritosScrollState extends State<FavoritosScroll> {
                         );
                       } else {
                         return Container(
-                            child: Container(
-                          child: CardFavorito(
-                            nome: info["nome"],
-                            sobrenome: info["sobrenome"],
-                            url: info["url"],
-                            especialidade: info["especialidade"],
-                            email: info["email"],
+                            child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Container(
+                            child: CardFavorito(
+                              nome: info["nome"],
+                              sobrenome: info["sobrenome"],
+                              url: info["url"],
+                              especialidade: info["especialidade"],
+                              email: info["email"],
+                            ),
                           ),
                         ));
                       }
@@ -458,7 +461,7 @@ class _CardFavoritoState extends State<CardFavorito> {
     return Stack(children: [
       Container(
         height: size.height * 0.4,
-        width: size.width * 0.8,
+        width: size.width * 0.75,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20), color: Color(0xffE5F6FE)),
         child: Row(
@@ -472,7 +475,7 @@ class _CardFavoritoState extends State<CardFavorito> {
                 child: Image.network(
                   widget.url,
                   fit: BoxFit.fill,
-                  width: size.width * 0.3,
+                  width: size.width * 0.25,
                   height: size.height * 0.4,
                 ),
               ),
