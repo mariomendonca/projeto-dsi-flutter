@@ -1,4 +1,4 @@
-import 'package:cmedapp/components/Logo.dart';
+import 'package:cmedapp/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget {

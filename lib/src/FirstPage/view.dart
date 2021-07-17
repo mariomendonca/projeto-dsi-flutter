@@ -1,6 +1,6 @@
 import 'package:cmedapp/src/Login/view.dart';
 import 'package:cmedapp/src/SecondPage/view.dart';
-import 'package:cmedapp/components/Logo.dart';
+import 'package:cmedapp/src/widgets/logo.dart';
 
 import 'package:flutter/material.dart';
 

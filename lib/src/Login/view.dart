@@ -4,11 +4,10 @@ import 'package:cmedapp/src/utils/authentication_service.dart';
 import 'package:cmedapp/src/EsqueceuSenha/view.dart';
 import 'package:cmedapp/src/widgets/alertDialog.dart';
 import 'package:cmedapp/src/widgets/input.dart';
+import 'package:cmedapp/src/widgets/logo.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/Logo.dart';
 
 FirebaseAuth auth = FirebaseAuth.instance;
 
