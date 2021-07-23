@@ -231,59 +231,96 @@ class _ScrollConsultasState extends State<ScrollConsultas> {
               return Column(
                 children: [
                   // ignore: missing_required_param
-                  Dismissible(
-                    key: UniqueKey(),
-                    background: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(15)),
-                      padding: EdgeInsets.symmetric(horizontal: 12.0),
-                      alignment: Alignment.centerLeft,
-                      child: Icon(Icons.delete),
-                    ),
-                    secondaryBackground: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(15)),
-                      padding: EdgeInsets.symmetric(horizontal: 12.0),
-                      alignment: Alignment.centerRight,
-                      child: Icon(Icons.delete),
-                    ),
-                    onDismissed: (direction) async {
-                      if (direction == DismissDirection.startToEnd ||
-                          direction == DismissDirection.endToStart) {
-                        showDialog(
-                            context: context,
-                            builder: (context) => new AlertDialog(
-                                  title: Text("Cancelar consulta"),
-                                  content: Text(
-                                      "Você tem certeza que deseja cancelar sua consulta?"),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () async {
-                                          await cancelConsult(widget.snapshots
-                                              .data.docs[snapshot].id);
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text("Sim")),
-                                    /////////////////////////////////////////////////
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                          setState(() {});
-                                        },
-                                        child: Text("Não"))
-                                  ],
-                                ));
-                      }
-                    },
-                    child: Consulta(
-                      nome: info["nome"],
-                      sobrenome: info["sobrenome"],
-                      inicioExpediente: info["inicioExpediente"],
-                      fimExpediente: info["fimExpediente"],
-                      dia: info["dia"],
-                    ),
+                  Row(
+                    children: [
+                      Dismissible(
+                        key: UniqueKey(),
+                        background: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.symmetric(horizontal: 12.0),
+                          alignment: Alignment.centerLeft,
+                          child: Icon(Icons.delete),
+                        ),
+                        secondaryBackground: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(15)),
+                          padding: EdgeInsets.symmetric(horizontal: 12.0),
+                          alignment: Alignment.centerRight,
+                          child: Icon(Icons.delete),
+                        ),
+                        onDismissed: (direction) async {
+                          if (direction == DismissDirection.startToEnd ||
+                              direction == DismissDirection.endToStart) {
+                            showDialog(
+                                context: context,
+                                builder: (context) => new AlertDialog(
+                                      title: Text("Cancelar consulta"),
+                                      content: Text(
+                                          "Você tem certeza que deseja cancelar sua consulta?"),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () async {
+                                              await cancelConsult(widget
+                                                  .snapshots
+                                                  .data
+                                                  .docs[snapshot]
+                                                  .id);
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text("Sim")),
+                                        /////////////////////////////////////////////////
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                              setState(() {});
+                                            },
+                                            child: Text("Não"))
+                                      ],
+                                    ));
+                          }
+                        },
+                        child: Consulta(
+                          nome: info["nome"],
+                          sobrenome: info["sobrenome"],
+                          inicioExpediente: info["inicioExpediente"],
+                          fimExpediente: info["fimExpediente"],
+                          dia: info["dia"],
+                        ),
+                      ),
+                      IconButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => new AlertDialog(
+                                      title: Text("Cancelar consulta"),
+                                      content: Text(
+                                          "Você tem certeza que deseja cancelar sua consulta?"),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () async {
+                                              await cancelConsult(widget
+                                                  .snapshots
+                                                  .data
+                                                  .docs[snapshot]
+                                                  .id);
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Text("Sim")),
+                                        /////////////////////////////////////////////////
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.of(context).pop();
+                                              setState(() {});
+                                            },
+                                            child: Text("Não"))
+                                      ],
+                                    ));
+                          },
+                          icon: Icon(Icons.delete))
+                    ],
                   ),
                   SizedBox(
                     height: size.height * 0.02,
@@ -353,7 +390,7 @@ class Consulta extends StatelessWidget {
                         fontWeight: FontWeight.bold)),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

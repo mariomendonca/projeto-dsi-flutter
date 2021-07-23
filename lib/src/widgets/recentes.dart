@@ -68,7 +68,6 @@ class CardRecentes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(id);
     return GestureDetector(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(

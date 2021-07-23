@@ -140,7 +140,6 @@ class CadastroMed2State extends State<CadastroMed2> {
                           // firstDayOfWeek: values[0],
                           shortWeekdays: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
                           onChanged: (i) {
-                            print(i);
                             setState(() {
                               values[i % 7] = !values[i % 7];
                             });

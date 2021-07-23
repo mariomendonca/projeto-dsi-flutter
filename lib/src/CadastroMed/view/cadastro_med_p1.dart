@@ -36,7 +36,6 @@ class CadastroMedState extends State<CadastroMed> {
 
     setState(() {
       _image = File(pickedFile.path);
-      print(_image);
     });
   }
 

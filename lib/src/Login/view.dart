@@ -157,7 +157,6 @@ class _LoginAreaState extends State<LoginArea> {
                         email: controllerEmail.text.trim(),
                         password: controllerSenha.text.trim());
                     if (erro2 != "LogIn") {
-                      print(erro2);
                       _showDialog(
                         erro2,
                       );

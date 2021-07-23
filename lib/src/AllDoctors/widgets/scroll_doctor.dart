@@ -51,7 +51,7 @@ class ScrollDoctors extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ));
             }
-            print(snapshot.data);
+
             return ListView.builder(
               itemCount: snapshot.data.docs.length,
               itemBuilder: (BuildContext context, int index) {
