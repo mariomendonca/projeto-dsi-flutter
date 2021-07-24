@@ -136,48 +136,80 @@ class _LoginAreaState extends State<LoginArea> {
                   style: TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 )),
-            Container(
-              width: 100,
-              height: 45,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                      color: Colors.tealAccent[700].withOpacity(0.5),
-                      blurRadius: 5.0,
-                      offset: Offset(0.0, 5.0))
-                ],
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-              ),
-              child: ElevatedButton(
-                onPressed: () async {
-                  if (validateAndConfirm()) {
-                    var user = AuthenticationService();
-                    var erro2 = await user.signIn(
-                        email: controllerEmail.text.trim(),
-                        password: controllerSenha.text.trim());
-                    if (erro2 != "LogIn") {
-                      _showDialog(
-                        erro2,
-                      );
-                    } else {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/home', (Route<dynamic> route) => false);
-                    }
-                  }
-                },
-                child: Text("Entrar"),
-                style: ElevatedButton.styleFrom(
-                  primary: Color.fromRGBO(0, 191, 186, 1),
-                  onPrimary: Colors.white,
-                  onSurface: Colors.grey,
-                  textStyle: TextStyle(
+            Column(
+              children: [
+                Container(
+                  width: 100,
+                  height: 45,
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.tealAccent[700].withOpacity(0.5),
+                          blurRadius: 5.0,
+                          offset: Offset(0.0, 5.0))
+                    ],
+                    borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
-                    fontSize: 20,
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      if (validateAndConfirm()) {
+                        var user = AuthenticationService();
+                        var erro2 = await user.signIn(
+                            email: controllerEmail.text.trim(),
+                            password: controllerSenha.text.trim());
+                        if (erro2 != "LogIn") {
+                          _showDialog(
+                            erro2,
+                          );
+                        } else {
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                              '/home', (Route<dynamic> route) => false);
+                        }
+                      }
+                    },
+                    child: Text("Entrar"),
+                    style: ElevatedButton.styleFrom(
+                      primary: Color.fromRGBO(0, 191, 186, 1),
+                      onPrimary: Colors.white,
+                      onSurface: Colors.grey,
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            )
+                ElevatedButton(
+                  onPressed: () async {
+                    if (validateAndConfirm()) {
+                      var user = AuthenticationService();
+                      var erro2 = await user.signIn(
+                          email: controllerEmail.text.trim(),
+                          password: controllerSenha.text.trim());
+                      if (erro2 != "LogIn") {
+                        _showDialog(
+                          erro2,
+                        );
+                      } else {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/admin', (Route<dynamic> route) => false);
+                      }
+                    }
+                  },
+                  child: Text("ADM"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(0, 191, 186, 1),
+                    onPrimary: Colors.white,
+                    onSurface: Colors.grey,
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         );
       } else {

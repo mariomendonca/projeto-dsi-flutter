@@ -78,8 +78,8 @@ class _BodyUserState extends State<BodyUser> {
   @override
   Widget build(BuildContext context) {
     var nome = capitalize(globals.nome.toString());
-
     var sobrenome = capitalize(globals.sobrenome.toString());
+
     var size = MediaQuery.of(context).size;
     return Container(
         decoration: BoxDecoration(color: Colors.white),

@@ -15,3 +15,17 @@ Future uploadImage(email, image) async {
         .update({"url": downloadUrl});
   }
 }
+
+Future uploadImageHosp(email, image) async {
+  firebase_storage.FirebaseStorage storage =
+      firebase_storage.FirebaseStorage.instance;
+  TaskSnapshot snapshot =
+      await storage.ref().child("hospitais").child(email).putFile(image);
+  if (snapshot.state == TaskState.success) {
+    final String downloadUrl = await snapshot.ref.getDownloadURL();
+    await FirebaseFirestore.instance
+        .collection("hospitais")
+        .doc(email)
+        .update({"url": downloadUrl});
+  }
+}

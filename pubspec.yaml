@@ -50,6 +50,7 @@ flutter:
     - assets/images/ambulance.png
     - assets/images/doctor.png
     - assets/images/vacina.png
+    - assets/images/hospital.png
   
   fonts:
     - family: Inter

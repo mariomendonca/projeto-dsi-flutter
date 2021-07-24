@@ -1,5 +1,6 @@
 import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
 import 'package:cmedapp/src/CadastroPac/view.dart';
+import 'package:cmedapp/src/Hospitais/view.dart';
 import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
 
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class SecondPage extends StatelessWidget {
               right: 24,
               top: 20,
             ),
-            height: 240,
+            height: 195,
             width: 278,
             child: ElevatedButton(
               onPressed: () {
@@ -71,7 +72,7 @@ class SecondPage extends StatelessWidget {
               right: 24,
               top: 50,
             ),
-            height: 240,
+            height: 195,
             width: 278,
             child: ElevatedButton(
               onPressed: () {
@@ -92,6 +93,80 @@ class SecondPage extends StatelessWidget {
                       child: new SvgPicture.asset("assets/images/pac.svg")),
                   Text(
                     "Sou paciente",
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.indigo[900],
+                      fontFamily: "Quicksand",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+              left: 24,
+              right: 24,
+              top: 50,
+            ),
+            height: 195,
+            width: 278,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => CadastroHosp(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                      width: 100,
+                      height: 80,
+                      child: new Image.asset("assets/images/hospital.png")),
+                  Text(
+                    "Criar Hospital",
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.indigo[900],
+                      fontFamily: "Quicksand",
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(
+              left: 24,
+              right: 24,
+              top: 50,
+            ),
+            height: 195,
+            width: 278,
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (context) => CadastroHosp(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  Container(
+                      width: 100,
+                      height: 80,
+                      child: new SvgPicture.asset("assets/images/pac.svg")),
+                  Text(
+                    "Criar Clinica",
                     style: TextStyle(
                       fontSize: 22,
                       color: Colors.indigo[900],

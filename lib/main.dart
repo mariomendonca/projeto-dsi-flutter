@@ -4,6 +4,8 @@ import 'package:cmedapp/src/CadastroPac/view.dart';
 import 'package:cmedapp/src/EsqueceuSenha/view.dart';
 import 'package:cmedapp/src/FirstPage/view.dart';
 import 'package:cmedapp/src/Home/view.dart';
+import 'package:cmedapp/src/Hospitais/view.dart';
+import 'package:cmedapp/src/PerfilAdmin/view.dart';
 import 'package:cmedapp/src/PerfilUser/view.dart';
 import 'package:cmedapp/src/Login/view.dart';
 import 'package:cmedapp/src/SecondPage/view.dart';
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
           "/esqueceuSenha": (context) => EsqueceuSenha(),
           "/doctors": (context) => AllDoctors(),
           "/perfiluser": (context) => PerfilUser(),
+          "/cadastroHosp": (context) => CadastroHosp(),
+          "/admin": (context) => PerfilAdmin(),
         },
         home: MyHomePage());
   }
