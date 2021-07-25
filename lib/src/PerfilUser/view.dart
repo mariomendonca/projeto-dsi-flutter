@@ -1,3 +1,4 @@
+import 'package:cmedapp/src/Allclinicas/view.dart';
 import 'package:cmedapp/src/HomeHospital/view.dart';
 import 'package:cmedapp/src/utils/authentication_service.dart';
 import 'package:cmedapp/src/widgets/button_padrao.dart';
@@ -135,8 +136,8 @@ class _BodyUserState extends State<BodyUser> {
                       Flexible(
                         child: ButtonPadrao(
                           press: () {
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //     builder: (context) => AllHosp()));
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => AllClinica()));
                           },
                           text: "Clinicas",
                         ),
