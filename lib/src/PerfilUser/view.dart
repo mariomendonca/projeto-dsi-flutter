@@ -1,4 +1,6 @@
+import 'package:cmedapp/src/HomeHospital/view.dart';
 import 'package:cmedapp/src/utils/authentication_service.dart';
+import 'package:cmedapp/src/widgets/button_padrao.dart';
 import 'package:cmedapp/src/widgets/recentes.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -114,6 +116,34 @@ class _BodyUserState extends State<BodyUser> {
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: ButtonPadrao(
+                          press: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => AllHosp()));
+                          },
+                          text: "Hospitais",
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(10.0),
+                      ),
+                      Flexible(
+                        child: ButtonPadrao(
+                          press: () {
+                            // Navigator.of(context).push(MaterialPageRoute(
+                            //     builder: (context) => AllHosp()));
+                          },
+                          text: "Clinicas",
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(top: 15.0),
                   child: Row(
