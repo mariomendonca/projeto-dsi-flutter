@@ -1,5 +1,6 @@
 import 'package:cmedapp/src/CadastroMed/view/cadastro_med_p1.dart';
 import 'package:cmedapp/src/CadastroPac/view.dart';
+import 'package:cmedapp/src/Clinicas/view.dart';
 import 'package:cmedapp/src/Hospitais/view.dart';
 import 'package:cmedapp/src/widgets/appbar_with_logo.dart';
 
@@ -152,7 +153,7 @@ class SecondPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
-                    builder: (context) => CadastroHosp(),
+                    builder: (context) => CadastroClinica(),
                   ),
                 );
               },
