@@ -163,7 +163,7 @@ class CadastroClinicaState extends State<CadastroClinica> {
                   hint: "Ex: cardiologistas, nutricionistas",
                   senha: false,
                   validador: validarComplemento,
-                  controlador: controllerComplemento,
+                  controlador: controllerEspecialidadesClinica,
                 ),
               ),
               Spacer(),
