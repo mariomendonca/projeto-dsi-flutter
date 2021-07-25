@@ -6,6 +6,7 @@ import 'package:cmedapp/src/FirstPage/view.dart';
 import 'package:cmedapp/src/Home/view.dart';
 import 'package:cmedapp/src/Hospitais/view.dart';
 import 'package:cmedapp/src/PerfilAdmin/view.dart';
+import 'package:cmedapp/src/PerfilClinica/view.dart';
 import 'package:cmedapp/src/PerfilUser/view.dart';
 import 'package:cmedapp/src/Login/view.dart';
 import 'package:cmedapp/src/SecondPage/view.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
           "/perfiluser": (context) => PerfilUser(),
           "/cadastroHosp": (context) => CadastroHosp(),
           "/admin": (context) => PerfilAdmin(),
+          "/clinica": (context) => PerfilClinica(),
         },
         home: MyHomePage());
   }

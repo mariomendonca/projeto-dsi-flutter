@@ -208,6 +208,34 @@ class _LoginAreaState extends State<LoginArea> {
                     ),
                   ),
                 ),
+                ElevatedButton(
+                  onPressed: () async {
+                    if (validateAndConfirm()) {
+                      var user = AuthenticationService();
+                      var erro2 = await user.signIn(
+                          email: controllerEmail.text.trim(),
+                          password: controllerSenha.text.trim());
+                      if (erro2 != "LogIn") {
+                        _showDialog(
+                          erro2,
+                        );
+                      } else {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/clinica', (Route<dynamic> route) => false);
+                      }
+                    }
+                  },
+                  child: Text("Clínica"),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color.fromRGBO(0, 191, 186, 1),
+                    onPrimary: Colors.white,
+                    onSurface: Colors.grey,
+                    textStyle: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ],
             ),
           ],
